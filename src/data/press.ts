@@ -1,0 +1,73 @@
+export interface PressArticle {
+  id: string;
+  title: string;
+  publication: string;
+  date: string;
+  excerpt: string;
+  url?: string;
+  videoUrl?: string;
+  imageUrl?: string;
+  slug?: string | null;
+  content?: unknown;
+}
+
+export interface PressQuote {
+  id: string;
+  quote: string;
+  author: string;
+  publication: string;
+  date: string;
+}
+
+export const pressArticles: PressArticle[] = [
+  {
+    id: "1",
+    title: "Hugues Absil : La Peinture comme Méditation",
+    publication: "Art Magazine",
+    date: "2024-01-15",
+    excerpt: "Dans cette exposition, Hugues Absil nous invite à une réflexion profonde sur la condition humaine à travers des œuvres d'une grande intensité émotionnelle.",
+    url: "https://example.com",
+    imageUrl: "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=600&h=400&fit=crop",
+  },
+  {
+    id: "2",
+    title: "Lumière et Matière : Le Nouveau Visage de la Peinture Contemporaine",
+    publication: "Le Monde des Arts",
+    date: "2023-11-20",
+    excerpt: "L'artiste français Hugues Absil renouvelle le genre du portrait avec une approche résolument moderne et personnelle.",
+    url: "https://example.com",
+  },
+  {
+    id: "3",
+    title: "Exposition 'Lumières Intérieures' : Un Succès Critique",
+    publication: "Connaissance des Arts",
+    date: "2024-03-25",
+    excerpt: "La nouvelle exposition de Hugues Absil à la Galerie Contemporaine confirme son talent et sa place dans le paysage artistique français.",
+    url: "https://example.com",
+    imageUrl: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=400&fit=crop",
+  },
+];
+
+export const pressQuotes: PressQuote[] = [
+  {
+    id: "1",
+    quote: "Hugues Absil maîtrise l'art de la suggestion, créant des œuvres qui parlent autant par ce qu'elles montrent que par ce qu'elles taisent.",
+    author: "Marie Dubois",
+    publication: "Art Critique",
+    date: "2024-02-10",
+  },
+  {
+    id: "2",
+    quote: "Une peinture qui respire, qui vit, qui interroge. Absil nous offre une vision intime et universelle à la fois.",
+    author: "Jean-Pierre Martin",
+    publication: "La Gazette des Arts",
+    date: "2023-12-05",
+  },
+  {
+    id: "3",
+    quote: "Dans un monde saturé d'images, l'œuvre d'Hugues Absil nous rappelle la puissance du silence et de la contemplation.",
+    author: "Sophie Laurent",
+    publication: "Contemporary Art Review",
+    date: "2024-01-30",
+  },
+];

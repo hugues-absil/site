@@ -1,0 +1,12 @@
+{
+  "urlPatterns": {
+    "painting": ["/galerie/", "/oeuvre/", "/peinture/", "/œuvre/", "/tableau/"],
+    "pressArticle": ["/presse/", "/article/", "/blog/", "/news/"],
+    "exhibition": ["/exposition/", "/expo/", "/expositions/"],
+    "resource": ["/ressource/", "/atelier/", "/tutoriel/", "/ressources/"]
+  },
+  "maxPages": 200,
+  "_comment_listingPhrases": "Optionnel : phrases qui indiquent une page liste (ex. continuer la lecture). Si le contenu les contient, la page est créée en À classer. Par défaut géré dans le script.",
+  "_comment_minContentLengthForArticle": "Optionnel : longueur minimale du texte pour accepter une page comme article/expo. Non implémenté par défaut.",
+  "_comment_indexPaths": "Optionnel : segments d'URL type index (ex. /page/, /category/) à envoyer en À classer. Non implémenté par défaut."
+}

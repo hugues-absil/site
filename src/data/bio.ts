@@ -1,0 +1,48 @@
+export interface Biography {
+  text: string;
+  portraitUrl: string;
+  birthYear: number;
+  nationality: string;
+  education?: string[];
+  awards?: string[];
+  professionalActivities?: string[];
+  gallery?: string;
+  diplomas?: Array<{
+    year: number;
+    title: string;
+    institution: string;
+    details?: string;
+  }>;
+}
+
+export const biography: Biography = {
+  text: `Hugues Absil, né en 1961, est un artiste peintre, graveur, lithographe et dessinateur français. À l'ère de "l'art contemporain", il fait le choix délibéré de la peinture. Par la pratique quotidienne du croquis, il actualise une correspondance entre l'art et la vie.`,
+  portraitUrl: "/images/hugues-absil.png",
+  birthYear: 1961,
+  nationality: "Français",
+  education: [
+    "École Nationale Supérieure des Beaux-Arts de Paris (ENsBA)",
+    "Maîtrise d'Histoire de l'Art, Université Panthéon-Sorbonne (Paris IV)",
+    "DEA d'Histoire de l'Art, Université Paris-Sorbonne (Paris IV)",
+    "Diplôme d'ingénieur, ESTP (École Spéciale des Travaux Publics, Paris)",
+  ],
+  awards: [
+    "1989 : Prix de dessin David Weil (Institut des Beaux-Arts, Paris)",
+    "2015 : Premier prix du salon international du portrait organisé par l'association ARTEC au Château de Beauregard",
+    "2016 : Prix du jury à l'occasion du trentième grand prix de peinture de la ville de Saint-Grégoire, en banlieue de Rennes",
+    "2023 : Premier prix de la Biennale de Cachan sur le thème de l'enfance",
+  ],
+  professionalActivities: [
+    "Membre du comité de sélection de la Biennale du 109 à Paris",
+    "Enseigne la peinture, le dessin et la gravure à Paris-Ateliers et au Centre Pompidou",
+    "Responsable des classes préparatoires aux écoles supérieures d'art du Cours Saint-John Perse à Paris (jusqu'en 2018)",
+    "Enseigne l'histoire et la théorie de l'art moderne à la Sorbonne nouvelle (Paris-III)",
+  ],
+  gallery: "Point Rouge Gallery à Saint-Rémy-de-Provence",
+  diplomas: [
+    { year: 1998, title: "DEA d'histoire de l'art", institution: "Université Paris IV", details: "« Fernand Léger vers les contrastes de formes » sous la direction de Bruno Foucart et Eric de Chassey" },
+    { year: 1994, title: "Maîtrise d'histoire de l'art", institution: "Université Paris IV", details: "« Le temps dans l'œuvre de Paul Klee » sous la direction de Philippe Dagen et Bruno Foucart" },
+    { year: 1990, title: "Diplôme de l'E.N.S.B.A.", institution: "École des Beaux-Arts de Paris", details: "Lithographie dans la classe d'Abraham Hadad et dessin dans la classe de Daniel Sennelar" },
+    { year: 1987, title: "Diplôme d'ingénieur", institution: "ESTP (École Spéciale des Travaux Publics, Paris)" },
+  ],
+};
