@@ -121,7 +121,7 @@ export default function ResourcePage() {
             <span className="px-3 py-1 text-sm font-medium bg-gray-100 text-foreground rounded-full">
               {categoryTitle}
             </span>
-            {leafCategorySlug === "oeil-expo" && resource.status && (
+            {(leafCategorySlug === "oeil-expo" || leafCategorySlug === "atelier-stages") && resource.status && (
               <span className="px-3 py-1 text-sm font-medium bg-gray-100 text-foreground rounded-full">
                 {RESOURCE_STATUS_LABELS[resource.status] || resource.status}
               </span>

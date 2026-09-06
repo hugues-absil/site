@@ -61,6 +61,28 @@ function getLatestResources(resources: Resource[], limit: number): Resource[] {
     .slice(0, limit);
 }
 
+/** Catégories avec split courant/passé (comme les expos perso). */
+const DATED_ARCHIVE_CATEGORIES = new Set(["oeil-expo", "atelier-stages"]);
+
+function usesDatedArchiveSplit(category: string | undefined): boolean {
+  return !!category && DATED_ARCHIVE_CATEGORIES.has(category);
+}
+
+/** Tri du plus récent au plus ancien (dateEnd puis date), comme les exhibitions. */
+function sortByResourceDateDesc(resources: Resource[]): Resource[] {
+  return [...resources].sort((a, b) => {
+    const dateA = a.dateEnd ?? a.date ?? "";
+    const dateB = b.dateEnd ?? b.date ?? "";
+    if (dateA !== dateB) {
+      if (!dateA) return 1;
+      if (!dateB) return -1;
+      return dateB.localeCompare(dateA);
+    }
+    return (a.title ?? "").localeCompare(b.title ?? "", "fr");
+  });
+}
+
+
 function CategoryTocBranch({
   node,
   filteredResources,
@@ -216,7 +238,7 @@ function ResourceCard({
                 {dateRangeLabel}
               </span>
             )}
-            {pageCategory === "oeil-expo" && resource.status && (
+            {usesDatedArchiveSplit(pageCategory) && resource.status && (
               <span className="px-2.5 py-1 font-medium bg-gray-100 text-foreground rounded-full text-xs">
                 {RESOURCE_STATUS_LABELS[resource.status] || resource.status}
               </span>
@@ -346,21 +368,34 @@ export default function ResourceCategoryPage() {
     [category, filteredResources]
   );
 
-  const isOeilExpo = category === "oeil-expo";
+  const showDatedArchiveSplit = usesDatedArchiveSplit(category);
   const currentAndUpcoming = useMemo(
-    () => (isOeilExpo ? filteredResources.filter((r) => r.status === "current" || r.status === "upcoming") : []),
-    [isOeilExpo, filteredResources]
+    () =>
+      showDatedArchiveSplit
+        ? sortByResourceDateDesc(
+            filteredResources.filter((r) => r.status === "current" || r.status === "upcoming")
+          )
+        : [],
+    [showDatedArchiveSplit, filteredResources]
   );
   const pastResources = useMemo(
-    () => (isOeilExpo ? filteredResources.filter((r) => r.status === "past") : []),
-    [isOeilExpo, filteredResources]
+    () =>
+      showDatedArchiveSplit
+        ? sortByResourceDateDesc(filteredResources.filter((r) => r.status === "past"))
+        : [],
+    [showDatedArchiveSplit, filteredResources]
   );
 
   useEffect(() => {
-    if (isOeilExpo && searchQuery.trim() !== "" && currentAndUpcoming.length === 0 && pastResources.length > 0) {
+    if (
+      showDatedArchiveSplit &&
+      searchQuery.trim() !== "" &&
+      currentAndUpcoming.length === 0 &&
+      pastResources.length > 0
+    ) {
       setIsArchivesOpen(true);
     }
-  }, [isOeilExpo, searchQuery, currentAndUpcoming.length, pastResources.length]);
+  }, [showDatedArchiveSplit, searchQuery, currentAndUpcoming.length, pastResources.length]);
 
   if (!category) {
     return (
@@ -539,7 +574,7 @@ export default function ResourceCategoryPage() {
                 Effacer la recherche
               </Button>
             </div>
-          ) : isOeilExpo ? (
+          ) : showDatedArchiveSplit ? (
             <>
               {currentAndUpcoming.length > 0 && (
                 <div className="mb-16">
@@ -573,7 +608,7 @@ export default function ResourceCategoryPage() {
                     onClick={() => setIsArchivesOpen((open) => !open)}
                     className="flex items-center justify-between w-full font-serif text-2xl font-semibold mb-8 cursor-pointer text-left hover:opacity-80 transition-opacity"
                   >
-                    <span>Expositions passées ({pastResources.length})</span>
+                    <span>{category === "atelier-stages" ? "Stages passés" : "Expositions passées"} ({pastResources.length})</span>
                     {isArchivesOpen ? (
                       <ChevronUp className="w-6 h-6 shrink-0" />
                     ) : (
