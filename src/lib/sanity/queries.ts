@@ -344,3 +344,88 @@ export const resourceCategoriesQuery = groq`*[_type == "resourceCategory"] | ord
   showTableOfContents,
   "parent": parent->{ _id, "slug": slug.current }
 }`;
+
+/** Index de recherche globale : champs légers, corps tronqué, pas de Portable Text complet. */
+export const searchIndexQuery = groq`{
+  "paintings": *[_type == "painting" && gallery == true] | order(year desc) {
+    _id,
+    title,
+    year,
+    reference,
+    "techniqueTitle": technique->title,
+    "themeTitle": theme->title,
+    "seriesTitle": series->title,
+    description,
+    "imageUrl": image.asset->url
+  },
+  "exhibitions": *[_type == "exhibition"] {
+    _id,
+    title,
+    "slug": slug.current,
+    venue,
+    city,
+    country,
+    description,
+    "bodyText": select(defined(body) => pt::text(body)[0..399], ""),
+    "imageUrl": coalesce(image.asset->url, null)
+  },
+  "pressArticles": *[_type == "pressArticle"] {
+    _id,
+    title,
+    publication,
+    excerpt,
+    "slug": slug.current,
+    "bodyText": select(defined(content) => pt::text(content)[0..399], ""),
+    "imageUrl": coalesce(image.asset->url, null)
+  },
+  "advice": *[_type == "advice"] {
+    _id,
+    title,
+    "slug": slug.current,
+    excerpt,
+    tags,
+    category,
+    "bodyText": select(defined(content) => pt::text(content)[0..399], ""),
+    "imageUrl": coverImage.asset->url
+  },
+  "resources": *[_type == "resource"] {
+    _id,
+    title,
+    "slug": slug.current,
+    category,
+    "categoryRef": categoryRef->{ ${resourceCategoryRefProjection} },
+    excerpt,
+    tags,
+    workshopLocation,
+    "bodyText": select(defined(content) => pt::text(content)[0..399], ""),
+    "imageUrl": coverImage.asset->url
+  },
+  "films": *[_type == "film"] {
+    _id,
+    title,
+    director,
+    year,
+    description,
+    "bodyText": select(defined(article) => pt::text(article)[0..399], ""),
+    "imageUrl": posterImage.asset->url
+  },
+  "performances": *[_type == "performance"] {
+    _id,
+    title
+  },
+  "biography": *[_type == "biography"][0] {
+    _id,
+    "bodyText": select(defined(text) => pt::text(text)[0..399], ""),
+    education,
+    awards,
+    nationality,
+    birthYear
+  },
+  "resourceCategories": *[_type == "resourceCategory"] {
+    _id,
+    title,
+    "slug": slug.current,
+    description,
+    section
+  }
+}`;

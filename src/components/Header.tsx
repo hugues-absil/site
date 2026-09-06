@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import type { NavItem } from "@/lib/sanity/data";
+import SiteSearch, { SiteSearchTrigger } from "@/components/SiteSearch";
 
 interface HeaderProps {
   siteName?: string;
@@ -23,6 +24,9 @@ export default function Header({ siteName = "Hugues Absil", navItems = [] }: Hea
     { label: "Contact", href: "#contact" },
   ];
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [searchNonce, setSearchNonce] = useState(0);
+  const searchTriggerRef = useRef<HTMLButtonElement | null>(null);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -39,13 +43,20 @@ export default function Header({ siteName = "Hugues Absil", navItems = [] }: Hea
     setIsMenuOpen(false);
   };
 
+  const openSearch = (el: HTMLButtonElement) => {
+    searchTriggerRef.current = el;
+    setIsMenuOpen(false);
+    setSearchNonce((n) => n + 1);
+    setIsSearchOpen(true);
+  };
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-gray-200">
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-20 gap-3">
           <Link
             to="/"
-            className="font-serif text-2xl font-bold text-foreground hover:opacity-80 transition-opacity"
+            className="font-serif text-2xl font-bold text-foreground hover:opacity-80 transition-opacity min-w-0 truncate lg:shrink-0"
             onClick={(e) => {
               if (location.pathname === "/") {
                 e.preventDefault();
@@ -60,6 +71,7 @@ export default function Header({ siteName = "Hugues Absil", navItems = [] }: Hea
           </Link>
 
           <div className="hidden lg:flex items-center space-x-3 xl:space-x-5">
+            <SiteSearchTrigger expanded={isSearchOpen} onOpen={openSearch} />
             {items.map((item) => {
               const isAnchor = !item.href.startsWith("/");
               const to = isAnchor && location.pathname !== "/" ? `/${item.href}` : item.href;
@@ -92,13 +104,16 @@ export default function Header({ siteName = "Hugues Absil", navItems = [] }: Hea
             })}
           </div>
 
-          <button
-            className="lg:hidden p-2"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          <div className="flex items-center shrink-0 lg:hidden">
+            <SiteSearchTrigger expanded={isSearchOpen} onOpen={openSearch} />
+            <button
+              className="p-2 min-w-11 min-h-11 inline-flex items-center justify-center"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label={isMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
+            >
+              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
 
         <AnimatePresence>
@@ -145,6 +160,12 @@ export default function Header({ siteName = "Hugues Absil", navItems = [] }: Hea
           )}
         </AnimatePresence>
       </nav>
+      <SiteSearch
+        key={searchNonce}
+        open={isSearchOpen}
+        onClose={() => setIsSearchOpen(false)}
+        triggerRef={searchTriggerRef}
+      />
     </header>
   );
 }

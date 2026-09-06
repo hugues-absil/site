@@ -17,6 +17,7 @@
     "seed-resource-categories": "node scripts/seed-resource-categories.js",
     "import:gallery": "node scripts/import-gallery.js",
     "test:catalog": "tsx scripts/test-catalog-sort.ts",
+    "test:search": "tsx scripts/test-site-search.ts",
     "fix:dated-profiles": "node scripts/fix-dated-category-profiles.js"
   },
   "dependencies": {

@@ -17,7 +17,13 @@ import {
   resourcesByCategoryQuery,
   resourceBySlugQuery,
   resourceCategoriesQuery,
+  searchIndexQuery,
 } from "./queries";
+import {
+  buildSearchIndexFromPayload,
+  type SearchIndexItem,
+  type SearchIndexPayload,
+} from "@/lib/search";
 import { slugsFromCategoryRef, type CategoryRefNode } from "./categoryRefUtils";
 
 const isClientAvailable = () => client !== null;
@@ -779,4 +785,102 @@ export async function getResourceCategories(): Promise<ResourceCategory[]> {
     console.error("Error fetching resource categories:", error);
     return [];
   }
+}
+
+export type SearchIndexResult =
+  | { ok: true; items: SearchIndexItem[] }
+  | { ok: false; items: []; error: "unavailable" };
+
+let searchIndexCache: Promise<SearchIndexResult> | null = null;
+
+async function buildFallbackSearchIndex(): Promise<SearchIndexItem[]> {
+  const [{ paintings }, { exhibitions }, { pressArticles }, { blogPosts }, { biography }, { performances }] =
+    await Promise.all([
+      import("@/data/paintings"),
+      import("@/data/exhibitions"),
+      import("@/data/press"),
+      import("@/data/blog"),
+      import("@/data/bio"),
+      import("@/data/performances"),
+    ]);
+
+  const payload: SearchIndexPayload = {
+    paintings: paintings.map((p) => ({
+      _id: p.id,
+      title: p.title,
+      year: p.year,
+      reference: p.reference,
+      techniqueTitle: p.technique,
+      themeTitle: p.theme,
+      seriesTitle: p.series?.title,
+      description: p.description,
+      imageUrl: p.imageUrl,
+    })),
+    exhibitions: exhibitions.map((e) => ({
+      _id: e.id,
+      title: e.title,
+      venue: e.gallery,
+      city: e.city,
+      country: e.country,
+      description: e.description,
+      imageUrl: e.imageUrl,
+    })),
+    pressArticles: pressArticles.map((a) => ({
+      _id: a.id,
+      title: a.title,
+      publication: a.publication,
+      excerpt: a.excerpt,
+      slug: a.slug,
+      imageUrl: a.imageUrl,
+    })),
+    advice: blogPosts.map((post) => ({
+      _id: post.id,
+      title: post.title,
+      excerpt: post.excerpt,
+      tags: post.tags,
+      category: post.category,
+      bodyText: post.content,
+      imageUrl: post.imageUrl,
+    })),
+    performances: performances.map((p) => ({
+      _id: p._id,
+      title: p.title,
+    })),
+    biography: {
+      _id: "bio-1",
+      bodyText: biography.text,
+      education: biography.education,
+      awards: biography.awards,
+      nationality: biography.nationality,
+      birthYear: biography.birthYear,
+    },
+  };
+
+  return buildSearchIndexFromPayload(payload);
+}
+
+async function loadSearchIndex(): Promise<SearchIndexResult> {
+  if (!isSanityConfigured() || !client) {
+    return { ok: true, items: await buildFallbackSearchIndex() };
+  }
+  try {
+    const raw = (await client.fetch(searchIndexQuery)) as SearchIndexPayload | null;
+    if (!raw || typeof raw !== "object") {
+      return { ok: false, items: [], error: "unavailable" };
+    }
+    return { ok: true, items: buildSearchIndexFromPayload(raw) };
+  } catch (error) {
+    console.error("Error fetching search index:", error);
+    return { ok: false, items: [], error: "unavailable" };
+  }
+}
+
+export function getSearchIndex(): Promise<SearchIndexResult> {
+  if (!searchIndexCache) {
+    searchIndexCache = loadSearchIndex().then((result) => {
+      if (!result.ok) searchIndexCache = null;
+      return result;
+    });
+  }
+  return searchIndexCache;
 }
