@@ -19,14 +19,34 @@ npm run build
 
 Sortie dans `dist/`.
 
-Pour un build destiné à GitHub Pages (avec base path `/Site-Hugues-Vite-React/`) :
+Pour un build destiné à GitHub Pages (base path `/site/`) :
 
 ```bash
-set GITHUB_PAGES=true
-npm run build
+GITHUB_PAGES=true npm run build
 ```
 
 (sous PowerShell : `$env:GITHUB_PAGES="true"; npm run build`)
+
+## GitHub Pages (déploiement automatique)
+
+Le site est déployé automatiquement sur **https://hugues-absil.github.io/site/** à chaque push sur `main` via GitHub Actions (voir [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml)).
+
+### Configuration initiale (une seule fois)
+
+1. **Settings → Pages → Build and deployment** : choisir **GitHub Actions** comme source (pas « Deploy from branch »).
+2. **Settings → Secrets and variables → Actions** : ajouter si besoin :
+   - `VITE_SANITY_PROJECT_ID`
+   - `VITE_SANITY_DATASET` (ex. `production`)
+3. **Sanity CORS** : ajouter `https://hugues-absil.github.io` sur [sanity.io/manage](https://sanity.io/manage).
+
+### Développement local
+
+```bash
+npm install
+npm run dev
+```
+
+Sans variables Sanity, le site utilise les données de fallback dans `src/data/`.
 
 ## Données (Sanity / fallback)
 
@@ -42,24 +62,15 @@ Sanity Studio est intégré sur la route `/studio` (ex. [http://localhost:5173/s
 **CORS** : pour que le Studio fonctionne, ajouter l’origine du site dans les CORS du projet Sanity :
 
 - **Développement** : [sanity.io/manage](https://sanity.io/manage) → projet → API → CORS origins → ajouter `http://localhost:5173` (avec « Allow credentials » si besoin).
-- **Production** : ajouter l’URL du site (ex. `https://votre-domaine.github.io` ou `https://votre-domaine.github.io/Site-Hugues-Vite-React`).
+- **Production** : ajouter `https://hugues-absil.github.io` dans les CORS origins du projet sur [sanity.io/manage](https://sanity.io/manage).
 
 ## Déploiement / production
 
-Pour que le site en ligne fonctionne correctement (données Sanity, images in situ, portrait de la bio) :
+Le déploiement sur GitHub Pages est **automatique** (workflow CI). Pour d'autres plateformes (Netlify, Vercel) :
 
-- **Variables d'environnement au build** : définir `VITE_SANITY_PROJECT_ID` et `VITE_SANITY_DATASET` sur la plateforme (Netlify, Vercel, GitHub Actions, etc.) pour que les données et images in situ viennent de Sanity en production.
-- **CORS Sanity** : ajouter l’URL du site en production (ex. `https://votredomaine.com` ou `https://username.github.io/repo/`) dans les CORS origins du projet sur [sanity.io/manage](https://sanity.io/manage).
-- **Base path** : si le site est servi sous un sous-chemin (ex. GitHub Pages à `https://hugues-absil.github.io/site/`), le build avec `GITHUB_PAGES=true` utilise le base path `/site/`. Pour un autre chemin, définir `VITE_BASE_PATH=/nom-du-repo/` dans `.env`.
-
-## GitHub Pages
-
-1. Créer un dépôt (ex. `site` pour une URL `https://<username>.github.io/site/`).
-2. Build avec base path : `GITHUB_PAGES=true npm run build` (par défaut base `/site/` ; pour un autre chemin, définir `VITE_BASE_PATH=/nom-du-repo/` dans `.env`).
-3. Déployer le contenu de `dist/` sur la branche `gh-pages` ou via l’option "GitHub Pages" (source : dossier ou branch selon votre config).
-4. L’URL du site sera du type : `https://<username>.github.io/site/` (ou le chemin défini par `VITE_BASE_PATH`).
-
-Pour que les routes (ex. `/blog/xxx`) fonctionnent au rafraîchissement, configurer une page 404 personnalisée qui redirige vers `index.html` avec le path (technique SPA classique sur GitHub Pages).
+- **Variables d'environnement au build** : définir `VITE_SANITY_PROJECT_ID` et `VITE_SANITY_DATASET`.
+- **CORS Sanity** : ajouter l'URL de production dans les CORS origins du projet.
+- **Base path** : pour GitHub Pages, le workflow définit `GITHUB_PAGES=true` (base `/site/`). Pour un autre chemin, utiliser `VITE_BASE_PATH=/nom-du-repo/`.
 
 ### Domaine personnalisé (absil.fr)
 

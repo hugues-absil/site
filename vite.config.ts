@@ -15,11 +15,7 @@ function copy404Plugin() {
       if (fs.existsSync(indexPath)) {
         fs.copyFileSync(indexPath, notFoundPath)
       }
-      // #region agent log
-      const nojekyllPath = path.join(outDir, '.nojekyll')
-      fs.writeFileSync(nojekyllPath, '')
-      fetch('http://127.0.0.1:7384/ingest/f2623e45-6f8b-46b5-9649-a816cad71e9e',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'b2b05b'},body:JSON.stringify({sessionId:'b2b05b',runId:'post-fix',hypothesisId:'A',location:'vite.config.ts:copy404Plugin',message:'Wrote .nojekyll after build',data:{outDir,has404:fs.existsSync(notFoundPath),hasNojekyll:fs.existsSync(nojekyllPath)},timestamp:Date.now()})}).catch(()=>{})
-      // #endregion
+      fs.writeFileSync(path.join(outDir, '.nojekyll'), '')
     },
   }
 }
