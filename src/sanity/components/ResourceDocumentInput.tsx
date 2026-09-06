@@ -1,6 +1,5 @@
-import { useContext, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { PatchEvent, set, unset, useClient, type ObjectInputProps } from "sanity";
-import { FormCallbacksContext } from "sanity/_singletons";
 import { isEditorProfile } from "../lib/resourceEditorProfile";
 import { resolveEditorProfileForCategoryId } from "../lib/resolveEditorProfile";
 
@@ -10,17 +9,17 @@ type ResourceDoc = {
 };
 
 /**
- * Input document Ressource : synchronise editorProfile au bon niveau
- * (racine du document), pas à l’intérieur de categoryRef.
+ * Input document Ressource : synchronise editorProfile au niveau document
+ * selon la catégorie (et son héritage / fallback slug).
+ *
+ * Important : utiliser props.onChange (API publique), pas FormCallbacksContext,
+ * sinon le patch peut ne jamais s’appliquer et le profil reste « chapitre »
+ * → champs date masqués pour les expos / stages.
  */
 export function ResourceDocumentInput(props: ObjectInputProps) {
-  const { value, renderDefault } = props;
+  const { value, onChange, renderDefault } = props;
   const client = useClient({ apiVersion: "2024-01-01" });
-  const formCallbacks = useContext(FormCallbacksContext) as
-    | { onChange?: (event: PatchEvent) => void }
-    | null
-    | undefined;
-  const lastKeyRef = useRef<string | null>(null);
+  const lastSyncRef = useRef<string | null>(null);
 
   const doc = (value ?? {}) as ResourceDoc;
   const categoryId =
@@ -30,20 +29,18 @@ export function ResourceDocumentInput(props: ObjectInputProps) {
   const currentProfile = doc.editorProfile;
 
   useEffect(() => {
-    const onChange = formCallbacks?.onChange;
     if (!onChange) return;
-
-    const key = categoryId || "";
-    if (lastKeyRef.current === key) return;
-    lastKeyRef.current = key;
 
     let cancelled = false;
 
     async function syncProfile() {
       try {
         if (!categoryId) {
+          const syncKey = "nocat";
+          if (lastSyncRef.current === syncKey) return;
           if (currentProfile != null && currentProfile !== "") {
-            onChange!(PatchEvent.from(unset(["editorProfile"])));
+            lastSyncRef.current = syncKey;
+            onChange(PatchEvent.from(unset(["editorProfile"])));
           }
           return;
         }
@@ -52,14 +49,22 @@ export function ResourceDocumentInput(props: ObjectInputProps) {
         if (cancelled) return;
 
         if (profile) {
-          if (currentProfile === profile) return;
-          onChange!(PatchEvent.from(set(profile, ["editorProfile"])));
+          const syncKey = `${categoryId}:${profile}`;
+          if (currentProfile === profile) {
+            lastSyncRef.current = syncKey;
+            return;
+          }
+          // Écrase un ancien profil erroné (ex. « chapitre » sur une expo à voir).
+          lastSyncRef.current = syncKey;
+          onChange(PatchEvent.from(set(profile, ["editorProfile"])));
           return;
         }
 
+        // Pas de profil résolu : ne pas effacer un profil déjà valide.
         if (isEditorProfile(currentProfile)) return;
         if (currentProfile != null && currentProfile !== "") {
-          onChange!(PatchEvent.from(unset(["editorProfile"])));
+          lastSyncRef.current = `${categoryId}:unset`;
+          onChange(PatchEvent.from(unset(["editorProfile"])));
         }
       } catch {
         /* ne pas planter le Studio */
@@ -74,7 +79,7 @@ export function ResourceDocumentInput(props: ObjectInputProps) {
       cancelled = true;
       window.clearTimeout(t);
     };
-  }, [categoryId, client, formCallbacks?.onChange, currentProfile]);
+  }, [categoryId, client, onChange, currentProfile]);
 
   return renderDefault(props);
 }
