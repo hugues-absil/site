@@ -2,28 +2,29 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { BookOpen, Eye, ArrowRight } from "lucide-react";
 import Card from "@/components/ui/Card";
+import { CRITIQUES_HASH_ID, CRITIQUES_LABEL, CRITIQUES_URL_PREFIX } from "@/lib/resourceSection";
 
-/** Cartes Écrits (racines). Sous-catégories imbriquées : Sanity, référence parent (même section). */
+/** Cartes Critiques (racines). Sous-catégories imbriquées : Sanity, référence parent (même section). */
 const categories = [
   {
     id: "critiques-litteraires",
     title: "Critiques littéraires",
     description: "Articles et commentaires sur les livres d'art récents",
     icon: <BookOpen className="w-8 h-8" />,
-    href: "/ecrits/critiques-litteraires",
+    href: `/${CRITIQUES_URL_PREFIX}/critiques-litteraires`,
   },
   {
     id: "oeil-expo",
     title: "Expositions à voir",
     description: "Articles sur les expositions récentes",
     icon: <Eye className="w-8 h-8" />,
-    href: "/ecrits/oeil-expo",
+    href: `/${CRITIQUES_URL_PREFIX}/oeil-expo`,
   },
 ] as const;
 
-export default function Ecrits() {
+export default function Critiques() {
   return (
-    <section id="ecrits" className="py-20 px-4 sm:px-6 lg:px-8">
+    <section id={CRITIQUES_HASH_ID} className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -32,7 +33,7 @@ export default function Ecrits() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="font-serif text-4xl sm:text-5xl font-bold mb-4">Écrits</h2>
+          <h2 className="font-serif text-4xl sm:text-5xl font-bold mb-4">{CRITIQUES_LABEL}</h2>
           <p className="text-gray-medium max-w-2xl mx-auto">
             Regards critiques sur l'art, les livres et les expositions
           </p>

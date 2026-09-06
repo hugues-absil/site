@@ -90,7 +90,7 @@ function MigrateDialogContent(props: {
   return (
     <Stack space={4}>
       <Text size={2} muted>
-        Crée une nouvelle Ressource (Écrits/Enseignement) à partir de cet article de presse, avec
+        Crée une nouvelle Ressource (Critiques/Enseignement) à partir de cet article de presse, avec
         la section choisie.
       </Text>
       <Stack space={2}>
@@ -158,7 +158,7 @@ export function MigratePressArticleToSectionAction(props: {
   return {
     tone: "default" as const,
     label: "Migrer vers une section",
-    title: "Créer une Ressource (Écrits/Enseignement) à partir de cet article de presse",
+    title: "Créer une Ressource (Critiques/Enseignement) à partir de cet article de presse",
     onHandle: () => setDialogOpen(true),
     dialog:
       dialogOpen &&

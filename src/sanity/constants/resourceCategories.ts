@@ -1,9 +1,9 @@
 /**
- * Catégories des documents Resource (Écrits / Enseignement).
+ * Catégories des documents Resource (Critiques / Enseignement).
  * Utilisées par le schéma Sanity (liste déroulante), les actions "Changer de section"
  * et les pages du site. Les sous-catégories imbriquées se gèrent dans Sanity (parent = toute catégorie
  * de la même section), pas dans cette liste. Pour une nouvelle racine, modifier ce fichier
- * et Ecrits.tsx / Enseignement.tsx si besoin (liens et icônes).
+ * et Critiques.tsx / Enseignement.tsx si besoin (liens et icônes).
  */
 export const RESOURCE_CATEGORIES = [
   {

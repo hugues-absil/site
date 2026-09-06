@@ -1,5 +1,5 @@
 /**
- * Crée les 5 catégories parentes (Écrits / Enseignement) dans Sanity si elles n'existent pas.
+ * Crée les 5 catégories parentes (Critiques / Enseignement) dans Sanity si elles n'existent pas.
  * Ces catégories racines doivent exister comme documents. D’autres niveaux se créent en choisissant
  * une catégorie parente (même section), sans limite de profondeur côté schéma.
  *

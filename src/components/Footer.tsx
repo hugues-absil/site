@@ -69,8 +69,8 @@ export default function Footer({ siteSettings, showFilmsLink = false, showJourna
                 </Link>
               </li>
               <li>
-                <Link to="/#ecrits" className="text-gray-medium hover:text-foreground transition-colors">
-                  Écrits
+                <Link to="/#critiques" className="text-gray-medium hover:text-foreground transition-colors">
+                  Critiques
                 </Link>
               </li>
               <li>

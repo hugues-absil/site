@@ -7,6 +7,7 @@ import { formatResourceDate, formatResourceDateRange, hasMeaningfulPortableConte
 import PortableText from "@/lib/sanity/portableText";
 import Button from "@/components/ui/Button";
 import { RESOURCE_CATEGORY_LABELS, RESOURCE_CATEGORY_SECTION } from "@/sanity/constants/resourceCategories";
+import { sectionHomePath, sectionUrlPrefix } from "@/lib/resourceSection";
 
 const categoryLabels: Record<string, string> = RESOURCE_CATEGORY_LABELS as Record<string, string>;
 const categorySection: Record<string, "ecrits" | "enseignement"> =
@@ -87,7 +88,8 @@ export default function ResourcePage() {
   const leafCategorySlug = resource.categoryRef?.slug ?? resource.category;
   const section =
     (resource.categoryRef?.section ?? categorySection[leafCategorySlug]) || "ecrits";
-  const sectionAnchor = section === "ecrits" ? "/#ecrits" : "/#enseignement";
+  const urlPrefix = sectionUrlPrefix(section);
+  const sectionAnchor = sectionHomePath(section);
   const dateRangeLabel = formatResourceDateRange(resource.date, resource.dateEnd);
   const categoryTitle =
     resource.categoryRef?.title ?? categoryLabels[leafCategorySlug] ?? leafCategorySlug;
@@ -109,7 +111,7 @@ export default function ResourcePage() {
   return (
     <div className="pt-20 pb-20 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto max-w-4xl">
-        <Link to={category ? `/${section}/${category}` : sectionAnchor}>
+        <Link to={category ? `/${urlPrefix}/${category}` : sectionAnchor}>
           <Button variant="ghost" className="mb-8 flex items-center gap-2">
             <ArrowLeft className="w-4 h-4" />
             Retour à {categoryTitle}
@@ -221,7 +223,7 @@ export default function ResourcePage() {
           >
             {prevResource ? (
               <Link
-                to={`/${section}/${leafCategorySlug}/${prevResource.slug}`}
+                to={`/${urlPrefix}/${leafCategorySlug}/${prevResource.slug}`}
                 className="flex-1 text-left text-foreground hover:underline focus:outline-none focus:underline"
               >
                 <span className="text-sm text-gray-medium block mb-1">Précédent</span>
@@ -232,7 +234,7 @@ export default function ResourcePage() {
             )}
             {nextResource ? (
               <Link
-                to={`/${section}/${leafCategorySlug}/${nextResource.slug}`}
+                to={`/${urlPrefix}/${leafCategorySlug}/${nextResource.slug}`}
                 className="flex-1 text-right text-foreground hover:underline focus:outline-none focus:underline"
               >
                 <span className="text-sm text-gray-medium block mb-1">Suivant</span>
@@ -251,7 +253,7 @@ export default function ResourcePage() {
               {relatedResources.map((relatedResource) => (
                 <Link
                   key={relatedResource._id}
-                  to={`/${section}/${leafCategorySlug}/${relatedResource.slug}`}
+                  to={`/${urlPrefix}/${leafCategorySlug}/${relatedResource.slug}`}
                   className="group block"
                 >
                   {relatedResource.imageUrl ? (

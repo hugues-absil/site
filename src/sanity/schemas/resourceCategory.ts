@@ -13,7 +13,8 @@ function idPair(id: string): string[] {
 }
 
 const SECTION_LABEL: Record<string, string> = {
-  ecrits: "Écrits",
+  ecrits: "Critiques",
+  critiques: "Critiques",
   enseignement: "Enseignement",
 };
 
@@ -39,7 +40,7 @@ function buildBreadcrumbSubtitle(args: {
 export const resourceCategory = defineType({
   name: "resourceCategory",
   type: "document",
-  title: "Catégorie (Écrits / Enseignement)",
+  title: "Catégorie (Critiques / Enseignement)",
   fields: [
     defineField({
       name: "title",
@@ -84,7 +85,7 @@ export const resourceCategory = defineType({
       title: "Section",
       options: {
         list: [
-          { title: "Écrits", value: "ecrits" },
+          { title: "Critiques", value: "ecrits" },
           { title: "Enseignement", value: "enseignement" },
         ],
         layout: "radio",
@@ -158,7 +159,7 @@ export const resourceCategory = defineType({
               return true;
             }
             if (mySection != null && row.s != null && row.s !== mySection) {
-              return "Le parent doit appartenir à la même section (Écrits ou Enseignement).";
+              return "Le parent doit appartenir à la même section (Critiques ou Enseignement).";
             }
             id = row.p ?? undefined;
           }

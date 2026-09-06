@@ -88,7 +88,7 @@ function MigrateDialogContent(props: {
   return (
     <Stack space={4}>
       <Text size={2} muted>
-        Crée une nouvelle Ressource (Écrits/Enseignement) à partir de cette exposition, avec la section
+        Crée une nouvelle Ressource (Critiques/Enseignement) à partir de cette exposition, avec la section
         choisie.
       </Text>
       <Stack space={2}>
@@ -151,7 +151,7 @@ export function MigrateExhibitionToSectionAction(props: {
   return {
     tone: "default" as const,
     label: "Migrer vers une section",
-    title: "Créer une Ressource (Écrits/Enseignement) à partir de cette exposition",
+    title: "Créer une Ressource (Critiques/Enseignement) à partir de cette exposition",
     onHandle: () => setDialogOpen(true),
     dialog:
       dialogOpen &&

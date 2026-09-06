@@ -84,7 +84,7 @@ export function ChangeResourceSectionAction(props: {
   return {
     tone: "default" as const,
     label: "Changer de section",
-    title: "Déplacer cette ressource vers une autre section (Écrits ou Enseignement)",
+    title: "Déplacer cette ressource vers une autre section (Critiques ou Enseignement)",
     onHandle: () => setDialogOpen(true),
     dialog:
       dialogOpen &&

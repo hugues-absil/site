@@ -20,8 +20,8 @@ Le site public affiche les œuvres, les expositions et les textes. Pour **modifi
 | **Exposition** | **Vos** expositions (section Expositions, après la Galerie). |
 | **Article de presse** | Articles **sur vous** / votre œuvre (section Presse : liste d’articles avec lien, extrait). |
 | **Citation presse** | Citations **sur vous** / votre œuvre (section Presse : encarts de citations). |
-| **Écrits** / **Enseignement** | Textes et catégories en arbre : Critiques littéraires, Expositions à voir, Ateliers & Stages, Histoire de l’art, Technique picturale. Voir section Écrits et Enseignement. |
-| **Catégories** (sous Écrits / Enseignement) | Arbre des catégories (créer, renommer, imbriquer). Voir [MIGRATION_CATEGORIES.md](MIGRATION_CATEGORIES.md). |
+| **Critiques** / **Enseignement** | Textes et catégories en arbre : Critiques littéraires, Expositions à voir, Ateliers & Stages, Histoire de l’art, Technique picturale. Voir section Critiques et Enseignement. |
+| **Catégories** (sous Critiques / Enseignement) | Arbre des catégories (créer, renommer, imbriquer). Voir [MIGRATION_CATEGORIES.md](MIGRATION_CATEGORIES.md). |
 | **Journal** | Articles du Journal (section Journal sur le site). |
 | **Biographie** | Texte et photo de la biographie (section Biographie). |
 | **Paramètres du site** (ou **Site settings**) | Textes de la page d’accueil : bandeau (hero), contact, menu, footer, messages du formulaire. |
@@ -112,18 +112,18 @@ Les **Techniques**, **Thèmes**, **Séries** et **Statuts** se gèrent dans les 
 
 ---
 
-## 4. Écrits et Enseignement
+## 4. Critiques et Enseignement
 
-### Différence importante : « Expositions » vs « Écrits »
+### Différence importante : « Expositions » vs « Critiques »
 
 - **Expositions** (menu / section Expositions) = **vos** expositions personnelles (lieu, dates, lien). Contenu géré dans le Studio sous **Exposition**.
-- **Écrits → Expositions à voir** = **vos articles** sur des expositions en général (critiques, regards). Contenu géré dans le Studio sous **Écrits** (ressources), avec la catégorie **Expositions à voir**.
+- **Critiques → Expositions à voir** = **vos articles** sur des expositions en général (critiques, regards). Contenu géré dans le Studio sous **Critiques** (ressources), avec la catégorie **Expositions à voir**.
 
 Donc : « Expositions » = vos expos ; « Expositions à voir » = vos textes sur les expos.
 
 ### Navigation dans le Studio (arbre)
 
-Dans le menu de gauche, **Écrits** et **Enseignement** sont organisés en **arbre** :
+Dans le menu de gauche, **Critiques** et **Enseignement** sont organisés en **arbre** :
 
 1. Ouvrez une racine (ex. Histoire de l’art), puis une sous-catégorie si besoin.
 2. **Articles de ce niveau** : uniquement les textes rattachés à cette catégorie (pas tout le mélange de la branche).
@@ -141,7 +141,7 @@ Sur chaque **catégorie racine**, renseignez le **Profil d’édition** (Article
 
 ### Où apparaissent les textes sur le site ?
 
-- **Écrits** : **Critiques littéraires** et **Expositions à voir**.
+- **Critiques** : **Critiques littéraires** et **Expositions à voir**.
 - **Enseignement** : **Ateliers & Stages**, **Histoire de l’art**, **Technique picturale**.
 
 Tous ces textes sont des documents **Ressource**. Le champ **Catégorie** (référence) détermine où ils s’affichent. Pour Histoire de l’art et Technique picturale, **Ordre d’affichage** ordonne les chapitres dans le sommaire. Voir aussi [MIGRATION_CATEGORIES.md](MIGRATION_CATEGORIES.md) et [GUIDE_PEINTRE.md](GUIDE_PEINTRE.md).
@@ -162,13 +162,13 @@ Les stages sont dans **Enseignement** → **Ateliers & Stages**. Créez de préf
 
 ### Gérer les catégories (créer, renommer, réordonner)
 
-Studio → **Écrits** ou **Enseignement** → **Catégories** : naviguez dans l’arbre, ouvrez **Éditer cette catégorie**, ou créez une **sous-catégorie** / **nouvelle catégorie racine**. Les libellés du site suivent ces documents. Détails : [MIGRATION_CATEGORIES.md](MIGRATION_CATEGORIES.md).
+Studio → **Critiques** ou **Enseignement** → **Catégories** : naviguez dans l’arbre, ouvrez **Éditer cette catégorie**, ou créez une **sous-catégorie** / **nouvelle catégorie racine**. Les libellés du site suivent ces documents. Détails : [MIGRATION_CATEGORIES.md](MIGRATION_CATEGORIES.md).
 
-**Ancienne méthode (développeur)** : si aucune catégorie n’existe dans Sanity, le site utilise `src/sanity/constants/resourceCategories.ts` (et éventuellement `Ecrits.tsx` / `Enseignement.tsx`).
+**Ancienne méthode (développeur)** : si aucune catégorie n’existe dans Sanity, le site utilise `src/sanity/constants/resourceCategories.ts` (et éventuellement `Critiques.tsx` / `Enseignement.tsx`).
 
-### Comment ajouter ou modifier un texte (Écrits ou Enseignement) ?
+### Comment ajouter ou modifier un texte (Critiques ou Enseignement) ?
 
-1. Studio → **Écrits** ou **Enseignement** → descendre jusqu’à la bonne catégorie (recommandé), ou créer une Ressource et choisir **Catégorie** en premier.
+1. Studio → **Critiques** ou **Enseignement** → descendre jusqu’à la bonne catégorie (recommandé), ou créer une Ressource et choisir **Catégorie** en premier.
 2. **Create new** / ouvrir un document existant.
 3. Renseigner **Titre**, **Slug**, **Extrait**, **Contenu**, **Image**, etc. Les champs dates / atelier n’apparaissent que s’ils correspondent à la catégorie.
 4. Sauvegarder / publier.
@@ -257,7 +257,7 @@ Le site n’enregistre pas les vidéos ; il peut en **afficher** via une URL (Yo
 Un **sitemap XML** (`sitemap.xml`) est généré pour aider les moteurs de recherche à découvrir et indexer les pages du site.
 
 - **Génération** : le sitemap est créé automatiquement à chaque **build** (`npm run build`). Vous pouvez aussi le générer à la demande avec `npm run generate-sitemap`.
-- **Contenu** : lorsqu’un projet Sanity est configuré (variables d’environnement dans `.env`), le script inclut l’accueil, le Studio, et toutes les URLs des articles de presse, du journal, des écrits et de l’enseignement. Sans Sanity, seules l’accueil et le Studio sont listées.
+- **Contenu** : lorsqu’un projet Sanity est configuré (variables d’environnement dans `.env`), le script inclut l’accueil, le Studio, et toutes les URLs des articles de presse, du journal, des critiques et de l’enseignement. Sans Sanity, seules l’accueil et le Studio sont listées.
 - **URL de base** : par défaut le sitemap utilise `https://absil.fr`. Pour un autre domaine, définir `VITE_SITE_URL` ou `SITE_URL` dans `.env` (ex. `SITE_URL=https://votresite.com`).
 - **Soumission** : après déploiement, vous pouvez soumettre l’URL du sitemap (ex. `https://absil.fr/sitemap.xml`) dans [Google Search Console](https://search.google.com/search-console) et Bing Webmaster Tools pour améliorer l’indexation.
 
@@ -270,6 +270,6 @@ Ces évolutions peuvent être mises en œuvre selon vos besoins ; elles ne sont 
 - **Expositions** : possibilité de masquer le lien « En savoir plus » ou de proposer un lien interne (vers une page du site).
 - **Tableaux** : évolutions complémentaires possibles (recherche par titre en galerie, etc.).
 - **Dossier de presse** : champ « URL du dossier de presse (PDF) » dans les paramètres du site, pour que vous puissiez mettre à jour le lien vous-même.
-- **Clarification** : libellés ou sous-titres sur le site pour distinguer clairement « Mes expositions » (vos expos) et « Mes textes sur les expos » (Écrits → Expositions Ã  voir).
+- **Clarification** : libellés ou sous-titres sur le site pour distinguer clairement « Mes expositions » (vos expos) et « Mes textes sur les expos » (Critiques → Expositions à voir).
 
 Ces améliorations pourront être détaillées et planifiées avec le développeur si vous le souhaitez.
