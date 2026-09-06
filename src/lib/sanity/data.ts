@@ -25,6 +25,7 @@ import {
   type SearchIndexPayload,
 } from "@/lib/search";
 import { slugsFromCategoryRef, type CategoryRefNode } from "./categoryRefUtils";
+import { normalizeNavItem } from "@/lib/resourceSection";
 
 const isClientAvailable = () => client !== null;
 
@@ -270,7 +271,7 @@ const DEFAULT_NAV_ITEMS: NavItem[] = [
   { label: "Biographie", href: "#biography" },
   { label: "Presse", href: "#press" },
   { label: "Performances", href: "#performances" },
-  { label: "Écrits", href: "#ecrits" },
+  { label: "Critiques", href: "#critiques" },
   { label: "Enseignement", href: "#enseignement" },
   { label: "Journal", href: "#journal" },
   { label: "Contact", href: "#contact" },
@@ -551,7 +552,9 @@ export async function getSiteSettings(): Promise<SiteSettings> {
         Array.isArray(result.navItems) && result.navItems.length > 0
           ? result.navItems.filter(
               (item: { label?: string; href?: string }) => item?.label != null && item?.href != null
-            ).map((item: { label: string; href: string }) => ({ label: item.label, href: item.href }))
+            ).map((item: { label: string; href: string }) =>
+              normalizeNavItem({ label: item.label, href: item.href })
+            )
           : fallback.navItems,
       footerSubtitle: result.footerSubtitle ?? fallback.footerSubtitle,
       footerNavTitle: result.footerNavTitle ?? fallback.footerNavTitle,

@@ -8,10 +8,11 @@ import Biography from "@/components/Biography";
 import Films from "@/components/Films";
 import Press from "@/components/Press";
 import Performances from "@/components/Performances";
-import Ecrits from "@/components/Ecrits";
+import Critiques from "@/components/Critiques";
 import Enseignement from "@/components/Enseignement";
 import Journal from "@/components/Journal";
 import Contact from "@/components/Contact";
+import { resolveHomeHashId } from "@/lib/resourceSection";
 import {
   getPaintings,
   getExhibitions,
@@ -76,6 +77,7 @@ export default function HomePage() {
     } catch {
       id = raw;
     }
+    id = resolveHomeHashId(id);
     const el = document.getElementById(id);
     if (el) {
       el.scrollIntoView({ behavior: "auto" });
@@ -115,7 +117,7 @@ export default function HomePage() {
       {films.length > 0 && <Films films={films} />}
       <Press articles={pressArticles} quotes={pressQuotes} />
       <Performances performances={performances} />
-      <Ecrits />
+      <Critiques />
       <Enseignement />
       {posts.length > 0 && <Journal posts={posts} />}
       <Contact siteSettings={siteSettings ?? undefined} />

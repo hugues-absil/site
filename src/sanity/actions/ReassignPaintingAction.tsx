@@ -130,7 +130,7 @@ function ReassignDialogContent(props: {
             onClick={() => setDestination("pressArticle")}
           />
           <Button
-            text="Ressource (Écrits / Enseignement)"
+            text="Ressource (Critiques / Enseignement)"
             tone={destination === "resource" ? "primary" : "default"}
             mode={destination === "resource" ? "default" : "ghost"}
             disabled={loading}

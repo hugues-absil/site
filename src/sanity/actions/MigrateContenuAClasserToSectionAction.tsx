@@ -14,7 +14,7 @@ type ContenuAClasserDoc = {
 };
 
 const TARGET_OPTIONS: { value: TargetType; label: string }[] = [
-  { value: "resource", label: "Ressource (Écrits / Enseignement)" },
+  { value: "resource", label: "Ressource (Critiques / Enseignement)" },
   { value: "exhibition", label: "Exposition" },
   { value: "pressArticle", label: "Article de presse" },
   { value: "advice", label: "Journal" },

@@ -16,19 +16,19 @@ Ce guide décrit les gestes à faire dans le **Studio** (back-office du site) po
 
 ---
 
-## 2. Gérer les catégories (Écrits / Enseignement)
+## 2. Gérer les catégories (Critiques / Enseignement)
 
 Les catégories (ex. « Histoire de l'art », « Technique picturale ») déterminent où apparaissent vos textes sur le site. Vous pouvez les créer, les renommer et les réordonner dans le Studio.
 
 ### Créer une nouvelle catégorie
 
-1. Dans le menu de gauche, cliquez sur **Catégorie (Écrits / Enseignement)**.
+1. Dans le menu de gauche, cliquez sur **Catégorie (Critiques / Enseignement)**.
 2. Cliquez sur **Create new** (ou le bouton équivalent de création).
 3. Renseignez les champs :
    - **Titre** : le nom affiché sur le site (ex. « Anatomie »).
    - **Slug** : cliquez sur **Generate** pour le générer à partir du titre, ou saisissez un mot sans espaces ni accents (ex. `anatomie`). Ce slug sert dans l’URL.
    - **Description** : une courte phrase qui décrit la catégorie (affichée sous le titre sur la page de la catégorie).
-   - **Section** : choisissez **Écrits** ou **Enseignement** selon l’endroit où doit apparaître la catégorie sur le site.
+   - **Section** : choisissez **Critiques** ou **Enseignement** selon l’endroit où doit apparaître la catégorie sur le site.
    - **Ordre d'affichage** : un numéro (1, 2, 3…) pour l’ordre des cartes sur la page d’accueil (1 = en premier).
    - **Afficher un sommaire des chapitres** : cochez cette case si cette catégorie contient des chapitres que vous voulez voir listés dans un sommaire en tête de page, avec des liens « Chapitre précédent » / « Chapitre suivant » en bas de chaque article.
    - **Catégorie parente** : laissez **vide** pour que la catégorie apparaisse comme carte sur l’accueil (ex. Histoire de l’art, Technique picturale). Si vous créez une **sous-catégorie** (ex. « Cubisme » qui doit apparaître **dans** Histoire de l’art), renseignez ici la catégorie parente (Histoire de l’art) : la nouvelle catégorie n’apparaîtra pas comme carte, et les articles classés dans « Cubisme » s’afficheront sur la page Histoire de l’art.
@@ -36,14 +36,14 @@ Les catégories (ex. « Histoire de l'art », « Technique picturale ») déterm
 
 ### Renommer une catégorie
 
-1. Menu de gauche → **Catégorie (Écrits / Enseignement)**.
+1. Menu de gauche → **Catégorie (Critiques / Enseignement)**.
 2. Cliquez sur la catégorie à modifier.
 3. Modifiez le **Titre** (et le **Slug** si vous voulez changer l’URL).
 4. Cliquez sur **Publish**.
 
 ### Changer l’ordre des catégories sur l’accueil
 
-1. Menu de gauche → **Catégorie (Écrits / Enseignement)**.
+1. Menu de gauche → **Catégorie (Critiques / Enseignement)**.
 2. Ouvrez chaque catégorie et modifiez le champ **Ordre d'affichage** (1 = premier, 2 = deuxième, etc.).
 3. Publiez chaque document modifié.
 
@@ -51,7 +51,7 @@ Les catégories (ex. « Histoire de l'art », « Technique picturale ») déterm
 
 ## 3. Ajouter ou modifier un article (chapitre) – Ressource
 
-Les textes des sections **Écrits** et **Enseignement** (critiques, expos à voir, ateliers, histoire de l’art, technique picturale) sont des **Ressource**.
+Les textes des sections **Critiques** et **Enseignement** (critiques, expos à voir, ateliers, histoire de l’art, technique picturale) sont des **Ressource**.
 
 ### Créer un nouvel article
 
@@ -96,7 +96,7 @@ Pour les catégories **Histoire de l'art** et **Technique picturale** (ou toute 
 
 ## 5. Où voir le résultat sur le site
 
-- **Page d’accueil** : les cartes des sections Écrits et Enseignement pointent vers les catégories. En cliquant sur une catégorie (ex. « Technique picturale »), vous arrivez sur la page liste de cette catégorie.
+- **Page d’accueil** : les cartes des sections Critiques et Enseignement pointent vers les catégories. En cliquant sur une catégorie (ex. « Technique picturale »), vous arrivez sur la page liste de cette catégorie.
 - **Page d’une catégorie** (ex. `/enseignement/technique-picturale`) : vous voyez le titre, la description, puis le **sommaire** (si la catégorie est configurée pour), la recherche, et la grille des articles.
 - **Page d’un article** : en bas, après le texte et la vidéo éventuelle, vous voyez les liens **Chapitre précédent** et **Chapitre suivant** (pour les catégories avec sommaire), puis éventuellement « Ressources similaires ».
 

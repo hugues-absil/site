@@ -17,6 +17,7 @@ import Button from "@/components/ui/Button";
 import ExpandableText from "@/components/ui/ExpandableText";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { RESOURCE_CATEGORY_INFO } from "@/sanity/constants/resourceCategories";
+import { sectionBackLabel, sectionHomePath, sectionUrlPrefix } from "@/lib/resourceSection";
 
 type CategoryInfo = { title: string; description: string; section: "ecrits" | "enseignement" };
 const categoryLabelsDefault: Record<string, CategoryInfo> =
@@ -444,9 +445,9 @@ export default function ResourceCategoryPage() {
   }
 
   const categoryInfo = categoryLabels[category];
-  const sectionAnchor = categoryInfo.section === "ecrits" ? "/#ecrits" : "/#enseignement";
-  const sectionLabel = categoryInfo.section === "ecrits" ? "Retour aux écrits" : "Retour à l'enseignement";
-  const sectionPrefix = categoryInfo.section === "ecrits" ? "ecrits" : "enseignement";
+  const sectionAnchor = sectionHomePath(categoryInfo.section);
+  const sectionLabel = sectionBackLabel(categoryInfo.section);
+  const sectionPrefix = sectionUrlPrefix(categoryInfo.section);
 
   const displayedResources = filteredResources.slice(0, displayCount);
   const hasMore = displayCount < filteredResources.length;

@@ -6,7 +6,10 @@ import {
   Outlet,
   ScrollRestoration,
   useLocation,
+  useParams,
+  Navigate,
 } from "react-router-dom";
+import { CRITIQUES_LABEL, CRITIQUES_URL_PREFIX, LEGACY_CRITIQUES_URL_PREFIX, normalizeNavItems } from "@/lib/resourceSection";
 import { SiteSettingsProvider, useSiteSettings } from "@/contexts/SiteSettingsContext";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -19,7 +22,7 @@ import ResourcePage from "@/pages/ResourcePage";
 import StudioPage from "@/pages/StudioPage";
 import NotFoundPage from "@/pages/NotFoundPage";
 
-/** Inclure le hash pour ne pas fusionner `/` et `/#ecrits` (sinon on restaure le dernier scroll « accueil » au mauvais endroit). */
+/** Inclure le hash pour ne pas fusionner `/` et `/#critiques` (sinon on restaure le dernier scroll « accueil » au mauvais endroit). */
 function scrollRestorationKey(location: Location) {
   return location.pathname + location.search + (location.hash ?? "");
 }
@@ -35,7 +38,7 @@ const DEFAULT_NAV_ITEMS = [
   { label: "Films", href: "#films" },
   { label: "Presse", href: "#press" },
   { label: "Performances", href: "#performances" },
-  { label: "Écrits", href: "#ecrits" },
+  { label: CRITIQUES_LABEL, href: "#critiques" },
   { label: "Enseignement", href: "#enseignement" },
   { label: "Journal", href: "#journal" },
   { label: "Contact", href: "#contact" },
@@ -55,7 +58,7 @@ function Layout() {
   }, []);
 
   const navItems = useMemo(() => {
-    const base = siteSettings?.navItems ?? DEFAULT_NAV_ITEMS;
+    const base = normalizeNavItems(siteSettings?.navItems ?? DEFAULT_NAV_ITEMS);
     return base.filter((item) => {
       if (item.href === "#films" && !hasFilms) return false;
       if (item.href === "#journal" && !hasJournal) return false;
@@ -89,6 +92,14 @@ function Layout() {
   );
 }
 
+function RedirectEcritsToCritiques() {
+  const { category, slug } = useParams();
+  const path = slug
+    ? `/${CRITIQUES_URL_PREFIX}/${category}/${slug}`
+    : `/${CRITIQUES_URL_PREFIX}/${category}`;
+  return <Navigate to={path} replace />;
+}
+
 const basename = import.meta.env.BASE_URL.replace(/\/$/, "") || undefined;
 
 const router = createBrowserRouter(
@@ -103,8 +114,10 @@ const router = createBrowserRouter(
         { path: "journal/:slug", element: <JournalPostPage /> },
         { path: "presse/:slug", element: <PressArticlePage /> },
         { path: "expositions/:slug", element: <ExhibitionPage /> },
-        { path: "ecrits/:category", element: <ResourceCategoryPage /> },
-        { path: "ecrits/:category/:slug", element: <ResourcePage /> },
+        { path: `${CRITIQUES_URL_PREFIX}/:category`, element: <ResourceCategoryPage /> },
+        { path: `${CRITIQUES_URL_PREFIX}/:category/:slug`, element: <ResourcePage /> },
+        { path: `${LEGACY_CRITIQUES_URL_PREFIX}/:category`, element: <RedirectEcritsToCritiques /> },
+        { path: `${LEGACY_CRITIQUES_URL_PREFIX}/:category/:slug`, element: <RedirectEcritsToCritiques /> },
         { path: "enseignement/:category", element: <ResourceCategoryPage /> },
         { path: "enseignement/:category/:slug", element: <ResourcePage /> },
         { path: "*", element: <NotFoundPage /> },

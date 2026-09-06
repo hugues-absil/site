@@ -1,6 +1,6 @@
 /**
  * Génère sitemap.xml pour le référencement (SEO).
- * Récupère les URLs depuis Sanity (presse, journal, écrits, enseignement) et écrit public/sitemap.xml.
+ * Récupère les URLs depuis Sanity (presse, journal, critiques, enseignement) et écrit public/sitemap.xml.
  *
  * Usage:
  *   node scripts/generate-sitemap.js
@@ -97,11 +97,11 @@ function buildUrls(slugs) {
     urls.push(urlEl(`${BASE_URL}/journal/${slug}`, lastmod));
   }
 
-  // Ressources (écrits + enseignement)
+  // Ressources (critiques + enseignement)
   const seenCategoryPages = new Set();
   for (const { slug, category } of slugs.resources) {
     const section = RESOURCE_SECTION[category] || "ecrits";
-    const prefix = section === "ecrits" ? "ecrits" : "enseignement";
+    const prefix = section === "ecrits" ? "critiques" : "enseignement";
     urls.push(urlEl(`${BASE_URL}/${prefix}/${category}/${slug}`, lastmod));
     if (!seenCategoryPages.has(prefix + "/" + category)) {
       seenCategoryPages.add(prefix + "/" + category);

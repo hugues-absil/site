@@ -360,7 +360,7 @@ export function buildDeskStructure(S: StructureBuilder, context: StructureResolv
             ])
         ),
       S.documentTypeListItem("performance").title("Performances"),
-      buildSectionGroup(S, context, "ecrits", "Écrits"),
+      buildSectionGroup(S, context, "ecrits", "Critiques"),
       buildSectionGroup(S, context, "enseignement", "Enseignement"),
       S.documentTypeListItem("advice").title("Journal"),
       S.documentTypeListItem("contenuAClasser").title("À classer"),
