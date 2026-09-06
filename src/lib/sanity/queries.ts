@@ -18,6 +18,27 @@ export const resourceCategoryRefProjection = `_id, title, "slug": slug.current, 
 
 const resourceInCategoryOrSubtree = buildResourceMatchesCategorySlugConditions(RESOURCE_CATEGORY_ANCESTOR_DEPTH);
 
+/**
+ * Statut expo à voir / stages — aligné sur les expos perso :
+ * - dates invalides (ex. mois > 12 issus de migrations : "2098-46-01") → past
+ * - pas de dateEnd, ou dateEnd dépassée → past
+ * - date de début dans le futur → upcoming
+ * - sinon → current
+ *
+ * Les dates invalides ne s'affichent pas côté UI (formatResourceDate),
+ * mais GROQ les comparait comme des chaînes « futures » → faux « À venir ».
+ */
+export const resourceStatusSelect = `select(
+  defined(date) && string::split(date, "-")[1] > "12" => "past",
+  defined(date) && string::split(date, "-")[1] < "01" => "past",
+  defined(dateEnd) && string::split(dateEnd, "-")[1] > "12" => "past",
+  defined(dateEnd) && string::split(dateEnd, "-")[1] < "01" => "past",
+  defined(date) && date < "2000-01-01" => "past",
+  !defined(dateEnd) || now() > dateEnd => "past",
+  defined(date) && now() < date => "upcoming",
+  "current"
+)`;
+
 export const paintingsQuery = groq`*[_type == "painting" && gallery == true] | order(year desc) {
   _id,
   title,
@@ -252,14 +273,7 @@ export const resourcesQuery = groq`*[_type == "resource"] | order(order asc, dat
   date,
   dateEnd,
   order,
-  "status": select(
-    !defined(date) && !defined(dateEnd) => "past",
-    defined(date) && date < "2000-01-01" => "past",
-    defined(dateEnd) && now() > dateEnd => "past",
-    !defined(dateEnd) && defined(date) && date < now() => "past",
-    defined(date) && now() < date => "upcoming",
-    "current"
-  ),
+  "status": ${resourceStatusSelect},
   "imageUrl": coverImage.asset->url,
   videoUrl,
   tags,
@@ -285,14 +299,7 @@ export const resourcesByCategoryQuery = groq`*[_type == "resource" && (
   date,
   dateEnd,
   order,
-  "status": select(
-    !defined(date) && !defined(dateEnd) => "past",
-    defined(date) && date < "2000-01-01" => "past",
-    defined(dateEnd) && now() > dateEnd => "past",
-    !defined(dateEnd) && defined(date) && date < now() => "past",
-    defined(date) && now() < date => "upcoming",
-    "current"
-  ),
+  "status": ${resourceStatusSelect},
   "imageUrl": coverImage.asset->url,
   videoUrl,
   tags,
@@ -315,14 +322,7 @@ export const resourceBySlugQuery = groq`*[_type == "resource" && slug.current ==
   date,
   dateEnd,
   order,
-  "status": select(
-    !defined(date) && !defined(dateEnd) => "past",
-    defined(date) && date < "2000-01-01" => "past",
-    defined(dateEnd) && now() > dateEnd => "past",
-    !defined(dateEnd) && defined(date) && date < now() => "past",
-    defined(date) && now() < date => "upcoming",
-    "current"
-  ),
+  "status": ${resourceStatusSelect},
   "imageUrl": coverImage.asset->url,
   videoUrl,
   tags,

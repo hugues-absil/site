@@ -18,7 +18,8 @@
     "import:gallery": "node scripts/import-gallery.js",
     "test:catalog": "tsx scripts/test-catalog-sort.ts",
     "test:search": "tsx scripts/test-site-search.ts",
-    "fix:dated-profiles": "node scripts/fix-dated-category-profiles.js"
+    "fix:dated-profiles": "node scripts/fix-dated-category-profiles.js",
+    "clear:invalid-dates": "node scripts/clear-invalid-resource-dates.js"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",

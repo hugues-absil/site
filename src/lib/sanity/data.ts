@@ -188,7 +188,7 @@ export interface Resource {
   content: unknown;
   date: string;
   dateEnd?: string;
-  /** Calculé à partir de date/dateEnd : "current" | "upcoming" | "past" */
+  /** Calculé (GROQ) à partir de date/dateEnd ; dates invalides ou sans dateEnd → past */
   status?: "current" | "upcoming" | "past";
   /** Clé de tri (décimales possibles). Le numéro affiché dans le sommaire est le rang après tri, pas ce champ. Vide = tri par date. */
   order?: number;
