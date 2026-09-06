@@ -3,6 +3,7 @@ import {
   RESOURCE_CATEGORY_LABELS,
   type ResourceCategorySection,
 } from "../sanity/constants/resourceCategories";
+import { CRITIQUES_LABEL, sectionUrlPrefix } from "./resourceSection";
 
 export type SearchGroup =
   | "painting"
@@ -33,7 +34,7 @@ export const SEARCH_GROUP_LABELS: Record<SearchGroup, string> = {
   painting: "Œuvres",
   exhibition: "Expositions",
   press: "Presse",
-  ecrits: "Écrits",
+  ecrits: CRITIQUES_LABEL,
   enseignement: "Enseignement",
   journal: "Journal",
   film: "Films",
@@ -145,9 +146,10 @@ export function resourceHref(resource: {
   } | null;
 }): string {
   const { section, leaf } = resourceSectionAndLeaf(resource);
-  if (!resource.slug) return `/${section}`;
-  if (!leaf) return `/${section}/${resource.slug}`;
-  return `/${section}/${leaf}/${resource.slug}`;
+  const prefix = sectionUrlPrefix(section);
+  if (!resource.slug) return `/${prefix}`;
+  if (!leaf) return `/${prefix}/${resource.slug}`;
+  return `/${prefix}/${leaf}/${resource.slug}`;
 }
 
 export function exhibitionHref(slug?: string | null): string {
@@ -163,8 +165,7 @@ export function journalHref(slug?: string | null): string {
 }
 
 export function categoryIndexHref(section: ResourceCategorySection | string | null | undefined, slug: string): string {
-  const resolved = section === "enseignement" ? "enseignement" : "ecrits";
-  return `/${resolved}/${slug}`;
+  return `/${sectionUrlPrefix(section)}/${slug}`;
 }
 
 export type SearchIndexPayload = {
@@ -263,7 +264,7 @@ const DEFAULT_PAGE_ITEMS: Array<{ id: string; title: string; href: string; extra
   { id: "page-films", title: "Films", href: "/#films" },
   { id: "page-press", title: "Presse", href: "/#press" },
   { id: "page-performances", title: "Performances", href: "/#performances" },
-  { id: "page-ecrits", title: "Écrits", href: "/#ecrits" },
+  { id: "page-critiques", title: CRITIQUES_LABEL, href: "/#critiques", extra: "ecrits écrits" },
   { id: "page-enseignement", title: "Enseignement", href: "/#enseignement", extra: "cours atelier" },
   { id: "page-journal", title: "Journal", href: "/#journal" },
   { id: "page-contact", title: "Contact", href: "/#contact" },
@@ -429,7 +430,7 @@ export function buildSearchIndexFromPayload(payload: SearchIndexPayload): Search
         title: category.title ?? category.slug,
         href: categoryIndexHref(section, category.slug),
         excerpt: category.description ?? undefined,
-        meta: section === "enseignement" ? "Enseignement" : "Écrits",
+        meta: section === "enseignement" ? "Enseignement" : CRITIQUES_LABEL,
         extraMeta: category.slug,
         bodyText: category.description ?? "",
       })

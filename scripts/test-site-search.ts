@@ -35,7 +35,7 @@ assert.deepEqual(
 );
 assert.equal(
   resourceHref({ slug: "monet", category: "oeil-expo" }),
-  "/ecrits/oeil-expo/monet"
+  "/critiques/oeil-expo/monet"
 );
 assert.equal(
   resourceHref({ slug: "cours-1", categoryRef: { slug: "histoire-art", section: "enseignement" } }),
@@ -52,7 +52,7 @@ const items: SearchIndexItem[] = [
     id: "title-hit",
     group: "ecrits",
     title: "École de Paris",
-    href: "/ecrits/oeil-expo/ecole",
+    href: "/critiques/oeil-expo/ecole",
     titleText: "École de Paris",
     metaText: "critique",
     excerptText: "un extrait",
@@ -150,7 +150,7 @@ const payloadItems = buildSearchIndexFromPayload({
   exhibitions: [{ _id: "e1", title: "Salon", city: "Paris" }],
   biography: { _id: "bio", bodyText: "Né en 1961", nationality: "Français", birthYear: 1961 },
 });
-assert.ok(payloadItems.some((item) => item.href === "/ecrits/oeil-expo/monet-giverny"));
+assert.ok(payloadItems.some((item) => item.href === "/critiques/oeil-expo/monet-giverny"));
 assert.ok(payloadItems.some((item) => item.href === "/#exhibitions" && item.group === "exhibition"));
 assert.ok(payloadItems.some((item) => item.title === "Biographie" && item.bodyText.includes("1961")));
 assert.ok(payloadItems.some((item) => item.title === "Contact" && item.href === "/#contact"));
