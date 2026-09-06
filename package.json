@@ -16,7 +16,8 @@
     "bulk-upload-paintings": "node scripts/bulk-upload-paintings.js",
     "seed-resource-categories": "node scripts/seed-resource-categories.js",
     "import:gallery": "node scripts/import-gallery.js",
-    "test:catalog": "tsx scripts/test-catalog-sort.ts"
+    "test:catalog": "tsx scripts/test-catalog-sort.ts",
+    "fix:dated-profiles": "node scripts/fix-dated-category-profiles.js"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",

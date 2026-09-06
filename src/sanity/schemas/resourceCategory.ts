@@ -106,9 +106,11 @@ export const resourceCategory = defineType({
       name: "parent",
       type: "reference",
       title: "Catégorie parente",
+      // weak: évite le blocage publish si l’ancien parent a été supprimé (réf. fantôme).
+      weak: true,
       to: [{ type: "resourceCategory" }],
       description:
-        "Laissez vide pour une catégorie racine (carte sur l’accueil). Sinon choisissez n’importe quelle catégorie de la même section : vous pouvez imbriquer plusieurs niveaux (ex. Histoire de l’art → Dessin → Aquarelle).",
+        "Laissez vide pour une catégorie racine (carte sur l’accueil). Sinon choisissez n’importe quelle catégorie de la même section : vous pouvez imbriquer plusieurs niveaux (ex. Histoire de l’art → Dessin → Aquarelle). Si un point rouge apparaît, effacez la référence cassée puis publiez.",
       options: {
         filter: ({ document }) => {
           const sec = document?.section as string | undefined;
@@ -152,7 +154,8 @@ export const resourceCategory = defineType({
               s?: string;
             } | null>(`*[_id in $ids][0]{ "p": parent._ref, "s": section }`, { ids: idPair(id) });
             if (!row) {
-              return "Le document parent est introuvable.";
+              // Réf. fantôme : ne pas bloquer (parent est weak). L’éditeur peut effacer le champ.
+              return true;
             }
             if (mySection != null && row.s != null && row.s !== mySection) {
               return "Le parent doit appartenir à la même section (Écrits ou Enseignement).";
