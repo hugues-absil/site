@@ -1,8 +1,9 @@
 /**
  * Corrige les données qui bloquent les dates expo/stages dans le Studio :
- * 1) Efface les parents fantômes sur les catégories racines datées
- * 2) Pose editorProfile = exposition / atelier sur oeil-expo / atelier-stages
- * 3) Réécrit editorProfile des ressources de ces branches (écrase « chapitre » erroné)
+ * 1) Restaure les slugs racines attendus par le site (oeil-expo, atelier-stages)
+ * 2) Efface les parents fantômes
+ * 3) Pose editorProfile = exposition / atelier sur ces catégories
+ * 4) Réécrit editorProfile des ressources de ces branches (écrase « chapitre »)
  *
  * Usage :
  *   SANITY_API_TOKEN=... VITE_SANITY_PROJECT_ID=... VITE_SANITY_DATASET=production \
@@ -27,10 +28,21 @@ const dataset = (
 const token = (process.env.SANITY_API_TOKEN || "").trim();
 const dryRun = process.argv.includes("--dry-run");
 
-const ROOT_PROFILES = {
-  "oeil-expo": "exposition",
-  "atelier-stages": "atelier",
-};
+/** Cibles stables par _id Sanity (indépendant du slug affiché). */
+const ROOT_FIXES = [
+  {
+    id: "resourceCategory-oeil-expo",
+    slug: "oeil-expo",
+    profile: "exposition",
+    titleHint: "Expositions à voir",
+  },
+  {
+    id: "resourceCategory-atelier-stages",
+    slug: "atelier-stages",
+    profile: "atelier",
+    titleHint: "Ateliers & Stages",
+  },
+];
 
 if (!projectId || !dataset) {
   console.error("Manque VITE_SANITY_PROJECT_ID / VITE_SANITY_DATASET");
@@ -57,40 +69,49 @@ function publishedId(id) {
   return id.replace(/^drafts\./, "");
 }
 
-async function patchBoth(id, patchFn) {
-  const ids = [...new Set([publishedId(id), draftId(id)])];
-  for (const docId of ids) {
-    const exists = await client.fetch(`count(*[_id == $id])`, { id: docId });
-    if (!exists) continue;
-    if (dryRun) {
-      console.log(`[dry-run] patch ${docId}`, patchFn);
-      continue;
-    }
-    let p = client.patch(docId);
-    p = patchFn(p);
-    await p.commit({ autoGenerateArrayKeys: true });
-    console.log(`patched ${docId}`);
+async function patchIfExists(id, build) {
+  const exists = await client.fetch(`count(*[_id == $id])`, { id });
+  if (!exists) return false;
+  if (dryRun) {
+    console.log(`[dry-run] patch ${id}`);
+    return true;
   }
+  let p = client.patch(id);
+  p = build(p);
+  await p.commit({ autoGenerateArrayKeys: true });
+  console.log(`patched ${id}`);
+  return true;
+}
+
+async function patchPublishedAndDraft(id, build) {
+  const pub = publishedId(id);
+  await patchIfExists(pub, build);
+  await patchIfExists(draftId(pub), build);
 }
 
 async function main() {
   console.log(`Project ${projectId}/${dataset}${dryRun ? " (dry-run)" : ""}`);
 
-  const roots = await client.fetch(
-    `*[_type == "resourceCategory" && slug.current in $slugs]{
-      _id, title, "slug": slug.current, editorProfile, parent
-    }`,
-    { slugs: Object.keys(ROOT_PROFILES) }
-  );
+  for (const fix of ROOT_FIXES) {
+    const cat = await client.fetch(
+      `*[_id in $ids][0]{ _id, title, "slug": slug.current, editorProfile, parent }`,
+      { ids: [fix.id, draftId(fix.id)] }
+    );
+    if (!cat) {
+      console.warn(`Catégorie introuvable: ${fix.id}`);
+      continue;
+    }
 
-  for (const cat of roots) {
-    const wanted = ROOT_PROFILES[cat.slug];
-    console.log(`\nCatégorie ${cat.slug} (${cat.title}) → profil ${wanted}`);
+    console.log(
+      `\nCatégorie ${cat._id} « ${cat.title} » slug=${cat.slug} profile=${cat.editorProfile} → slug=${fix.slug} profile=${fix.profile}`
+    );
 
-    await patchBoth(cat._id, (p) => {
-      let next = p.unset(["parent"]).set({ editorProfile: wanted });
-      return next;
-    });
+    await patchPublishedAndDraft(fix.id, (p) =>
+      p.unset(["parent"]).set({
+        editorProfile: fix.profile,
+        slug: { _type: "slug", current: fix.slug },
+      })
+    );
 
     const resources = await client.fetch(
       `*[_type == "resource" && (
@@ -99,35 +120,36 @@ async function main() {
           categoryRef->parent->slug.current == $slug
         )]{ _id, title, editorProfile }`,
       {
-        slug: cat.slug,
-        catIds: [publishedId(cat._id), draftId(cat._id)],
+        slug: fix.slug,
+        catIds: [fix.id, draftId(fix.id)],
       }
     );
 
+    // Aussi les ressources encore rattachées si le slug avait changé (ex. critique-d-expositions-a-voir)
+    const byRef = await client.fetch(
+      `*[_type == "resource" && categoryRef._ref in $catIds]{ _id, title, editorProfile }`,
+      { catIds: [fix.id, draftId(fix.id)] }
+    );
+
+    const map = new Map();
+    for (const r of [...resources, ...byRef]) map.set(r._id, r);
+    const all = [...map.values()];
+
     let fixed = 0;
-    for (const res of resources) {
-      if (res.editorProfile === wanted) continue;
+    for (const res of all) {
+      if (res.editorProfile === fix.profile) continue;
       if (dryRun) {
         console.log(
-          `  [dry-run] resource ${res._id}: ${res.editorProfile} → ${wanted} (${res.title})`
+          `  [dry-run] resource ${res._id}: ${res.editorProfile} → ${fix.profile} (${res.title})`
         );
       } else {
-        await client
-          .patch(res._id)
-          .set({ editorProfile: wanted })
-          .commit();
-        // aussi le draft s'il existe
-        const d = draftId(res._id);
-        if (d !== res._id) {
-          const draftExists = await client.fetch(`count(*[_id == $id])`, { id: d });
-          if (draftExists) {
-            await client.patch(d).set({ editorProfile: wanted }).commit();
-          }
-        }
+        await patchPublishedAndDraft(res._id, (p) =>
+          p.set({ editorProfile: fix.profile })
+        );
       }
       fixed += 1;
     }
-    console.log(`  ressources à corriger : ${fixed}/${resources.length}`);
+    console.log(`  ressources corrigées : ${fixed}/${all.length}`);
   }
 
   console.log("\nTerminé.");
@@ -137,3 +159,5 @@ main().catch((err) => {
   console.error(err);
   process.exit(1);
 });
+
+# migration-run: 2026-09-06T22:06Z

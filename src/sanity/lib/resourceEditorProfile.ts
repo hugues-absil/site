@@ -18,6 +18,8 @@ export const EDITOR_PROFILE_OPTIONS = [
 export const ROOT_SLUG_EDITOR_PROFILE: Record<string, EditorProfile> = {
   "critiques-litteraires": "article",
   "oeil-expo": "exposition",
+  // slug temporaire si renommé dans le Studio avant restauration
+  "critique-d-expositions-a-voir": "exposition",
   "atelier-stages": "atelier",
   "histoire-art": "chapitre",
   "technique-picturale": "chapitre",
@@ -52,7 +54,11 @@ export type ConditionalFieldKind = "date" | "dateEnd" | "workshop" | "sourceUrl"
 
 /**
  * Afficher un champ conditionnel : toujours si déjà rempli, sinon selon le profil.
- * Sans profil : masquer les champs métier conditionnels.
+ *
+ * date / dateEnd : toujours visibles (y compris si l’ancien profil « chapitre »
+ * est encore collé sur une expo — sinon les dates restent invisibles tant que
+ * la migration de profil n’a pas tourné).
+ * workshop* : réservé au profil atelier.
  */
 export function shouldShowConditionalField(
   kind: ConditionalFieldKind,
@@ -60,13 +66,11 @@ export function shouldShowConditionalField(
   value: unknown
 ): boolean {
   if (fieldHasValue(value)) return true;
-  if (!profile) return false;
 
   switch (kind) {
     case "date":
-      return profile === "exposition" || profile === "article" || profile === "atelier";
     case "dateEnd":
-      return profile === "exposition" || profile === "atelier";
+      return true;
     case "workshop":
       return profile === "atelier";
     case "sourceUrl":
