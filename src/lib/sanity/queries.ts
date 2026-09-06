@@ -253,10 +253,10 @@ export const resourcesQuery = groq`*[_type == "resource"] | order(order asc, dat
   dateEnd,
   order,
   "status": select(
-    !defined(date) => "past",
-    date < "2000-01-01" => "past",
+    !defined(date) && !defined(dateEnd) => "past",
+    defined(date) && date < "2000-01-01" => "past",
     defined(dateEnd) && now() > dateEnd => "past",
-    !defined(dateEnd) && date < now() => "past",
+    !defined(dateEnd) && defined(date) && date < now() => "past",
     defined(date) && now() < date => "upcoming",
     "current"
   ),
@@ -286,10 +286,10 @@ export const resourcesByCategoryQuery = groq`*[_type == "resource" && (
   dateEnd,
   order,
   "status": select(
-    !defined(date) => "past",
-    date < "2000-01-01" => "past",
+    !defined(date) && !defined(dateEnd) => "past",
+    defined(date) && date < "2000-01-01" => "past",
     defined(dateEnd) && now() > dateEnd => "past",
-    !defined(dateEnd) && date < now() => "past",
+    !defined(dateEnd) && defined(date) && date < now() => "past",
     defined(date) && now() < date => "upcoming",
     "current"
   ),
@@ -316,10 +316,10 @@ export const resourceBySlugQuery = groq`*[_type == "resource" && slug.current ==
   dateEnd,
   order,
   "status": select(
-    !defined(date) => "past",
-    date < "2000-01-01" => "past",
+    !defined(date) && !defined(dateEnd) => "past",
+    defined(date) && date < "2000-01-01" => "past",
     defined(dateEnd) && now() > dateEnd => "past",
-    !defined(dateEnd) && date < now() => "past",
+    !defined(dateEnd) && defined(date) && date < now() => "past",
     defined(date) && now() < date => "upcoming",
     "current"
   ),

@@ -64,9 +64,9 @@ export function shouldShowConditionalField(
 
   switch (kind) {
     case "date":
-      return profile === "exposition" || profile === "article";
+      return profile === "exposition" || profile === "article" || profile === "atelier";
     case "dateEnd":
-      return profile === "exposition";
+      return profile === "exposition" || profile === "atelier";
     case "workshop":
       return profile === "atelier";
     case "sourceUrl":
@@ -77,11 +77,11 @@ export function shouldShowConditionalField(
 }
 
 export function dateFieldTitle(profile: EditorProfile | undefined | null): string {
-  return profile === "exposition" ? "Date de début" : "Date";
+  return profile === "exposition" || profile === "atelier" ? "Date de début" : "Date";
 }
 
 export function dateFieldDescription(profile: EditorProfile | undefined | null): string | undefined {
-  if (profile === "exposition") {
+  if (profile === "exposition" || profile === "atelier") {
     return "Utilisée avec la date de fin pour le statut (en cours / à venir / passé).";
   }
   if (profile === "article") {
