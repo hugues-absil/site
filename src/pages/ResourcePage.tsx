@@ -33,36 +33,62 @@ function shuffleAndTake<T>(array: T[], count: number): T[] {
 
 export default function ResourcePage() {
   const { category, slug } = useParams<{ category: string; slug: string }>();
+  const routeKey = slug ? `${category ?? ""}/${slug}` : "";
   const [resource, setResource] = useState<Awaited<ReturnType<typeof getResourceBySlug>>>(null);
   const [relatedResources, setRelatedResources] = useState<Awaited<ReturnType<typeof getResourcesByCategory>>>([]);
   const [categoryResourceList, setCategoryResourceList] = useState<Awaited<ReturnType<typeof getResourcesByCategory>>>([]);
-  const [loading, setLoading] = useState(true);
+  const [loadedKey, setLoadedKey] = useState<string | null>(null);
   const [notFound, setNotFound] = useState(false);
 
   useEffect(() => {
-    if (!slug) {
-      setNotFound(true);
-      setLoading(false);
-      return;
-    }
-    getResourceBySlug(slug).then((r) => {
+    if (!slug) return;
+    let cancelled = false;
+    getResourceBySlug(slug, category).then((r) => {
+      if (cancelled) return;
+      const key = `${category ?? ""}/${slug}`;
       if (!r || (category && !resourceMatchesUrlCategory(r, category))) {
+        setResource(null);
+        setRelatedResources([]);
+        setCategoryResourceList([]);
         setNotFound(true);
-        setLoading(false);
+        setLoadedKey(key);
         return;
       }
+      setNotFound(false);
       setResource(r);
       const leaf = r.categoryRef?.slug ?? r.category;
       if (leaf) {
         getResourcesByCategory(leaf).then((all) => {
+          if (cancelled) return;
           setCategoryResourceList(all);
           const others = all.filter((x) => x._id !== r._id);
           setRelatedResources(shuffleAndTake(others, 2));
         });
+      } else {
+        setRelatedResources([]);
+        setCategoryResourceList([]);
       }
-      setLoading(false);
+      setLoadedKey(key);
     });
+    return () => {
+      cancelled = true;
+    };
   }, [slug, category]);
+
+  if (!slug) {
+    return (
+      <div className="min-h-screen flex items-center justify-center pt-20">
+        <div className="text-center">
+          <h1 className="font-serif text-4xl font-bold mb-4">Ressource non trouvée</h1>
+          <Link to="/">
+            <Button>Retour à l'accueil</Button>
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
+  const loading = loadedKey !== routeKey;
 
   if (loading) {
     return (

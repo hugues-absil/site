@@ -2,1183 +2,1987 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://absil.fr/</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://absil.fr/studio</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://absil.fr/presse/interview-salon-art-cite</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/presse/lancement-de-pls7-17-mai</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/enseignement/technique-picturale/les-paires-de-couleurs</loc>
-    <lastmod>2026-08-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://absil.fr/enseignement/technique-picturale</loc>
-    <lastmod>2026-08-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://absil.fr/critiques/oeil-expo/surrealisme-au-centre-pompidou</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/critiques/oeil-expo/magdalena-abakanowicz-au-musee-bourdelle</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/critiques/oeil-expo</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://absil.fr/enseignement/atelier-stages/dessin-et-aquarelle-et-lithographie-a-bagatelle</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/enseignement/lignes-et-contours/dessin-et-graphisme-de-lignes-et-de-signes-comme-de-stael-et-penone</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/lignes-et-contours</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/mondrian-et-de-stijl/de-stijl</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/mondrian-et-de-stijl</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/les-trois-crayons/les-trois-crayons-avec-prud-hon</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/les-trois-crayons</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/atelier-stages/stage-aquarelle-a-munich</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/enseignement/atelier-stages</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://absil.fr/enseignement/le-degrade/degrade-au-fusain-avec-miriam-cahn-et-adrian-ghenie</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/le-degrade</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/oeil-expo/martial-raysse-au-centre-pompidou-jusqu-au-22-septembre-2014</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/oeil-expo/soutine-au-musee-de-l-orangerie</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/oeil-expo/formes-biographiques-formes-biographiques-carre-d-art-a-nimes-jusqu-au-20-septembre-2015</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/oeil-expo/rodin-la-chair-le-marbre-musee-rodin-paris-jusqu-au-3-mars-au-musee-rodin-jusqu-au-3-mars-2013</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/lignes-et-contours/la-ligne-parfaite</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/oeil-expo/gerhard-richter-panorama-centre-pompidou-jusqu-au-26-septembre-2012</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/critiques-livres-d-art/figurations-un-autre-art-d-aujourd-hui-ed-in-fine</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/critiques-livres-d-art</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/oeil-expo/garouste-en-chemin-jusqu-au-29-novembre-2015-fondation-maeght</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/erxpressionnisme/force-de-l-expressionnisme</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/erxpressionnisme</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/oeil-expo/mondrian-figuratif-jusqu-au-26-janvier-2019-au-musee-marmottan</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/duchamp/duchamp-et-l-erotisme</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/duchamp</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/oeil-expo/heartbreak-venise-du-samedi-20-avril-au-dimanche-24-novembre-2024</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/critiques-livres-d-art/nicolas-de-stael</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/oeil-expo/le-mythe-de-la-couleur-fondation-gianadda-van-gogh-picasso-kandinsky-collection-merzbacher-le-mythe-de-la-couleur-jusqu-au-25-novembre-2012</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/expression-chez-rembrandt/expression-rembrandt</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/expression-chez-rembrandt</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/oeil-expo/impressions-nabies</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/oeil-expo/escande-exposition-de-ronan-barrot-au-musee-d-art-et-d-histoire-louis-senlecq-31-grande-rue-95290-l-isle-adam-jusqu-au-24-fevrier-2013</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/oeil-expo/turner-peintures-et-aquarelles-collection-de-la-tate-musee-jacquemart-andre</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/critiques-livres-d-art/henri-rousseau-l-ambition-de-la-peinture</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/constable/constable-vie-et-oeuvre</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/constable</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/oeil-expo/philippe-cognee-au-domaine-national-de-chambord-jusqu-au-12-octobre-2014</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/conseil-pour-rediger-une-analyse-d-oeuvre-d-art/interieur-aux-violons-de-matisse-1918-21</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/conseil-pour-rediger-une-analyse-d-oeuvre-d-art</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/l-expressionnisme-abstrait/apparition-de-l-art-moderne-aux-usa</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/l-expressionnisme-abstrait</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/critiques-livres-d-art/contact-olafur-oliasson-edition-flammarion</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/oeil-expo/greco-grand-palais-jusqu-au-10-fevrier-2020</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/kawamata/kawamata-et-le-travail-en-groupe</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/kawamata</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/romantisme/le-preromantisme-des-gouaches-de-gericault</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/romantisme</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/oeil-expo/contact-exposition-de-olafur-oliasson-jusqu-au-23-fevrier-2015-a-la-fondation-l-vuitton-a-paris</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/oeil-expo/biennale-de-venise-2024-jusqu-au-24-novembre-2024</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/erxpressionnisme/lydie-arickx</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/oeil-expo/la-memoire-selon-anselm-kiefer</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/technique-picturale/les-paires-de-couleurs</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/technique-picturale</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/oeil-expo/surrealisme-au-centre-pompidou</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/atelier-stages/dessin-et-aquarelle-et-lithographie-a-bagatelle</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://absil.fr/enseignement/technique-picturale/hachure</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/enseignement/atelier-stages/stage-grenade-1774251613374</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/enseignement/atelier-stages/stage-grenade-1774251667626</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/enseignement/atelier-stages/venise2017</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/enseignement/atelier-stages/stage-estampe-juillet-2025</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/enseignement/technique-picturale/taille-douce</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/enseignement/estampe/taille-douce</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/estampe</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/critiques-livres-d-art/le-cubisme-une-revolution-esthetique-sa-naissance-et-son-rayonnement-de-serge-fauchereau-ed-flammarion</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/futurisme-1909/le-futurisme-cours-general</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/futurisme-1909</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/oeil-expo/gerhard-richter-panorama-au-centre-pompidou-jusqu-au-26-septembre-2012</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/les-preraphaelites/les-preraphaelites</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/les-preraphaelites</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/surrealisme/introduction-au-surrealisme</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/surrealisme</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/mondrian-et-de-stijl/mondrian-figuratif-jusqu-au-26-janvier-2019-au-musee-marmottan</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/postmodernisme/la-memoire-selon-anselm-kiefer</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/postmodernisme</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://absil.fr/critiques/critiques-litteraires/les-anges-de-l-histoire-images-des-temps-inquiets-georges-didi-huberman-ed-de-minuit</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/critiques/critiques-litteraires</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://absil.fr/enseignement/histoire-art/voies-specifiques-selon-les-regions</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/critiques/oeil-expo/manet-degas-musee-d-0rsay-jusqu-au-23-juil-2023</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/enseignement/histoire-art</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/critiques/oeil-expo/graver-la-lumiere-l-estampe-en-100-chefs-d-oeuvre-de-duerer-a-picasso-jusqu-au-17-septembre-2024</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/duchamp/duchamp-et-ses-descendants</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/critiques-livres-d-art/gina-pane-terre-artiste-ciel-sophie-duplaix-ed-actes-sud</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/kawamata/under-the-water</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/oeil-expo/surrealisme-au-centre-surrealisme-centre-pompidou-jusqu-au-13-janvier-2025</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/oeil-expo/maillol-la-quete-de-l-harmonie-musee-d-orsay-jusqu-au-21-aout-2022</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/critiques-livres-d-art/la-disparition-des-lucioles-ouvrage-collectif-ed-actes-sud</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/oeil-expo/disaster-the-end-of-days-a-la-galerie-ropac-a-pantin-jusqu-au-1er-juin-2013</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/xvieme/voies-specifiques-selon-les-regions</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/xvieme</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://absil.fr/critiques/oeil-expo/giorgio-de-chirico-la-peinture-metaphysique-musee-de-l-orangerie-exposition-du-16-septembre-au-14-decembre-2020</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/critiques-livres-d-art/philippe-cognee-collectif-ed-somogy</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/surrealisme/de-dada-au-surrealisme-max-ernst-et-le-collage</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/conseil-pour-rediger-une-analyse-d-oeuvre-d-art/champ-de-coquelicots-pres-de-vetheuil-realise-par-monet-en-1878</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/oeil-expo/stael-la-figure-a-nu-1951-1955-au-musee-picasso-a-antibes-17-mai-7-septembre-2014-et-nicolas-de-stael-lumieres-du-nord-lumieres-du-sud-du-07-juin-au-09-novembre-2014-au-muma-au-havre</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/oeil-expo/voir-en-peinture-jusqu-au-17-septembre-2023-a-st-remy-de-provence</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/oeil-expo/figurations-maison-caillebotte-a-yerres-jusqu-au-22-octobre-2024</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/critiques-livres-d-art/giorgio-de-chirico-la-peinture-metaphisique-ed-hazan</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/dada/dada-a-zurich-1916-18</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/dada</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/oeil-expo/continents-noirs-au-mamcs-musee-d-art-moderne-de-strasbourg-jusqu-au-3-fevrier-2013</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/realisme/le-realisme-1850</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/realisme</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/erxpressionnisme/expressionnisme</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/erxpressionnisme/kandinsky-et-la-musique</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/oeil-expo/biennale-de-venise-jusqu-au-24-novembre-2013</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/dada/dada-a-berlin-1918</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/oeil-expo/biennale-de-lyon-la-ou-les-eaux-se-melent-du-18-septembre-2019-au-5-janvier-2020</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/oeil-expo/it-comes-in-waves-a-la-galerie-ropac-jusqu-au-6-octobre-2018</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/oeil-expo/fatum-de-jerome-zonder-a-la-maison-rouge-jusqu-au-10-mai-2015</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/conseil-pour-rediger-une-analyse-d-oeuvre-d-art/conseils-et-exemples-d-analyse-plastique-d-une-oeuvre</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/oeil-expo/les-livres-pauvres-a-la-chapelle-sainte-anne-tours-octobre-2019</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://absil.fr/enseignement/atelier-stages/stage-grenade-1774246177638</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/critiques/critiques-litteraires/histoire-de-l-art-hugues-absil-page-4</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/enseignement/histoire-art/pastels-de-odilon-redon</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/enseignement/symbolisme/pastels-de-odilon-redon</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/symbolisme</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://absil.fr/enseignement/atelier-stages/stage-d-estampe-juin-juillet-2023-1774250498951</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/enseignement/atelier-stages/stage-crete-2017-1774336407916</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/enseignement/histoire-art/le-corbusier-penseur-du-musee</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://absil.fr/enseignement/histoire-art</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://absil.fr/enseignement/atelier-stages/stage-venise-2017</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/critiques/critiques-litteraires/ninfa-dolorosa</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/critiques/critiques-litteraires/gina-pane-terre-artiste-ciel-sophie-duplaix-ed-actes-sud</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/critiques/oeil-expo/carrier-belleuse-le-maitre-de-rodin-22-mai-27-octobre-2014-musees-et-domaine-nationaux-du-palais-de-compiegne</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/critiques/oeil-expo/l-art-en-guerre-france-1938-47</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/enseignement/duchamp/les-debuts-de-marcel-duchamp</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/critiques/oeil-expo/cindy-sherman-a-la-galerie-gagosian-jusqu-au-10-ocotobre</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/enseignement/duchamp/le-grand-verre</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/enseignement/histoire-art/jean-metzinger-albert-gleizes-du-cubisme-et-apres</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/enseignement/dada/1923-dada-a-hanovre-merz</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/critiques/oeil-expo/gerhard-richter-panorama</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/critiques/oeil-expo/bill-viola-au-grand-palais-jusqu-au-21-juillet-2014</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/critiques/oeil-expo/raphael-les-dernieres-annees-au-musee-du-louvre-jusqu-au-14-janvier</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/critiques/oeil-expo/la-vie-est-une-plaie-dont-je-ne-me-defais-pas-fondation-frances-clichy-jusqu-au-19-juillet</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/critiques/critiques-litteraires/annette-messager-catherine-grenier-editions-flammarion-cndp</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/critiques/oeil-expo/liste-des-expositions-de-la-rentree-2026-a-ne-pas-manquer</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/critiques/oeil-expo/bohemes-au-grand-palais-jusqu-au-14-janvier-1772301680167</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/enseignement/le-degrade/le-degrade-avec-carriere-et-whistler</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/critiques/oeil-expo/biennale-de-venise-jusqu-au-24-novembre-1772301818098</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/enseignement/dada/dada-cours-general-1916-1924</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/critiques/oeil-expo/l-uvre-de-sophie-ristelhueber-conference-philosophie-et-histoire-de-l-art</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/critiques/oeil-expo/kiefer-ouverture-des-galeries-ropac-et-gagosian-en-seine-saint-denis-octobre-2012</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/critiques/oeil-expo/edward-hopper-au-grand-palais</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/enseignement/le-fauvisme-1905/cours-general-le-fauvisme-1905-1907</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/enseignement/technique-picturale/aquarelle-fauve</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/enseignement/le-fauvisme-1905</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/dada/1920-dada-a-cologne-max-ernst-et-johannes-theodor-baargeld</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/enseignement/technique-picturale/cours-photo</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/enseignement/mondrian-et-de-stijl/mondrian-figuratif</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/enseignement/histoire-art/adel-abdessemed</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/enseignement/mondrian-et-de-stijl/mondrian-figuratif-et-l-autoportrait</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/critiques/oeil-expo/maillol-la-quete-de-l-harmonie</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/enseignement/dessin/les-trois-crayons</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/critiques/critiques-litteraires/henri-rousseau-l-ambition-de-la-peinture</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/enseignement/dessin</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/critiques-livres-d-art/jean-delville-1867-1953-maitre-de-l-ideal-sous-la-direction-scientifique-de-denis-laoureux-ed-somogy</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/enseignement/atelier-stages/stage-dessin-peinture-aquarelle-venise-et-sa-biennale</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/enseignement/realisme/les-casseurs-de-pierre-de-courbet-en-1849-huile-sur-toile-159-259-cm-le-tableau-detruit</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/enseignement/atelier-stages/stage-grenade</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/critiques/oeil-expo/francis-bacon-en-toutes-lettres-exposition-au-centre-pompidou-jusqu-au-20-janvier-2019</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/enseignement/atelier-stages/stage-estampe-juin-2023</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/enseignement/figuration-et-ou-abstraction-en-europe-apres-1930/francis-bacon-en-toutes-lettres</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/enseignement/technique-picturale/aquarelle-divisionniste</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/enseignement/figuration-et-ou-abstraction-en-europe-apres-1930</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/realisme/courbet-1819</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/enseignement/atelier-stages/stage-crete-2017</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/enseignement/kawamata/le-traitement-de-l-espace-chez-kawamata</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/critiques/critiques-litteraires/leonard-de-vinci-le-genie-du-dessin</loc>
-    <lastmod>2026-08-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://absil.fr/enseignement/histoire-art/le-cinquecento-en-italie-du-nord</loc>
-    <lastmod>2026-08-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://absil.fr/enseignement/histoire-art/champ-de-coquelicots</loc>
-    <lastmod>2026-08-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://absil.fr/enseignement/histoire-art/le-monde-comme-atelier</loc>
-    <lastmod>2026-08-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://absil.fr/critiques/oeil-expo/impressions-nabies</loc>
-    <lastmod>2026-08-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://absil.fr/critiques/oeil-expo/septembre-2012-hugues-absil-page-2</loc>
-    <lastmod>2026-08-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://absil.fr/critiques/oeil-expo/le-mythe-de-la-couleur-fondation-gianadda</loc>
-    <lastmod>2026-08-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://absil.fr/critiques/oeil-expo/actualites-artistiques-1772234953865</loc>
-    <lastmod>2026-08-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://absil.fr/critiques/critiques-litteraires/histoire-de-l-art-hugues-absil-page-3</loc>
-    <lastmod>2026-08-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://absil.fr/critiques/oeil-expo/actualites-artistiques-1772302098726</loc>
-    <lastmod>2026-08-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://absil.fr/critiques/oeil-expo/actualites-artistiques-1772302183972</loc>
-    <lastmod>2026-08-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://absil.fr/critiques/oeil-expo/martin-barre</loc>
-    <lastmod>2026-08-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://absil.fr/critiques/oeil-expo/mondrian-figuratif</loc>
-    <lastmod>2026-08-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://absil.fr/critiques/oeil-expo/formica-jean-pierre</loc>
-    <lastmod>2026-08-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://absil.fr/critiques/oeil-expo/alice-springs-les-stenopes-de-choi-et-claude-nori-a-la-mep-jusqu-au-4-novembre</loc>
-    <lastmod>2026-08-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://absil.fr/critiques/oeil-expo/actualites-artistiques-1772302084139</loc>
-    <lastmod>2026-08-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://absil.fr/critiques/oeil-expo/actualites-artistiques-1772302106785</loc>
-    <lastmod>2026-08-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://absil.fr/critiques/oeil-expo/actualites-artistiques-1772302114453</loc>
-    <lastmod>2026-08-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://absil.fr/critiques/oeil-expo/actualites-artistiques-1772302150161</loc>
-    <lastmod>2026-08-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://absil.fr/critiques/oeil-expo/actualites-artistiques-1772302168812</loc>
-    <lastmod>2026-08-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://absil.fr/critiques/oeil-expo/l-uvre-de-sophie-ristelhueber-conference-philosophie-et-histoire-de-l-art-1772302592631</loc>
-    <lastmod>2026-08-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://absil.fr/critiques/oeil-expo/force-de-l-expressionnisme-1773497283120</loc>
-    <lastmod>2026-08-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://absil.fr/critiques/oeil-expo/force-de-l-expressionnisme-1773497837297</loc>
-    <lastmod>2026-08-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://absil.fr/critiques/oeil-expo/man-ray-picabia-et-la-revue-litterature-1922-1924-paris</loc>
-    <lastmod>2026-08-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://absil.fr/critiques/oeil-expo/collection-abcd-de-bruno-decharme-a-la-maison-rouge-jusqu-au-18-janvier</loc>
-    <lastmod>2026-08-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://absil.fr/critiques/oeil-expo/sade-attaquer-le-soleil-annie-le-brun-ed-gallimard</loc>
-    <lastmod>2026-08-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://absil.fr/critiques/oeil-expo/fatum-de-jerome-zonder-a-la-maison-rouge-jusqu-au-10-mai</loc>
-    <lastmod>2026-08-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://absil.fr/critiques/oeil-expo/white-cube</loc>
-    <lastmod>2026-08-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://absil.fr/critiques/oeil-expo/craig-hanna</loc>
-    <lastmod>2026-08-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://absil.fr/critiques/oeil-expo/garouste-en-chemin</loc>
-    <lastmod>2026-08-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://absil.fr/critiques/oeil-expo/56eme-biennale-de-venise</loc>
-    <lastmod>2026-08-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://absil.fr/enseignement/atelier-stages/epreuve-facultative-d-arts-plastiques-du-bac</loc>
-    <lastmod>2026-08-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://absil.fr/enseignement/atelier-stages/deroulement-des-epreuves-du-bac-arts-plastiques-1773551948981</loc>
-    <lastmod>2026-08-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://absil.fr/enseignement/atelier-stages/dossier-de-specialite-au-bac-l</loc>
-    <lastmod>2026-08-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://absil.fr/critiques/oeil-expo/actualites-artistiques-1773552062332</loc>
-    <lastmod>2026-08-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://absil.fr/critiques/oeil-expo/juin-2024-hugues-absil</loc>
-    <lastmod>2026-08-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://absil.fr/critiques/oeil-expo/expositions-en-ce-moment-hugues-absil-page-9</loc>
-    <lastmod>2026-08-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://absil.fr/critiques/oeil-expo/expositions-en-ce-moment-hugues-absil-page-9-1773553860619</loc>
-    <lastmod>2026-08-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://absil.fr/critiques/critiques-litteraires/leonarddevinci-le-geniedudessin</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/critiques/critiques-livres-d-art/el-lissitsky-l-experience-de-la-totalite-sous-la-direction-d-olivia-maria-rubio-ed-hazan</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/critiques/oeil-expo/eugene-boudin-le-pere-de-l-impressionnisme-une-collection-particuliere-musee-marmottan-monet-jusqu-au-31-aout</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/critiques/oeil-expo/graver-la-lumiere</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/enseignement/figuration-apres-1930/francis-bacon-en-toutes-lettres-exposition-au-centre-pompidou-jusqu-au-20-janvier-2019</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/critiques/oeil-expo/force-de-l-expressionnisme</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/enseignement/figuration-apres-1930</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/oeil-expo/biennale-de-venise-jusqu-au-27-novembre-2022</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/critiques/oeil-expo/la-fiac-au-grand-palais-du-24-au-27-octobre</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/enseignement/lignes-et-contours/graphisme-sur-l-epaisseur-des-lignes</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/critiques/oeil-expo/le-passage-des-chaises-kawamata-1997</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/critiques/critiques-livres-d-art/formes-biographiques-jean-francois-chevrier-ed-hazan</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/critiques/oeil-expo/de-stael-au-musee-picasso-d-antibes-et-au-muma-au-havre</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/critiques/oeil-expo/l-art-en-guerre-france-1938-47</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/critiques/oeil-expo/martial-raysse-au-centre-pompidou-jusqu-au-22-septembre</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/critiques/oeil-expo/cindy-sherman-a-la-galerie-gagosian-jusqu-au-10-ocotobre</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/critiques/oeil-expo/contact-exposition-de-olafur-oliasson-jusqu-au-23-fevrier-a-la-fondation-l-vuitton-a-paris</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/enseignement/cubisme/jean-metzinger-albert-gleizes-du-cubisme-et-apres</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/critiques/critiques-litteraires/formes-biographiques</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/enseignement/cubisme</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/oeil-expo/gerhard-richter-panorama</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/critiques/oeil-expo/anna-et-bernhard-blume-la-photographie-transcendantale</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/critiques/oeil-expo/raphael-les-dernieres-annees-au-musee-du-louvre-jusqu-au-14-janvier</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/critiques/oeil-expo/impressionnisme-1773499213731</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/critiques/critiques-livres-d-art/annette-messager-catherine-grenier-editions-flammarion-cndp</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/critiques/critiques-litteraires/histoire-de-l-art</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/critiques/oeil-expo/bohemes-au-grand-palais-jusqu-au-14-janvier-1772301680167</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/critiques/critiques-litteraires/valadon-et-ses-contemporaines</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/critiques/oeil-expo/biennale-de-venise-jusqu-au-24-novembre-1772301818098</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/critiques/oeil-expo/manet-degas</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/critiques/oeil-expo/l-uvre-de-sophie-ristelhueber-conference-philosophie-et-histoire-de-l-art</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/critiques/oeil-expo/figurations-a-yerre-jusqu-au-22-octobre-2023</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/critiques/oeil-expo/edward-hopper-au-grand-palais</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/critiques/oeil-expo/biennale-de-venise-2024</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/enseignement/aquarelle/aquarelle-fauve</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/critiques/oeil-expo/exposition-bacon</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/enseignement/aquarelle</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/technique-picturale/cours-photo</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/critiques/oeil-expo/esquisses-peintes-de-l-epoque-romantique</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/enseignement/histoire-art/adel-abdessemed</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/critiques/oeil-expo/bill-viola-au-grand-palais-jusqu-au-21-juillet</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/critiques/oeil-expo/maillol-la-quete-de-l-harmonie</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/critiques/oeil-expo/esquisses-peintes-de-l-epoque-romantique-1773497362725</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/enseignement/l-expressionnisme-abstrait/pollock-1912-56</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/critiques/critiques-litteraires/mantegna-de-mauro-lucco-ed-actes-sud</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/critiques/critiques-litteraires/henri-rousseau-l-ambition-de-la-peinture</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/critiques/oeil-expo/el-lissitzky-l-experience-de-la-totalite-au-musee-picasso-a-malaga-jusqu-au-24-septembre</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/enseignement/duchamp/marcel-duchamp-et-le-readymade</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/critiques/oeil-expo/philippe-cognee-au-domaine-national-de-chambord-jusqu-au-12-octobre</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/critiques/oeil-expo/zonder-a-la-galerie-c-neuchatel-du-31-octobre-au-21-decembre-2019</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/critiques/oeil-expo/la-disparition-des-lucioles-prison-sainte-anne-avignon-jsuqu-au-25-nov-2014</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/critiques/oeil-expo/el-lissitzky-l-experience-de-la-totalite-au-musee-picasso-a-malaga-jusqu-au-24-septembre-2014</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/critiques/oeil-expo/carrier-belleuse-le-maitre-de-rodin-22-mai-27-octobre-2014-musees-et-domaine-nationaux-du-palais-de-compiegne-place-du-general-de-gaulle-60200-compiegne</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/critiques/oeil-expo/56eme-biennale-de-venise-56emebiennale-de-venise-jusqu-au-22-novembre-2015</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/critiques/oeil-expo/les-magiciens-de-la-terre</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/enseignement/les-hachures/les-hachures-de-delacroix</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/critiques/oeil-expo/constable</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/enseignement/les-hachures</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/oeil-expo/du-17-octobre-au-6-janvier-2018-tomas-saraceno-au-palais-de-tokyo</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/critiques/oeil-expo/franck-gehry-a-la-fondation-louis-vuitton-jusqu-au-16-mars</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/critiques/oeil-expo/pavillon-irakien-venise-10-avril-jusqu-au-24-novembre-2024</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/critiques/oeil-expo/formes-biographiques-au-carre-d-art-a-nimes-jusqu-au-20-septembre</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/enseignement/dada/1920-23-dada-a-paris</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/critiques/oeil-expo/henry-darger</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/enseignement/conseil-pour-rediger-une-analyse-d-oeuvre-d-art/le-passage-des-chaises-kawamata-1997</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/critiques/oeil-expo/liste-des-expositions-de-l-annee-2016-2017</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/enseignement/surrealisme/le-frottage-chez-max-ernst</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/critiques/oeil-expo/esquisses-peintes-de-l-epoque-romantique-1773551812550</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/enseignement/le-white-cube/le-white-cube</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/enseignement/atelier-stages/deroulement-des-epreuves-du-bac-arts-plastiques</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/enseignement/le-white-cube</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/erxpressionnisme/les-natures-mortes-de-jawlensky</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/critiques/oeil-expo/expositions-de-la-rentree-2025</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/critiques/oeil-expo/man-ray-picabia-et-la-revue-litterature-1922-1924-exposition-au-centre-pompidou-jusqu-au-08-septembre-2014</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/critiques/critiques-litteraires/vinci</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/critiques/oeil-expo/rothko-in-lampedusa-jusqu-au-24-novembre-2019-venise-palazzo-querini-fondazione-ugo-e-olga-levi-onlus-calle-lunga-san-barnaba-2691</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/critiques/oeil-expo/les-natures-mortes-de-jawlensky-1773679883867</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/enseignement/atelier-stages/stage-dessin-peinture-aquarelle-venise-et-sa-biennale</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/oeil-expo/61e-biennale-de-venise</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/oeil-expo/georges-braque-au-grand-palais-jusqu-au-6-janvier-2013</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/critiques/oeil-expo/david-claerbout-avec-dark-optics-vision-de-nuit-au-printemps-de-toulouse-jusqu-au-3-fevrier-2019</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/critiques/oeil-expo/mondrian-figuratif-et-l-autoportrait</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/critiques/oeil-expo/claire-tabouret-a-la-galerie-almine-rech-jusqu-au-6-octobre-2018</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/critiques/oeil-expo/actualites-artistiques-1772302161487</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/critiques/critiques-livres-d-art/ninfa-dolorosa-essai-sur-la-memoire-d-un-geste-george-didi-huberman-ed-gallimard</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/critiques/critiques-litteraires/eloge-de-l-aplomb</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/enseignement/l-expressionnisme-abstrait/color-field-painting</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/critiques/oeil-expo/actualites-artistiques</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/critiques/oeil-expo/anna-et-bernhard-blume-la-photographie-transcendantale-galerie-de-photographies-du-centre-pompidou-du-1er-juillet-au-28-septembre-2015</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/critiques/critiques-litteraires/le-cubisme-une-revolution-esthetique-sa-naissance-et-son-rayonnement-serge-fauchereau-ed-flammarion</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/critiques/oeil-expo/tobey-or-not-to-be-exposition-jusqu-au-16-janvier-2021-a-la-galerie-jeanne-bucher-jaeger</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/critiques/oeil-expo/deftig-barock</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/enseignement/cubisme/1908-cubisme-de-picasso-et-braque</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/critiques/oeil-expo/bohemes-au-grand-palais-jusqu-au-14-janvier</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/critiques/oeil-expo/you-oeuvres-de-la-collection-lafayette-anticipations-jusqu-au-16-fevrier-2020-au-mamvp</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/critiques/oeil-expo/les-trois-peintres-nitkowski-adam-et-alary-a-la-galerie-polad-hardouin-a-paris-jusqu-au-6-octobre-2012</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/enseignement/conseil-pour-rediger-une-analyse-d-oeuvre-d-art/nu-descendant-un-escalier-mduchamp-en-1912</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/critiques/oeil-expo/modernisme-ou-modernite-les-photographies-du-cercle-de-gustave-le-gray-jusqu-au-6-janvier-au-petit-palais</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/enseignement/atelier-stages/stage-estampe-juin-2023</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/technique-picturale/aquarelle-divisionniste</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/atelier-stages/stage-crete-2017</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/critiques-livres-d-art/sketchbook-de-craig-hanna-ed-somogy</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/cubisme/le-realisme-pictural-de-fernand-leger-en-1913</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/critiques-livres-d-art/surreel-guitemie-maldonado-ed-in-fine-le-minotaure-galerie-le-minotaure-galerie-alain-gaillard-galerie-kaleidoscope-jusqu-au-30-novembre</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/critiques-litteraires/leonard-de-vinci-le-genie-du-dessin</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/cubisme/la-lumiere-avec-delaunay-en-1912</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/histoire-art/le-cinquecento-en-italie-du-nord</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/histoire-art/champ-de-coquelicots</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/histoire-art/le-monde-comme-atelier</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/critiques-livres-d-art/eugene-boudin-le-pere-de-l-impressionnisme-une-collection-particuliere-catalogue-collectif-ed-in-fine</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/lignes-et-contours/cours-d-ecole-suisse-d-art-applique</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/critiques-livres-d-art/hubris-la-fabrique-du-monstre-dans-l-art-moderne-jean-clair-editions-gallimard</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/critiques/oeil-expo/l-art-en-guerre</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/oeil-expo/carte-blanche-a-l-atelier-michael-woolworth</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/surrealisme/nouveaute-de-giorgio-de-chirico-en-1910-1912</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/oeil-expo/esquisses-peintes-de-l-epoque-romantique-delacroix-cogniet-scheffer-au-musee-de-la-vie-romantique-paris-du-17-septembre-2013-au-2-fevrier-2014</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/critiques-livres-d-art/portes-closes-et-oeuvres-invisibles-de-denys-riout-ed-gallimard-2019</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/oeil-expo/martin-barre-jusqu-au-4-janvier-2021</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/oeil-expo/biennale-de-venise-10-avril-jusqu-au-24-novembre-2019-exposition-principale-aux-giardini-et-a-l-arsenale</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/lignes-et-contours/graphisme-de-signes</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/le-degrade/pierre-noire-de-seurat</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/critiques-livres-d-art/sade-attaquer-le-soleil-annie-le-brun-ed-gallimard</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/cubisme/les-cubistes</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/oeil-expo/on-air-tomas-saraceno-palais-de-tokyo-a-paris-du-17-octobre-2018-au-6-janvier-2019</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/duchamp/marcel-duchamp-en-quelques-citations</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/oeil-expo/collection-abcd-de-bruno-decharme-a-la-maison-rouge-jusqu-au-18-janvier-2014</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/conseil-pour-rediger-une-analyse-d-oeuvre-d-art/roue-de-bicyclette-concue-en-1913-par-m-duchamp</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/critiques-livres-d-art/rodin-la-chair-le-marbre-ed-hazan</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/conseil-pour-rediger-une-analyse-d-oeuvre-d-art/1913-14-l-equipe-de-cardiff-de-r-delaunay</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/oeil-expo/baselitz-a-la-galerie-ropac-du-15-septembre-2019-au-15-janvier-2020</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/conseil-pour-rediger-une-analyse-d-oeuvre-d-art/portrait-de-tristan-tzara-de-arp-1916</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/l-autobiographie/l-autobiographie-et-la-fiction</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/l-autobiographie</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/oeil-expo/cecily-brown-a-la-galerie-gagosian-jusqu-au-20-decembre-2014</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/oeil-expo/les-papesses-collection-lambert-en-avignon-jusqu-au-lundi-11-novembre-2013</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/oeil-expo/morgenthau-plan-d-anselm-kiefer-a-la-galerie-gagosian-jusqu-au-26-janvier-2013</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/oeil-expo/le-theatre-des-emotions-jusqu-au-21-aout-2022-musee-marmottan</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/oeil-expo/61e-biennale-de-venise-in-minor-keys-jusqu-au-22-novembre-2026</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/oeil-expo/marc-petit-a-la-galerie-schwab-jusqu-au-20-juin-2020</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/oeil-expo/dust-histoire-de-poussiere-d-apres-man-ray-et-marcel-duchamp-au-bal-jusqu-au-31-janvier-2016</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/oeil-expo/actualites-artistiques</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/critiques-litteraires/le-cubisme-une-revolution-esthetique-sa-naissance-et-son-rayonnement-serge-fauchereau-ed-flammarion</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/oeil-expo/deftig-barock</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/oeil-expo/bohemes-au-grand-palais-jusqu-au-14-janvier</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/oeil-expo/les-trois-peintres-nitkowski-adam-et-alary-a-la-galerie-polad-hardouin-a-paris-jusqu-au-6-octobre-2012</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/oeil-expo/modernisme-ou-modernite-les-photographies-du-cercle-de-gustave-le-gray-jusqu-au-6-janvier-au-petit-palais</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/critiques/oeil-expo/continents-noirs</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/enseignement/histoire-art/1918-dada-a-berlin</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/critiques/oeil-expo/biennale-de-venise-jusqu-au-24-novembre</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/critiques/oeil-expo/les-papesses-collection-lambert-en-avignon-5-rue-violette-84000-avignon-jusqu-au-lundi-11-novembre</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/critiques/oeil-expo/van-gogh-reves-de-japon-et-hiroshige-l-art-du-voyage-a-la-pinacotheque-de-jusqu-au-17-mars-1772302062055</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/enseignement/histoire-art/l-uvre-de-sophie-ristelhueber-conference-philosophie-et-histoire-de-l-art-1772302592631</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/enseignement/technique-picturale/covid19</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/enseignement/technique-picturale/frottage</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/enseignement/technique-picturale/dessin-de-bonnard</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/critiques/oeil-expo/georges-braque-au-grand-palais-1773495692939</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/critiques/oeil-expo/le-cote-sombre-georg-baselitz</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/enseignement/histoire-art/marcel-duchamp-et-le-readymade</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/critiques/oeil-expo/lydie-arickx-a-la-conciergerie</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/enseignement/histoire-art/interieur-au-violon-de-matisse-1918-21-huile-sur-toile</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/enseignement/le-fauvisme-1905/interieur-au-violon-de-matisse-1918-21-huile-sur-toile</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/enseignement/technique-picturale/le-monotype</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/enseignement/atelier-stages/stage-estampe-vesinet-juillet-2025</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/enseignement/atelier-stages/aquarelle-sienne-ete-2025</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/critiques/critiques-litteraires/jean-delville-1867-1953-maitre-de-l-ideal-1773497995114</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/oeil-expo/martial-raysse-au-centre-pompidou-jusqu-au-22-septembre</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/critiques/oeil-expo/formes-biographiques-1773499039969</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/enseignement/histoire-art/impressionnisme</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/enseignement/histoire-art/roue-md</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/enseignement/histoire-art/duchamp-et-l-erotisme</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/critiques/oeil-expo/la-vie-est-une-plaie-dont-je-ne-me-defais-pas</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/critiques/oeil-expo/l-uvre-de-sophie-ristelhueber-conference-philosophie-et-histoire-de-l-art-1773551852482</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/critiques/critiques-litteraires/greco</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/critiques/oeil-expo/biennale-de-venise-2019-jusqu-au-24-novembre-2019</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/critiques/oeil-expo/dada-africa-a-l-orangerie</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/critiques/oeil-expo/heartbreak-venise-jusqu-au-24-novembre</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/enseignement/histoire-art/rodin</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/critiques/oeil-expo/biennale-de-lyon</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/critiques/oeil-expo/les-livres-pauvres-a-la-chapelle-sainte-anne-tours</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/critiques/oeil-expo/nous-les-arbres</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/critiques/oeil-expo/nous-les-arbres-a-la-fondation-cartier-pour-l-art-contemporain-a-paris-du-12-juillet-au-10-novembre-2019</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/critiques/oeil-expo/greco-1773680300054</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/enseignement/technique-picturale/taille-d-epargne-en-couleur</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/enseignement/histoire-art/les-fleurs-de-nolde</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/critiques/oeil-expo/dust-histoire-de-poussiere-d-apres-man-ray-et-marcel-duchamp-au-bal</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/enseignement/histoire-art/duchamp</loc>
-    <lastmod>2026-08-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://absil.fr/enseignement/histoire-art/duchamp-1773499153746</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/enseignement/histoire-art/le-grand-verre</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/enseignement/histoire-art/duchamp-et-le-neo-dadaisme</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/enseignement/atelier-stages/stage-de-peinture-a-venise-du-24-au-2-juillet-2013</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/enseignement/histoire-art/1927-proces-de-brancusi-contre-les-etats-unis</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/enseignement/histoire-art/les-natures-mortes-de-jawlensky-1773679730346</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/oeil-expo/les-natures-mortes-de-jawlensky-1773679883867</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/critiques/oeil-expo/tomas-saraceno-au-palais-de-tokyo</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/critiques/oeil-expo/pavillon-irakien-venise-jusqu-au-24-novembre</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/critiques/oeil-expo/francis-bacon-en-toutes-lettres</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/critiques/oeil-expo/biennale-de-venise-jusqu-au-27-novembre</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://absil.fr/enseignement/histoire-art/de-stijl</loc>
-    <lastmod>2026-08-06</lastmod>
+    <loc>https://absil.fr/enseignement/xxeme-siecle-art-moderne/de-stijl</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/enseignement/xxeme-siecle-art-moderne</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/oeil-expo/mondrian-figuratif-et-l-autoportrait</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/critiques/critiques-litteraires/homo-faber</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/critiques/oeil-expo/septembre-2012-hugues-absil-page-2</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/critiques/oeil-expo/rebeyrolle-au-chateau-de-chambord-jusqu-au-au-23-septembre</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/critiques/critiques-litteraires/la-nuit-tombee-de-antoine-choplin</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/critiques/oeil-expo/le-cercle-d-art-moderne-au-musee-du-luxembourg-jusqu-au-6-janvier-2013</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/critiques/oeil-expo/soutine-au-musee-de-l-orangerie-jusqu-au-21-janvier</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/critiques/oeil-expo/je-suis-innocent-adel-abdessemed-au-centre-georges-pompidou</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/critiques/oeil-expo/escande-exposition-de-ronan-barrot-au-musee-d-art-et-d-histoire-louis-senlecq-31-grande-rue-95290-l-isle-adam</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/critiques/oeil-expo/julio-le-parc-au-palais-de-tokyo-jusqu-au-13-mai</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/critiques/oeil-expo/tobey-or-not-to-be</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/enseignement/technique-picturale/covid19-1772381002629</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/enseignement/technique-picturale/aquarelle-seche</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/enseignement/technique-picturale/marine-aquarelle-seche</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/enseignement/technique-picturale/contraste-de-chaleur</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://absil.fr/enseignement/technique-picturale/le-theatre-des-emotions</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/expositions/journees-de-l-estampe-contemporaine</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/expositions/journee-du-patrimoine-2026</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/expositions/artcite-2026</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/expositions/salon-puls-art-du-8-au-12-mai-2013</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/expositions/salon-figuration-critique-du-16-au-20-septembre-2014</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/expositions/expressions-26-septembre-au-3-octobre-2013-a-les-infirmieres-galerie</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/expositions/le-son-que-j-ai-vu-galerie-ddg</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/expositions/mac-2000-en-2012</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/expositions/salon-art-terrible-espace-commines-paris</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/expositions/exposition-la-scene-au-chateau-de-la-chaussee-du-7-septembre-au-6-octobre-2019-2019</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/expositions/nature-morte-a-point-rouge-gallery</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/expositions/6eme-salon-d-art-de-saint-germain-en-laye-du-samedi-28-mars-au-jeudi-16-avril-2015-au-manege</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/expositions/11e-salon-art-cite</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/expositions/salon-huntekunst-a-ulft-du-19-au-21-mai</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/expositions/exposition-arts-singuliers-pluriels</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/expositions/lancement-numero-7-de-la-revue-place-de-la-sorbonne</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://absil.fr/expositions/un-mur-un-artiste</loc>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>

@@ -156,6 +156,16 @@ export function exhibitionHref(slug?: string | null): string {
   return slug ? `/expositions/${slug}` : "/#exhibitions";
 }
 
+export function paintingHref(slug?: string | null): string {
+  if (!slug) return "/#gallery";
+  return `/?painting=${encodeURIComponent(slug)}#gallery`;
+}
+
+export function filmHref(slug?: string | null): string {
+  if (!slug) return "/#films";
+  return `/?film=${encodeURIComponent(slug)}#films`;
+}
+
 export function pressHref(slug?: string | null): string {
   return slug ? `/presse/${slug}` : "/#press";
 }
@@ -172,6 +182,7 @@ export type SearchIndexPayload = {
   paintings?: Array<{
     _id?: string;
     title?: string | null;
+    slug?: string | null;
     year?: number | null;
     reference?: string | null;
     techniqueTitle?: string | null;
@@ -229,6 +240,7 @@ export type SearchIndexPayload = {
   films?: Array<{
     _id?: string;
     title?: string | null;
+    slug?: string | null;
     director?: string | null;
     year?: string | null;
     description?: string | null;
@@ -305,12 +317,13 @@ export function buildSearchIndexFromPayload(payload: SearchIndexPayload): Search
   for (const painting of payload.paintings ?? []) {
     if (!painting?._id) continue;
     const meta = joinParts([painting.year, painting.reference]);
+    const slug = painting.slug?.trim() || null;
     items.push(
       makeItem({
         id: painting._id,
         group: "painting",
         title: painting.title ?? "Sans titre",
-        href: "/#gallery",
+        href: paintingHref(slug),
         excerpt: painting.description ?? undefined,
         meta,
         imageUrl: painting.imageUrl,
@@ -393,12 +406,13 @@ export function buildSearchIndexFromPayload(payload: SearchIndexPayload): Search
 
   for (const film of payload.films ?? []) {
     if (!film?._id) continue;
+    const slug = film.slug?.trim() || null;
     items.push(
       makeItem({
         id: film._id,
         group: "film",
         title: film.title ?? "Sans titre",
-        href: "/#films",
+        href: filmHref(slug),
         excerpt: film.description ?? undefined,
         meta: joinParts([film.director, film.year]) || undefined,
         imageUrl: film.imageUrl,

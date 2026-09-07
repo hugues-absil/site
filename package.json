@@ -18,6 +18,7 @@
     "import:gallery": "node scripts/import-gallery.js",
     "test:catalog": "tsx scripts/test-catalog-sort.ts",
     "test:search": "tsx scripts/test-site-search.ts",
+    "repair:slugs": "node scripts/repair-slugs-and-categories.js",
     "fix:dated-profiles": "node scripts/fix-dated-category-profiles.js",
     "clear:invalid-dates": "node scripts/clear-invalid-resource-dates.js"
   },
