@@ -13,7 +13,7 @@ import { client, hasToken } from "./lib/sanityClient.js";
 const PARENT_CATEGORIES = [
   {
     slug: "critiques-litteraires",
-    title: "Critiques littéraires",
+    title: "Critiques de livres d'art",
     description: "Articles et commentaires sur les livres d'art récents",
     section: "ecrits",
   },

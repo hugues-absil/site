@@ -8,7 +8,7 @@
 export const RESOURCE_CATEGORIES = [
   {
     value: "critiques-litteraires",
-    label: "Critiques littéraires",
+    label: "Critiques de livres d'art",
     description: "Articles et commentaires sur les livres d'art récents",
     section: "ecrits" as const,
   },

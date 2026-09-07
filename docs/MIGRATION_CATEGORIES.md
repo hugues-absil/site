@@ -17,7 +17,7 @@ Ce document décrit comment passer des catégories « en dur » aux **catégorie
 
    | Titre                  | Slug (générer depuis le titre) | Description                                      | Section      | Ordre | Afficher un sommaire des chapitres |
    |------------------------|---------------------------------|--------------------------------------------------|-------------|-------|-------------------------------------|
-   | Critiques littéraires  | critiques-litteraires          | Articles et commentaires sur les livres d'art…  | Critiques      | 1     | Non                                 |
+   | Critiques de livres d'art  | critiques-litteraires          | Articles et commentaires sur les livres d'art…  | Critiques      | 1     | Non                                 |
    | Expositions à voir    | oeil-expo                      | Articles sur les expositions récentes            | Critiques      | 2     | Non                                 |
    | Ateliers & Stages      | atelier-stages                 | Stages de peinture, cours en atelier…            | Enseignement| 1     | Non                                 |
    | Histoire de l'art      | histoire-art                   | Cours et contenus théoriques                     | Enseignement| 2     | **Oui**                             |
