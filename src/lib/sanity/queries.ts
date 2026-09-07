@@ -334,6 +334,44 @@ export const resourceBySlugQuery = groq`*[_type == "resource" && slug.current ==
   sourceUrl
 }`;
 
+/** Même projection, mais filtrée par catégorie URL (feuille, legacy ou ancêtre). */
+export const resourceBySlugInCategoryQuery = groq`*[
+  _type == "resource"
+  && slug.current == $slug
+  && (
+    category == $category
+    || ${resourceInCategoryOrSubtree}
+  )
+] | order(
+  select(
+    categoryRef->slug.current == $category => 0,
+    category == $category => 1,
+    2
+  ) asc,
+  _createdAt asc
+)[0] {
+  _id,
+  title,
+  "slug": slug.current,
+  category,
+  "categoryRef": categoryRef->{ ${resourceCategoryRefProjection} },
+  excerpt,
+  content,
+  date,
+  dateEnd,
+  order,
+  "status": ${resourceStatusSelect},
+  "imageUrl": coverImage.asset->url,
+  videoUrl,
+  tags,
+  workshopDate,
+  workshopDuration,
+  workshopPrice,
+  workshopLocation,
+  workshopRegistrationLink,
+  sourceUrl
+}`;
+
 export const resourceCategoriesQuery = groq`*[_type == "resourceCategory"] | order(order asc, title asc) {
   _id,
   title,
@@ -350,6 +388,7 @@ export const searchIndexQuery = groq`{
   "paintings": *[_type == "painting" && gallery == true] | order(year desc) {
     _id,
     title,
+    "slug": slug.current,
     year,
     reference,
     "techniqueTitle": technique->title,
@@ -403,6 +442,7 @@ export const searchIndexQuery = groq`{
   "films": *[_type == "film"] {
     _id,
     title,
+    "slug": slug.current,
     director,
     year,
     description,

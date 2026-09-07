@@ -16,6 +16,7 @@ import {
   resourcesQuery,
   resourcesByCategoryQuery,
   resourceBySlugQuery,
+  resourceBySlugInCategoryQuery,
   resourceCategoriesQuery,
   searchIndexQuery,
 } from "./queries";
@@ -761,13 +762,15 @@ export async function getResourcesByCategory(category: string): Promise<Resource
   }
 }
 
-export async function getResourceBySlug(slug: string): Promise<Resource | null> {
+export async function getResourceBySlug(slug: string, category?: string): Promise<Resource | null> {
   if (!isSanityConfigured()) {
     return null;
   }
   try {
     if (!client) throw new Error("Sanity client not configured");
-    const raw = await client.fetch(resourceBySlugQuery, { slug });
+    const raw = category
+      ? await client.fetch(resourceBySlugInCategoryQuery, { slug, category })
+      : await client.fetch(resourceBySlugQuery, { slug });
     return raw && raw._id ? normalizeResource(raw) : null;
   } catch (error) {
     console.error("Error fetching resource:", error);
@@ -811,6 +814,7 @@ async function buildFallbackSearchIndex(): Promise<SearchIndexItem[]> {
     paintings: paintings.map((p) => ({
       _id: p.id,
       title: p.title,
+      slug: p.id,
       year: p.year,
       reference: p.reference,
       techniqueTitle: p.technique,
