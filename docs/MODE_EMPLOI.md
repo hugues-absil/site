@@ -20,7 +20,7 @@ Le site public affiche les œuvres, les expositions et les textes. Pour **modifi
 | **Exposition** | **Vos** expositions (section Expositions, après la Galerie). |
 | **Article de presse** | Articles **sur vous** / votre œuvre (section Presse : liste d’articles avec lien, extrait). |
 | **Citation presse** | Citations **sur vous** / votre œuvre (section Presse : encarts de citations). |
-| **Critiques** / **Enseignement** | Textes et catégories en arbre : Critiques littéraires, Expositions à voir, Ateliers & Stages, Histoire de l’art, Technique picturale. Voir section Critiques et Enseignement. |
+| **Critiques** / **Enseignement** | Textes et catégories en arbre : Critiques de livres d'art, Expositions à voir, Ateliers & Stages, Histoire de l’art, Technique picturale. Voir section Critiques et Enseignement. |
 | **Catégories** (sous Critiques / Enseignement) | Arbre des catégories (créer, renommer, imbriquer). Voir [MIGRATION_CATEGORIES.md](MIGRATION_CATEGORIES.md). |
 | **Journal** | Articles du Journal (section Journal sur le site). |
 | **Biographie** | Texte et photo de la biographie (section Biographie). |
@@ -141,7 +141,7 @@ Sur chaque **catégorie racine**, renseignez le **Profil d’édition** (Article
 
 ### Où apparaissent les textes sur le site ?
 
-- **Critiques** : **Critiques littéraires** et **Expositions à voir**.
+- **Critiques** : **Critiques de livres d'art** et **Expositions à voir**.
 - **Enseignement** : **Ateliers & Stages**, **Histoire de l’art**, **Technique picturale**.
 
 Tous ces textes sont des documents **Ressource**. Le champ **Catégorie** (référence) détermine où ils s’affichent. Pour Histoire de l’art et Technique picturale, **Ordre d’affichage** ordonne les chapitres dans le sommaire. Voir aussi [MIGRATION_CATEGORIES.md](MIGRATION_CATEGORIES.md) et [GUIDE_PEINTRE.md](GUIDE_PEINTRE.md).
@@ -150,7 +150,7 @@ Tous ces textes sont des documents **Ressource**. Le champ **Catégorie** (réf�
 
 | Affichage sur le site | Slug | Profil d’édition recommandé |
 |----------------------|------|-------------------------------|
-| Critiques littéraires | `critiques-litteraires` | Article |
+| Critiques de livres d'art | `critiques-litteraires` | Article |
 | Expositions à voir | `oeil-expo` | Exposition à voir |
 | Ateliers & Stages | `atelier-stages` | Atelier / stage |
 | Histoire de l’art | `histoire-art` | Chapitre |
