@@ -182,7 +182,7 @@ export default function Exhibitions({ exhibitions }: ExhibitionsProps) {
   const initialPastDisplay = isMobile ? INITIAL_DISPLAY_PAST_MOBILE : INITIAL_DISPLAY_PAST_DESKTOP;
   const [displayCountCurrent, setDisplayCountCurrent] = useState(initialDisplay);
   const [displayCountPast, setDisplayCountPast] = useState(initialPastDisplay);
-  const [isArchivesOpen, setIsArchivesOpen] = useState(true);
+  const [isArchivesOpen, setIsArchivesOpen] = useState(false);
 
   useEffect(() => {
     if (isMobile) {
