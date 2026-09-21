@@ -23,4 +23,11 @@
   .text-balance {
     text-wrap: balance;
   }
+
+  /* Clearfix après les images/vidéos flottantes du Portable Text */
+  .portable-text::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
 }

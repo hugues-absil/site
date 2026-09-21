@@ -158,6 +158,7 @@ export interface AdvicePost {
 export interface Performance {
   _id: string;
   title?: string | null;
+  description?: string | null;
   url: string;
 }
 
@@ -258,6 +259,8 @@ export interface SiteSettings {
   contactSuccessMessage?: string | null;
   contactErrorMessage?: string | null;
   galleryUseFeatured?: boolean | null;
+  pressKitUrl?: string | null;
+  pressKitFilename?: string | null;
 }
 
 const HERO_IMAGE_FALLBACK_URL =
@@ -569,6 +572,8 @@ export async function getSiteSettings(): Promise<SiteSettings> {
       contactSuccessMessage: result.contactSuccessMessage ?? fallback.contactSuccessMessage,
       contactErrorMessage: result.contactErrorMessage ?? fallback.contactErrorMessage,
       galleryUseFeatured: result.galleryUseFeatured ?? false,
+      pressKitUrl: result.pressKitUrl ?? null,
+      pressKitFilename: result.pressKitFilename ?? null,
     };
   } catch (error) {
     console.error("Error fetching site settings:", error);

@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { ArrowLeft, Calendar } from "lucide-react";
+import { ArrowLeft, Calendar, ExternalLink } from "lucide-react";
 import Image from "@/components/ui/Image";
 import { getAdvicePostBySlug, getAdvicePosts } from "@/lib/sanity/data";
 import { hasMeaningfulPortableContent } from "@/lib/utils";
 import PortableText from "@/lib/sanity/portableText";
 import Button from "@/components/ui/Button";
+import { getVideoEmbedUrl } from "@/lib/videoEmbed";
 
 const categoryLabels: Record<string, string> = {
   technique: "Technique",
@@ -115,19 +116,37 @@ export default function JournalPostPage() {
           ) : null}
         </article>
 
-        {post.videoUrl && (
-          <div className="mb-12">
-            <div className="relative aspect-video bg-gray-100 rounded-sm overflow-hidden">
-              <iframe
-                src={post.videoUrl}
-                className="absolute inset-0 w-full h-full"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                title={post.title}
-              />
+        {post.videoUrl && (() => {
+          const embedUrl = getVideoEmbedUrl(post.videoUrl);
+          if (embedUrl) {
+            return (
+              <div className="mb-12">
+                <div className="relative aspect-video bg-gray-100 rounded-sm overflow-hidden">
+                  <iframe
+                    src={embedUrl}
+                    className="absolute inset-0 w-full h-full"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    title={post.title}
+                  />
+                </div>
+              </div>
+            );
+          }
+          return (
+            <div className="mb-12">
+              <a
+                href={post.videoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center text-foreground hover:underline"
+              >
+                Voir la vidéo
+                <ExternalLink className="w-4 h-4 ml-2" />
+              </a>
             </div>
-          </div>
-        )}
+          );
+        })()}
 
         {relatedPosts.length > 0 && (
           <div className="mt-16 pt-8 border-t border-gray-200">

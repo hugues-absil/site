@@ -6,6 +6,7 @@ import { getResourceBySlug, getResourcesByCategory, resourceMatchesUrlCategory }
 import { formatResourceDate, formatResourceDateRange, hasMeaningfulPortableContent } from "@/lib/utils";
 import PortableText from "@/lib/sanity/portableText";
 import Button from "@/components/ui/Button";
+import { getVideoEmbedUrl } from "@/lib/videoEmbed";
 import { RESOURCE_CATEGORY_LABELS, RESOURCE_CATEGORY_SECTION } from "@/sanity/constants/resourceCategories";
 import { sectionHomePath, sectionUrlPrefix } from "@/lib/resourceSection";
 
@@ -202,19 +203,37 @@ export default function ResourcePage() {
           ) : null}
         </article>
 
-        {resource.videoUrl && (
-          <div className="mb-12">
-            <div className="relative aspect-video bg-gray-100 rounded-sm overflow-hidden">
-              <iframe
-                src={resource.videoUrl}
-                className="absolute inset-0 w-full h-full"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                title={resource.title}
-              />
+        {resource.videoUrl && (() => {
+          const embedUrl = getVideoEmbedUrl(resource.videoUrl);
+          if (embedUrl) {
+            return (
+              <div className="mb-12">
+                <div className="relative aspect-video bg-gray-100 rounded-sm overflow-hidden">
+                  <iframe
+                    src={embedUrl}
+                    className="absolute inset-0 w-full h-full"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    title={resource.title}
+                  />
+                </div>
+              </div>
+            );
+          }
+          return (
+            <div className="mb-12">
+              <a
+                href={resource.videoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center text-foreground hover:underline"
+              >
+                Voir la vidéo
+                <ExternalLink className="w-4 h-4 ml-2" />
+              </a>
             </div>
-          </div>
-        )}
+          );
+        })()}
 
         {(prevResource || nextResource) && (
           <nav

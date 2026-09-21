@@ -189,15 +189,16 @@ Pour ajouter une citation : Studio → **Citation presse** → Create new, puis 
 
 ### Dossier de presse (PDF)
 
-Le lien **« Télécharger le dossier de presse (PDF) »** dans la section Presse est pour l’instant **inactif** : aucun fichier ni URL n’est géré dans le Studio.
+Le lien **« Télécharger le dossier de presse (PDF) »** apparaît dans la section Presse **uniquement** si un fichier PDF est renseigné dans le Studio.
 
-**Marche à suivre manuelle :**
+**Marche à suivre :**
 
 1. Préparer un PDF (regroupement d’articles, bio, photos).
-2. L’héberger (votre hébergeur, Cloudflare R2, ou autre) et récupérer l’URL du fichier.
-3. Communiquer cette URL au développeur pour qu’il la branche sur le bouton.
+2. Studio → **Paramètres du site** → champ **Dossier de presse (PDF)**.
+3. Uploader le fichier PDF, puis sauvegarder / publier.
+4. Sur le site, le lien de téléchargement pointe vers ce fichier. Si le champ est vide, le lien est masqué.
 
-Si une évolution du site est prévue (champ « URL du dossier de presse » dans les paramètres), vous pourrez ensuite coller vous-même l’URL dans le Studio.
+Pour remplacer le dossier : uploader un nouveau PDF au même endroit et publier.
 
 ---
 
@@ -234,11 +235,41 @@ Les textes de la **page d’accueil** (bandeau principal, titres de sections, co
 
 ---
 
-## 8. Enregistrement de vidéos (OBS Studio)
+## 8. Vidéos et images dans les textes
 
-Le site n’enregistre pas les vidéos ; il peut en **afficher** via une URL (YouTube, Vimeo, ou hébergement propre). Les champs **URL vidéo** existent déjà dans certains contenus (Ressource, Journal).
+Le site n’enregistre pas les vidéos ; il les **affiche** via une URL YouTube ou Vimeo. Les images dans les articles peuvent être mises en page pour que le texte les entoure.
 
-**Recommandation pour enregistrer des vidéos** (démonstrations, ateliers, etc.) : **OBS Studio** est un bon choix — gratuit, compatible Windows 10 et 11, permet l’enregistrement écran et webcam et l’export en vidéo. Une fois la vidéo en ligne, renseignez son URL dans le Studio (Ressource ou Journal) dans le champ **URL vidéo** pour qu’elle s’affiche sur le site.
+### Ajouter une vidéo au milieu d’un texte (cours, expos, écrits…)
+
+Valable pour **Enseignement** (ateliers, histoire de l’art, technique), **Critiques / Expositions à voir**, **Expositions** (contenu de la fiche), Journal, etc.
+
+1. Ouvrir le document dans le Studio.
+2. Dans le champ **Contenu**, cliquer pour insérer un bloc **« Vidéo »**.
+3. Coller l’URL YouTube ou Vimeo, éventuellement un titre / légende et une mise en page.
+4. Publier.
+
+### Vidéo en bas de fiche (Ressource / Journal)
+
+Les documents **Ressource** et **Journal** ont aussi un champ **« URL vidéo (bas de page) »** : la vidéo s’affiche **sous** le texte. Préférez le **bloc Vidéo dans le Contenu** si la vidéo doit illustrer un passage précis.
+
+### Images et texte autour
+
+1. Dans le **Contenu**, insérer un bloc **« Image »** (pas l’ancienne image simple sans mise en page).
+2. Choisir la **mise en page** :
+   - **Flottant gauche** / **Flottant droite** : le texte entoure l’image (recommandé pour illustrer un paragraphe).
+   - **Centré** / **Entre le texte** / **Pleine largeur** : l’image reste en bloc, sans texte sur les côtés.
+3. Choisir une **taille** (Petit / Moyen / Grand) — ignorée en pleine largeur.
+4. Sur mobile, les images flottantes passent en pleine largeur sous le texte.
+
+L’aperçu dans le Studio montre un **schéma** de la disposition (float vs pleine largeur), pas un rendu pixel-perfect du site.
+
+### Performances
+
+Studio → **Performance** : titre, **description** (texte optionnel sous la vidéo), URL YouTube, ordre d’affichage.
+
+### Enregistrement de vidéos (OBS Studio)
+
+**Recommandation** pour enregistrer des démonstrations ou ateliers : **OBS Studio** (gratuit, Windows). Une fois la vidéo en ligne sur YouTube ou Vimeo, collez son URL dans le Studio.
 
 ---
 
@@ -247,8 +278,9 @@ Le site n’enregistre pas les vidéos ; il peut en **afficher** via une URL (Yo
 - **Expositions** : le statut (En cours, À venir, Archives) est calculé automatiquement à partir des dates ; pas de case à cocher.
 - **« En savoir plus »** : affiché seulement si un **Lien externe** est renseigné ; vide = pas de bouton.
 - **Galerie** : pas de recherche par titre ni par référence ; pas de champ référence (ex. 01T25) sur les tableaux. Affichage : titre + année ; tri par année.
-- **Dossier de presse** : le bouton PDF est inactif tant qu’une URL n’est pas configurée (voir section Presse).
+- **Dossier de presse** : le bouton PDF n’apparaît que si un fichier est uploadé dans Paramètres du site (voir section Presse).
 - **Biographie** : si aucun document Biographie n’existe dans le Studio, le site affiche une biographie par défaut.
+- **Vidéos** : YouTube / Vimeo uniquement (pas d’upload de fichier vidéo dans le Studio).
 
 ---
 
@@ -269,7 +301,6 @@ Ces évolutions peuvent être mises en œuvre selon vos besoins ; elles ne sont 
 
 - **Expositions** : possibilité de masquer le lien « En savoir plus » ou de proposer un lien interne (vers une page du site).
 - **Tableaux** : évolutions complémentaires possibles (recherche par titre en galerie, etc.).
-- **Dossier de presse** : champ « URL du dossier de presse (PDF) » dans les paramètres du site, pour que vous puissiez mettre à jour le lien vous-même.
 - **Clarification** : libellés ou sous-titres sur le site pour distinguer clairement « Mes expositions » (vos expos) et « Mes textes sur les expos » (Critiques → Expositions à voir).
 
 Ces améliorations pourront être détaillées et planifiées avec le développeur si vous le souhaitez.

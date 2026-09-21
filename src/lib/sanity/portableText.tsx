@@ -8,12 +8,15 @@ interface PortableTextProps {
   className?: string;
 }
 
+/** Classes de mise en page : float annulé sous md (empilement mobile). */
 const LAYOUT_CLASSES: Record<string, string> = {
-  fullWidth: "w-full",
+  fullWidth: "w-full max-w-none",
   centered: "mx-auto max-w-[720px]",
   betweenText: "mx-auto my-6 max-w-[720px]",
-  floatLeft: "float-left mr-4 mb-4 w-full max-w-[50%]",
-  floatRight: "float-right ml-4 mb-4 w-full max-w-[50%]",
+  floatLeft:
+    "w-full max-w-full mb-4 md:float-left md:mr-4 md:mb-4 md:w-[min(100%,50%)] md:max-w-[50%]",
+  floatRight:
+    "w-full max-w-full mb-4 md:float-right md:ml-4 md:mb-4 md:w-[min(100%,50%)] md:max-w-[50%]",
 };
 
 const SIZE_CLASSES: Record<string, string> = {
@@ -21,6 +24,14 @@ const SIZE_CLASSES: Record<string, string> = {
   medium: "max-w-md",
   large: "max-w-2xl",
 };
+
+function layoutAndSizeClasses(layout: string, size?: string): string {
+  const layoutClass = LAYOUT_CLASSES[layout] ?? LAYOUT_CLASSES.floatLeft;
+  // Pleine largeur : ignorer la taille pour ne pas écraser w-full
+  if (layout === "fullWidth") return layoutClass;
+  const sizeClass = size ? SIZE_CLASSES[size] ?? "" : "";
+  return `${layoutClass} ${sizeClass}`.trim();
+}
 
 /** Normalise une URL vidéo en URL d'embed (YouTube, Vimeo) et force HTTPS. */
 function normalizeVideoEmbedUrl(input: string): string | null {
@@ -74,23 +85,26 @@ function VideoEmbedBlock({
   const url = normalizeVideoEmbedUrl(rawUrl);
   if (!url) return null;
   const layout = value.layout || "betweenText";
-  const layoutClass = LAYOUT_CLASSES[layout] ?? LAYOUT_CLASSES.betweenText;
+  const layoutClass = layoutAndSizeClasses(layout);
   return (
-    <div className={`relative aspect-video overflow-hidden rounded-sm bg-gray-100 ${layoutClass}`}>
-      <iframe
-        src={url}
-        className="absolute inset-0 h-full w-full"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
-        title={value.title || "Vidéo"}
-      />
+    <figure className={`my-6 ${layoutClass}`.trim()}>
+      <div className="relative aspect-video overflow-hidden rounded-sm bg-gray-100">
+        <iframe
+          src={url}
+          className="absolute inset-0 h-full w-full"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          title={value.title || "Vidéo"}
+        />
+      </div>
       {value.title && (
-        <p className="mt-2 text-sm text-gray-medium">{value.title}</p>
+        <figcaption className="mt-2 text-sm text-gray-medium">{value.title}</figcaption>
       )}
-    </div>
+    </figure>
   );
 }
 
+/** Rendu legacy pour les blocs `_type: "image"` déjà publiés (plus proposés à l'insertion). */
 function ImageBlock({
   value,
 }: {
@@ -145,15 +159,14 @@ function ImageWithLayoutBlock({
       return null;
     }
   }
-  const layout = value.layout || "betweenText";
-  const layoutClass = LAYOUT_CLASSES[layout] ?? LAYOUT_CLASSES.betweenText;
-  const sizeClass = value.size ? SIZE_CLASSES[value.size] ?? "" : "";
+  const layout = value.layout || "floatLeft";
+  const classes = layoutAndSizeClasses(layout, value.size);
   return (
-    <figure className={`my-6 ${layoutClass} ${sizeClass}`.trim()}>
+    <figure className={`my-6 ${classes}`.trim()}>
       <img
         src={src}
         alt={value.caption || ""}
-        className="h-auto max-w-full rounded-sm object-contain"
+        className="h-auto w-full max-w-full rounded-sm object-contain"
       />
       {value.caption && (
         <figcaption className="mt-2 text-sm text-gray-medium">{value.caption}</figcaption>
@@ -209,7 +222,9 @@ export default function PortableText({ content, className = "" }: PortableTextPr
     ? (content as TypedObject | TypedObject[])
     : [];
   return (
-    <div className={`prose prose-lg max-w-none text-foreground [&_p]:text-foreground [&_h1]:text-foreground [&_h2]:text-foreground [&_h3]:text-foreground ${className}`}>
+    <div
+      className={`portable-text prose prose-lg max-w-none text-foreground [&_p]:text-foreground [&_h1]:text-foreground [&_h2]:text-foreground [&_h3]:text-foreground ${className}`}
+    >
       <SanityPortableText value={value} components={portableTextComponents} />
     </div>
   );

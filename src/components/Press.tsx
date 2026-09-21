@@ -17,6 +17,8 @@ const LOAD_MORE_STEP = 6;
 interface PressProps {
   articles: PressArticle[];
   quotes: PressQuote[];
+  pressKitUrl?: string | null;
+  pressKitFilename?: string | null;
 }
 
 function formatDate(dateString: string | null | undefined) {
@@ -119,7 +121,12 @@ function PressArticleVideoCard({ article, embedUrl }: { article: PressArticle; e
   );
 }
 
-export default function Press({ articles, quotes }: PressProps) {
+export default function Press({
+  articles,
+  quotes,
+  pressKitUrl,
+  pressKitFilename,
+}: PressProps) {
   const isMobile = useMediaQuery("(max-width: 768px)");
   const initialDisplay = isMobile ? INITIAL_DISPLAY_MOBILE : INITIAL_DISPLAY_DESKTOP;
   const [displayCountQuotes, setDisplayCountQuotes] = useState(initialDisplay);
@@ -136,6 +143,9 @@ export default function Press({ articles, quotes }: PressProps) {
   const displayedArticles = articles.slice(0, displayCountArticles);
   const hasMoreQuotes = displayCountQuotes < quotes.length;
   const hasMoreArticles = displayCountArticles < articles.length;
+  const pressKitHref = pressKitUrl?.trim() || null;
+  const pressKitDownloadName =
+    pressKitFilename?.trim() || "dossier-de-presse.pdf";
 
   return (
     <section id="press" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
@@ -151,13 +161,18 @@ export default function Press({ articles, quotes }: PressProps) {
           <p className="text-gray-medium max-w-2xl mx-auto mb-8">
             Articles, critiques et citations sur l'œuvre d'Hugues Absil
           </p>
-          <a
-            href="#"
-            className="inline-flex items-center text-sm text-foreground hover:opacity-80 transition-opacity"
-          >
-            <Download className="w-4 h-4 mr-2" />
-            Télécharger le dossier de presse (PDF)
-          </a>
+          {pressKitHref ? (
+            <a
+              href={pressKitHref}
+              download={pressKitDownloadName}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center text-sm text-foreground hover:opacity-80 transition-opacity"
+            >
+              <Download className="w-4 h-4 mr-2" />
+              Télécharger le dossier de presse (PDF)
+            </a>
+          ) : null}
         </motion.div>
 
         {quotes.length > 0 && (

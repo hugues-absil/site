@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Card from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
+import ExpandableText from "@/components/ui/ExpandableText";
 import type { Performance } from "@/lib/sanity/data";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 
@@ -79,9 +80,18 @@ export default function Performances({ performances }: PerformancesProps) {
                         title={perf.title ?? "Vidéo performance"}
                       />
                     </div>
-                    {perf.title && (
-                      <div className="p-4">
-                        <h3 className="font-serif text-lg font-semibold">{perf.title}</h3>
+                    {(perf.title || perf.description?.trim()) && (
+                      <div className="p-4 flex flex-col gap-2">
+                        {perf.title && (
+                          <h3 className="font-serif text-lg font-semibold">{perf.title}</h3>
+                        )}
+                        {perf.description?.trim() && (
+                          <ExpandableText
+                            text={perf.description}
+                            maxLength={120}
+                            textClassName="text-sm text-gray-medium leading-relaxed"
+                          />
+                        )}
                       </div>
                     )}
                   </Card>

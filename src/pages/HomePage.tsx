@@ -115,7 +115,12 @@ export default function HomePage() {
       <Exhibitions exhibitions={exhibitions} />
       <Biography biography={biography} />
       {films.length > 0 && <Films films={films} />}
-      <Press articles={pressArticles} quotes={pressQuotes} />
+      <Press
+        articles={pressArticles}
+        quotes={pressQuotes}
+        pressKitUrl={siteSettings?.pressKitUrl}
+        pressKitFilename={siteSettings?.pressKitFilename}
+      />
       <Performances performances={performances} />
       <Critiques />
       <Enseignement />

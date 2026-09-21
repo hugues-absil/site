@@ -12,6 +12,13 @@ export const performance = defineType({
       description: "Titre optionnel de la vidéo (ex. nom de l'événement, lieu)",
     }),
     defineField({
+      name: "description",
+      type: "text",
+      title: "Description",
+      description: "Texte optionnel accompagnant la vidéo (contexte, lieu, date…).",
+      rows: 4,
+    }),
+    defineField({
       name: "url",
       type: "url",
       title: "URL YouTube",
@@ -38,13 +45,25 @@ export const performance = defineType({
     },
   ],
   preview: {
-    select: { title: "title", url: "url" },
-    prepare({ title, url }: { title?: string; url?: string }) {
+    select: { title: "title", url: "url", description: "description" },
+    prepare({
+      title,
+      url,
+      description,
+    }: {
+      title?: string;
+      url?: string;
+      description?: string;
+    }) {
       const label = title || "Sans titre";
       const id = url ? extractYoutubeId(url) : null;
+      const subtitleParts = [
+        id ? `YouTube: ${id}` : url || "—",
+        description?.trim() ? description.trim().slice(0, 60) : null,
+      ].filter(Boolean);
       return {
         title: label,
-        subtitle: id ? `YouTube: ${id}` : url || "—",
+        subtitle: subtitleParts.join(" · "),
       };
     },
   },

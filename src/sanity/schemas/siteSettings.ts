@@ -177,5 +177,25 @@ export const siteSettings = defineType({
       title: "Message en cas d'erreur (formulaire)",
       initialValue: "Une erreur est survenue. Veuillez réessayer.",
     }),
+    defineField({
+      name: "pressKit",
+      type: "file",
+      title: "Dossier de presse (PDF)",
+      description:
+        "Fichier PDF téléchargeable depuis la section Presse du site. Si vide, le lien de téléchargement est masqué.",
+      options: {
+        accept: "application/pdf",
+      },
+      validation: (Rule) =>
+        Rule.custom((value) => {
+          if (!value || typeof value !== "object") return true;
+          const asset = (value as { asset?: { _ref?: string } }).asset;
+          if (!asset?._ref) return true;
+          // Les refs Sanity file sont du type file-<id>-pdf (ou autre extension)
+          const ref = asset._ref;
+          if (ref.includes("-pdf") || ref.endsWith("pdf")) return true;
+          return "Veuillez uploader un fichier PDF.";
+        }),
+    }),
   ],
 });

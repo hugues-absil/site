@@ -44,11 +44,10 @@ export const blockContent = defineType({
         ],
       },
     }),
+    // Image avec mise en page (float / centré / pleine largeur).
+    // L'image Sanity native n'est plus proposable à l'insertion ; le renderer
+    // legacy reste dans portableText.tsx pour les contenus déjà publiés.
     defineArrayMember({ type: "imageWithLayout" }),
-    defineArrayMember({
-      type: "image",
-      options: { hotspot: true },
-    }),
     defineArrayMember({ type: "videoEmbed" }),
   ],
 });

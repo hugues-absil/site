@@ -46,7 +46,9 @@ export const advice = defineType({
     defineField({
       name: "videoUrl",
       type: "url",
-      title: "URL vidéo",
+      title: "URL vidéo (bas de page)",
+      description:
+        "URL YouTube ou Vimeo affichée sous le contenu. Pour une vidéo au milieu du texte, utilisez plutôt le bloc « Vidéo » dans le Contenu.",
     }),
     defineField({
       name: "tags",

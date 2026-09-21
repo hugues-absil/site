@@ -165,7 +165,9 @@ export const siteSettingsQuery = groq`*[_type == "siteSettings"][0] {
   contactInfoText,
   contactSuccessMessage,
   contactErrorMessage,
-  galleryUseFeatured
+  galleryUseFeatured,
+  "pressKitUrl": pressKit.asset->url,
+  "pressKitFilename": pressKit.asset->originalFilename
 }`;
 
 export const biographyQuery = groq`*[_type == "biography"][0] {
@@ -243,6 +245,7 @@ export const adviceBySlugQuery = groq`*[_type == "advice" && slug.current == $sl
 export const performancesQuery = groq`*[_type == "performance"] | order(order asc, _createdAt asc) {
   _id,
   title,
+  description,
   url
 }`;
 
