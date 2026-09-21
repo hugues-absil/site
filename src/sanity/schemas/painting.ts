@@ -5,6 +5,7 @@ import { technique } from "./technique";
 import { theme } from "./theme";
 import { paintingStatus } from "./paintingStatus";
 import { ReferenceFieldInput } from "../components/ReferenceFieldInput";
+import { uniqueSlugRule } from "../lib/uniqueSlug";
 
 export const painting = defineType({
   name: "painting",
@@ -21,6 +22,7 @@ export const painting = defineType({
       type: "slug",
       title: "Slug",
       options: { source: "title" },
+      validation: (Rule) => Rule.custom(uniqueSlugRule("painting")),
     }),
     defineField({
       name: "year",

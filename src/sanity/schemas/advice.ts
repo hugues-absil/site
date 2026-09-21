@@ -1,5 +1,6 @@
 import { defineType, defineField } from "sanity";
 import { blockContent } from "./blockContent";
+import { uniqueSlugRule } from "../lib/uniqueSlug";
 
 export const advice = defineType({
   name: "advice",
@@ -16,6 +17,7 @@ export const advice = defineType({
       type: "slug",
       title: "Slug",
       options: { source: "title" },
+      validation: (Rule) => Rule.custom(uniqueSlugRule("advice")),
     }),
     defineField({
       name: "excerpt",
