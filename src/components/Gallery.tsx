@@ -1,5 +1,6 @@
 import { useState, useMemo, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import Image from "@/components/ui/Image";
 import { X, Eye, Maximize2, ChevronLeft, ChevronRight, ChevronDown } from "lucide-react";
 import type { Painting, PaintingRef } from "@/lib/sanity/data";
@@ -7,6 +8,7 @@ import PortableText from "@/lib/sanity/portableText";
 import Card from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
+import { navigateToSection } from "@/lib/sectionHash";
 import {
   comparePaintingsCatalogOrder,
   normalizeReference,
@@ -60,6 +62,7 @@ interface GalleryProps {
 }
 
 export default function Gallery({ paintings, galleryUseFeatured = false }: GalleryProps) {
+  const navigate = useNavigate();
   const isMobile = useMediaQuery("(max-width: 768px)");
   const isSm = useMediaQuery("(min-width: 640px)");
   const isLg = useMediaQuery("(min-width: 1024px)");
@@ -865,8 +868,10 @@ export default function Gallery({ paintings, galleryUseFeatured = false }: Galle
                         variant="primary"
                         onClick={() => {
                           closeLightbox();
-                          const contactSection = document.querySelector("#contact");
-                          if (contactSection) contactSection.scrollIntoView({ behavior: "smooth" });
+                          navigateToSection(navigate, "contact", {
+                            replace: false,
+                            behavior: "smooth",
+                          });
                         }}
                       >
                         S'intéresser à cette œuvre

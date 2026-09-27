@@ -4,6 +4,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import type { NavItem } from "@/lib/sanity/data";
 import SiteSearch, { SiteSearchTrigger } from "@/components/SiteSearch";
+import { useActiveSection } from "@/contexts/ActiveSectionContext";
+import { navigateToSection, normalizeSectionId } from "@/lib/sectionHash";
 
 interface HeaderProps {
   siteName?: string;
@@ -29,19 +31,21 @@ export default function Header({ siteName = "Hugues Absil", navItems = [] }: Hea
   const searchTriggerRef = useRef<HTMLButtonElement | null>(null);
   const location = useLocation();
   const navigate = useNavigate();
+  const { activeSectionId } = useActiveSection();
 
   const handleNavClick = (href: string) => {
     if (!href.startsWith("/")) {
-      const element = document.querySelector(href);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-        // Fermer le menu après la fin du scroll smooth pour ne pas annuler le défilement (reflow du menu interrompt le scroll)
+      if (location.pathname === "/") {
+        navigateToSection(navigate, href, { replace: false, behavior: "smooth" });
         setTimeout(() => setIsMenuOpen(false), 600);
         return;
       }
     }
     setIsMenuOpen(false);
   };
+
+  const isAnchorActive = (href: string) =>
+    location.pathname === "/" && normalizeSectionId(href) === activeSectionId;
 
   const openSearch = (el: HTMLButtonElement) => {
     searchTriggerRef.current = el;
@@ -66,6 +70,7 @@ export default function Header({ siteName = "Hugues Absil", navItems = [] }: Hea
                 navigate("/", { state: { scrollHomeHero: true } });
               }
             }}
+            aria-current={isAnchorActive("#hero") ? "true" : undefined}
           >
             {siteName}
           </Link>
@@ -86,11 +91,15 @@ export default function Header({ siteName = "Hugues Absil", navItems = [] }: Hea
                   </Link>
                 );
               }
+              const active = isAnchorActive(item.href);
               return (
                 <Link
                   key={item.href}
                   to={to}
-                  className="text-sm font-medium text-foreground hover:text-gray-medium transition-colors"
+                  className={`text-sm font-medium transition-colors ${
+                    active ? "text-foreground" : "text-foreground hover:text-gray-medium"
+                  }`}
+                  aria-current={active ? "location" : undefined}
                   onClick={(e) => {
                     if (location.pathname === "/") {
                       e.preventDefault();
@@ -141,15 +150,23 @@ export default function Header({ siteName = "Hugues Absil", navItems = [] }: Hea
                     );
                   }
                   const to = location.pathname !== "/" ? `/${item.href}` : item.href;
+                  const active = isAnchorActive(item.href);
                   return (
                     <Link
                       key={item.href}
                       to={to}
+                      aria-current={active ? "location" : undefined}
                       onClick={(e) => {
-                        e.preventDefault();
-                        handleNavClick(item.href);
+                        if (location.pathname === "/") {
+                          e.preventDefault();
+                          handleNavClick(item.href);
+                        } else {
+                          setIsMenuOpen(false);
+                        }
                       }}
-                      className="block w-full text-left px-4 py-2 text-sm font-medium text-foreground hover:bg-gray-100 transition-colors"
+                      className={`block w-full text-left px-4 py-2 text-sm font-medium transition-colors ${
+                        active ? "bg-gray-100 text-foreground" : "text-foreground hover:bg-gray-100"
+                      }`}
                     >
                       {item.label}
                     </Link>

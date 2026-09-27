@@ -1,6 +1,14 @@
 import { useEffect, useLayoutEffect, useMemo, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useSiteSettings } from "@/contexts/SiteSettingsContext";
+import { useSectionHashSync } from "@/hooks/useSectionHashSync";
+import {
+  consumeHashScrollSuppression,
+  getHashFromLocation,
+  navigateToSection,
+  resolveValidHomeHash,
+  scrollToHashOnArrival,
+} from "@/lib/sectionHash";
 import Hero from "@/components/Hero";
 import Gallery from "@/components/Gallery";
 import Exhibitions from "@/components/Exhibitions";
@@ -12,7 +20,6 @@ import Critiques from "@/components/Critiques";
 import Enseignement from "@/components/Enseignement";
 import Journal from "@/components/Journal";
 import Contact from "@/components/Contact";
-import { resolveHomeHashId } from "@/lib/resourceSection";
 import {
   getPaintings,
   getExhibitions,
@@ -29,6 +36,7 @@ type LogoHomeLocationState = { scrollHomeHero?: boolean };
 
 export default function HomePage() {
   const location = useLocation();
+  const navigate = useNavigate();
   const siteSettings = useSiteSettings();
   const [paintings, setPaintings] = useState<Awaited<ReturnType<typeof getPaintings>>>([]);
   const [exhibitions, setExhibitions] = useState<Awaited<ReturnType<typeof getExhibitions>>>([]);
@@ -43,6 +51,17 @@ export default function HomePage() {
     () => Boolean((location.state as LogoHomeLocationState | null)?.scrollHomeHero),
     [location.state]
   );
+
+  useSectionHashSync(!loading);
+
+  // Pendant « Chargement… », annuler le Y hérité de la page détail (sinon on atterrit en bas = Contact).
+  useLayoutEffect(() => {
+    if (!loading) return;
+    const hasHash = Boolean(location.hash || getHashFromLocation());
+    if (hasHash) {
+      window.scrollTo(0, 0);
+    }
+  }, [loading, location.key, location.hash]);
 
   useEffect(() => {
     Promise.all([
@@ -67,28 +86,22 @@ export default function HomePage() {
     });
   }, []);
 
+  // Retour / deep-link uniquement (les clics menu passent par navigateToSection + suppress).
   useLayoutEffect(() => {
-    if (loading || !location.hash) return;
-    const raw = location.hash.slice(1);
-    if (!raw) return;
-    let id: string;
-    try {
-      id = decodeURIComponent(raw);
-    } catch {
-      id = raw;
-    }
-    id = resolveHomeHashId(id);
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: "auto" });
-    }
-  }, [loading, location.hash]);
+    if (loading) return;
+    if (consumeHashScrollSuppression()) return;
+
+    const raw = location.hash || getHashFromLocation() || "";
+    const id = resolveValidHomeHash(raw);
+    if (!id) return;
+
+    scrollToHashOnArrival(id);
+  }, [loading, location.hash, location.key]);
 
   useLayoutEffect(() => {
     if (loading || !scrollHomeFromLogo) return;
-    const hero = document.getElementById("hero");
-    hero?.scrollIntoView({ behavior: "smooth", block: "start" });
-  }, [loading, scrollHomeFromLogo]);
+    navigateToSection(navigate, "hero", { replace: true, behavior: "smooth" });
+  }, [loading, scrollHomeFromLogo, navigate]);
 
   if (loading) {
     return (

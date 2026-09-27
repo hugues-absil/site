@@ -11,6 +11,7 @@ import {
 } from "react-router-dom";
 import { CRITIQUES_LABEL, CRITIQUES_URL_PREFIX, LEGACY_CRITIQUES_URL_PREFIX, normalizeNavItems } from "@/lib/resourceSection";
 import { SiteSettingsProvider, useSiteSettings } from "@/contexts/SiteSettingsContext";
+import { ActiveSectionProvider } from "@/contexts/ActiveSectionContext";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import HomePage from "@/pages/HomePage";
@@ -22,13 +23,10 @@ import ResourcePage from "@/pages/ResourcePage";
 import StudioPage from "@/pages/StudioPage";
 import NotFoundPage from "@/pages/NotFoundPage";
 
-/** Inclure le hash pour ne pas fusionner `/` et `/#critiques` (sinon on restaure le dernier scroll « accueil » au mauvais endroit). */
+/** Pages hors accueil uniquement — l’accueil gère la position via `#` + scroll manuel. */
 function scrollRestorationKey(location: Location) {
-  return location.pathname + location.search + (location.hash ?? "");
+  return location.pathname + location.search;
 }
-
-/** État posé par le clic sur le logo (retour accueil → hero). */
-type LogoHomeLocationState = { scrollHomeHero?: boolean };
 
 const DEFAULT_NAV_ITEMS = [
   { label: "Accueil", href: "#hero" },
@@ -46,15 +44,25 @@ const DEFAULT_NAV_ITEMS = [
 
 function Layout() {
   const siteSettings = useSiteSettings();
+  const location = useLocation();
   const [hasFilms, setHasFilms] = useState(false);
   const [hasJournal, setHasJournal] = useState(false);
-  const location = useLocation();
+  const isHome = location.pathname === "/" || location.pathname === "";
 
   useEffect(() => {
     import("@/lib/sanity/data").then(({ getFilms, getAdvicePosts }) => {
       getFilms().then((films) => setHasFilms(Array.isArray(films) && films.length > 0));
       getAdvicePosts().then((posts) => setHasJournal(Array.isArray(posts) && posts.length > 0));
     });
+  }, []);
+
+  // Empêche le navigateur de réappliquer un vieux Y au Retour (conflit avec nos ancres).
+  useEffect(() => {
+    const prev = window.history.scrollRestoration;
+    window.history.scrollRestoration = "manual";
+    return () => {
+      window.history.scrollRestoration = prev;
+    };
   }, []);
 
   const navItems = useMemo(() => {
@@ -66,32 +74,23 @@ function Layout() {
     });
   }, [siteSettings?.navItems, hasFilms, hasJournal]);
 
-  useEffect(() => {
-    const state = location.state as LogoHomeLocationState | null;
-    if (location.pathname !== "/" || !state?.scrollHomeHero) return;
-    const hero = document.getElementById("hero");
-    if (hero) {
-      hero.scrollIntoView({ behavior: "smooth", block: "start" });
-    } else {
-      window.scrollTo(0, 0);
-    }
-  }, [location.pathname, location.state]);
-
   return (
-    <div className="min-h-screen flex flex-col">
-      <ScrollRestoration getKey={(loc) => scrollRestorationKey(loc)} />
-      <Header
-        siteName={siteSettings?.siteName ?? "Hugues Absil"}
-        navItems={navItems}
-      />
-      <main className="flex-1">
-        <Outlet />
-      </main>
-      <Footer siteSettings={siteSettings} showFilmsLink={hasFilms} showJournalLink={hasJournal} />
-    </div>
+    <ActiveSectionProvider>
+      <div className="min-h-screen flex flex-col">
+        {/* Pas sur l’accueil : sinon un Y pixel écrase le scroll vers #critiques une fraction de seconde plus tard. */}
+        {!isHome && <ScrollRestoration getKey={(loc) => scrollRestorationKey(loc)} />}
+        <Header
+          siteName={siteSettings?.siteName ?? "Hugues Absil"}
+          navItems={navItems}
+        />
+        <main className="flex-1">
+          <Outlet />
+        </main>
+        <Footer siteSettings={siteSettings} showFilmsLink={hasFilms} showJournalLink={hasJournal} />
+      </div>
+    </ActiveSectionProvider>
   );
 }
-
 function RedirectEcritsToCritiques() {
   const { category, slug } = useParams();
   const path = slug

@@ -1,9 +1,11 @@
 import { useEffect, useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import Image from "@/components/ui/Image";
 import Button from "@/components/ui/Button";
 import { ChevronDown } from "lucide-react";
 import type { HeroImageItem } from "@/lib/sanity/data";
+import { navigateToSection } from "@/lib/sectionHash";
 
 const HERO_IMAGE_FALLBACK_URL =
   "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=1920&h=1080&fit=crop";
@@ -30,12 +32,10 @@ export default function Hero({
   heroSubtitle = "Artiste Contemporain",
   heroCtaLabel = "Découvrir la Galerie",
 }: HeroProps) {
+  const navigate = useNavigate();
   const displaySubtitle = normalizeHeroSubtitle(heroSubtitle);
   const scrollToGallery = () => {
-    const element = document.querySelector("#gallery");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
+    navigateToSection(navigate, "gallery", { replace: false, behavior: "smooth" });
   };
 
   const slides = useMemo(() => {

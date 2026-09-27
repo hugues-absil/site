@@ -17,6 +17,16 @@
   body {
     @apply bg-background text-foreground font-sans antialiased;
   }
+
+  /* Header fixe h-20 : les ancres n’atterrissent pas sous le menu */
+  main section[id] {
+    scroll-margin-top: 5rem;
+  }
+
+  /* Évite que le chargement d’images « pousse » le scroll vers une autre section au Retour */
+  main {
+    overflow-anchor: none;
+  }
 }
 
 @layer utilities {

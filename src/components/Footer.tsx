@@ -1,6 +1,7 @@
 import { Instagram, Linkedin } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import type { SiteSettings } from "@/lib/sanity/data";
+import { navigateToSection } from "@/lib/sectionHash";
 
 interface FooterProps {
   siteSettings?: SiteSettings | null;
@@ -14,6 +15,19 @@ const normalizeFooterSubtitle = (s: string | null | undefined): string => {
   return raw;
 };
 
+const FOOTER_ANCHORS: { label: string; hash: string; show?: "films" | "journal" }[] = [
+  { label: "Galerie", hash: "gallery" },
+  { label: "Expositions", hash: "exhibitions" },
+  { label: "Biographie", hash: "biography" },
+  { label: "Films", hash: "films", show: "films" },
+  { label: "Presse", hash: "press" },
+  { label: "Performances", hash: "performances" },
+  { label: "Critiques", hash: "critiques" },
+  { label: "Enseignement", hash: "enseignement" },
+  { label: "Journal", hash: "journal", show: "journal" },
+  { label: "Contact", hash: "contact" },
+];
+
 export default function Footer({ siteSettings, showFilmsLink = false, showJournalLink = false }: FooterProps) {
   const siteName = siteSettings?.siteName ?? "Hugues Absil";
   const footerSubtitle = normalizeFooterSubtitle(siteSettings?.footerSubtitle);
@@ -21,6 +35,14 @@ export default function Footer({ siteSettings, showFilmsLink = false, showJourna
   const footerSocialTitle = siteSettings?.footerSocialTitle ?? "Réseaux Sociaux";
   const instagramUrl = siteSettings?.instagramUrl ?? "https://instagram.com";
   const linkedinUrl = siteSettings?.linkedinUrl ?? "https://linkedin.com";
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const visibleAnchors = FOOTER_ANCHORS.filter((item) => {
+    if (item.show === "films") return showFilmsLink;
+    if (item.show === "journal") return showJournalLink;
+    return true;
+  });
 
   return (
     <footer className="bg-background border-t border-gray-200 mt-20">
@@ -36,60 +58,25 @@ export default function Footer({ siteSettings, showFilmsLink = false, showJourna
           <div>
             <h3 className="font-serif text-lg font-semibold mb-4">{footerNavTitle}</h3>
             <ul className="space-y-2 text-sm">
-              <li>
-                <Link to="/#gallery" className="text-gray-medium hover:text-foreground transition-colors">
-                  Galerie
-                </Link>
-              </li>
-              <li>
-                <Link to="/#exhibitions" className="text-gray-medium hover:text-foreground transition-colors">
-                  Expositions
-                </Link>
-              </li>
-              <li>
-                <Link to="/#biography" className="text-gray-medium hover:text-foreground transition-colors">
-                  Biographie
-                </Link>
-              </li>
-              {showFilmsLink && (
-                <li>
-                  <Link to="/#films" className="text-gray-medium hover:text-foreground transition-colors">
-                    Films
+              {visibleAnchors.map((item) => (
+                <li key={item.hash}>
+                  <Link
+                    to={`/#${item.hash}`}
+                    className="text-gray-medium hover:text-foreground transition-colors"
+                    onClick={(e) => {
+                      if (location.pathname === "/") {
+                        e.preventDefault();
+                        navigateToSection(navigate, item.hash, {
+                          replace: false,
+                          behavior: "smooth",
+                        });
+                      }
+                    }}
+                  >
+                    {item.label}
                   </Link>
                 </li>
-              )}
-              <li>
-                <Link to="/#press" className="text-gray-medium hover:text-foreground transition-colors">
-                  Presse
-                </Link>
-              </li>
-              <li>
-                <Link to="/#performances" className="text-gray-medium hover:text-foreground transition-colors">
-                  Performances
-                </Link>
-              </li>
-              <li>
-                <Link to="/#critiques" className="text-gray-medium hover:text-foreground transition-colors">
-                  Critiques
-                </Link>
-              </li>
-              <li>
-                <Link to="/#enseignement" className="text-gray-medium hover:text-foreground transition-colors">
-                  Enseignement
-                </Link>
-              </li>
-              {showJournalLink && (
-                <li>
-                  <Link to="/#journal" className="text-gray-medium hover:text-foreground transition-colors">
-                    Journal
-                  </Link>
-                </li>
-              )}
-              <li>
-                <Link to="/#contact" className="text-gray-medium hover:text-foreground transition-colors">
-                  Contact
-                </Link>
-              </li>
+              ))}
             </ul>
           </div>
 
