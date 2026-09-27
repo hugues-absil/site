@@ -59,7 +59,7 @@ function urlEl(loc, lastmod = null, changefreq = "weekly", priority = "0.8") {
 async function fetchSlugs(client) {
   const today = new Date().toISOString().slice(0, 10);
 
-  const [press, advice, resources] = await Promise.all([
+  const [press, advice, resources, exhibitions] = await Promise.all([
     client.fetch(
       `*[_type == "pressArticle" && defined(slug.current)]{ "slug": slug.current }`
     ),
@@ -67,14 +67,29 @@ async function fetchSlugs(client) {
       `*[_type == "advice" && defined(slug.current)]{ "slug": slug.current }`
     ),
     client.fetch(
-      `*[_type == "resource" && defined(slug.current)]{ "slug": slug.current, category }`
+      `*[_type == "resource" && defined(slug.current)]{
+        "slug": slug.current,
+        category,
+        "categoryRefSlug": categoryRef->slug.current,
+        "section": categoryRef->section
+      }`
+    ),
+    client.fetch(
+      `*[_type == "exhibition" && defined(slug.current)]{ "slug": slug.current }`
     ),
   ]);
 
   return {
     press: (press || []).map((p) => p.slug).filter(Boolean),
     advice: (advice || []).map((a) => a.slug).filter(Boolean),
-    resources: (resources || []).map((r) => ({ slug: r.slug, category: r.category })).filter((r) => r.slug && r.category),
+    resources: (resources || [])
+      .map((r) => ({
+        slug: r.slug,
+        category: r.categoryRefSlug || r.category,
+        section: r.section || RESOURCE_SECTION[r.categoryRefSlug || r.category] || "ecrits",
+      }))
+      .filter((r) => r.slug && r.category),
+    exhibitions: (exhibitions || []).map((e) => e.slug).filter(Boolean),
     lastmod: today,
   };
 }
@@ -99,14 +114,20 @@ function buildUrls(slugs) {
 
   // Ressources (critiques + enseignement)
   const seenCategoryPages = new Set();
-  for (const { slug, category } of slugs.resources) {
-    const section = RESOURCE_SECTION[category] || "ecrits";
-    const prefix = section === "ecrits" ? "critiques" : "enseignement";
+  for (const row of slugs.resources) {
+    const section = row.section || RESOURCE_SECTION[row.category] || "ecrits";
+    const prefix = section === "enseignement" ? "enseignement" : "critiques";
+    const { slug, category } = row;
     urls.push(urlEl(`${BASE_URL}/${prefix}/${category}/${slug}`, lastmod));
     if (!seenCategoryPages.has(prefix + "/" + category)) {
       seenCategoryPages.add(prefix + "/" + category);
       urls.push(urlEl(`${BASE_URL}/${prefix}/${category}`, lastmod, "weekly", "0.7"));
     }
+  }
+
+  // Expositions avec page dédiée
+  for (const slug of slugs.exhibitions || []) {
+    urls.push(urlEl(`${BASE_URL}/expositions/${slug}`, lastmod));
   }
 
   // Dédupliquer les pages catégorie (une seule entrée par catégorie)
@@ -149,6 +170,7 @@ async function main() {
       press: [],
       advice: [],
       resources: [],
+      exhibitions: [],
       lastmod: new Date().toISOString().slice(0, 10),
     };
   }

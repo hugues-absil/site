@@ -8,6 +8,7 @@ import {
   shouldShowConditionalField,
   type EditorProfile,
 } from "../lib/resourceEditorProfile";
+import { uniqueSlugRule } from "../lib/uniqueSlug";
 
 function profileOf(document: Record<string, unknown> | undefined): EditorProfile | undefined {
   const p = document?.editorProfile;
@@ -52,6 +53,7 @@ export const resource = defineType({
       type: "slug",
       title: "Slug",
       options: { source: "title" },
+      validation: (Rule) => Rule.custom(uniqueSlugRule("resource")),
     }),
     defineField({
       name: "category",

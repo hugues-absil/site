@@ -5,9 +5,11 @@ import assert from "node:assert/strict";
 import {
   buildSearchIndexFromPayload,
   exhibitionHref,
+  filmHref,
   isSearchQueryReady,
   journalHref,
   normalizeSearchText,
+  paintingHref,
   pressHref,
   resourceHref,
   resourceSectionAndLeaf,
@@ -43,6 +45,10 @@ assert.equal(
 );
 assert.equal(exhibitionHref("salon-2024"), "/expositions/salon-2024");
 assert.equal(exhibitionHref(null), "/#exhibitions");
+assert.equal(paintingHref("contemplation-nocturne"), "/?painting=contemplation-nocturne#gallery");
+assert.equal(paintingHref(null), "/#gallery");
+assert.equal(filmHref("enfance"), "/?film=enfance#films");
+assert.equal(filmHref(""), "/#films");
 assert.equal(pressHref("article"), "/presse/article");
 assert.equal(pressHref(undefined), "/#press");
 assert.equal(journalHref("note"), "/journal/note");
@@ -147,11 +153,27 @@ const payloadItems = buildSearchIndexFromPayload({
       excerpt: "Une visite",
     },
   ],
-  exhibitions: [{ _id: "e1", title: "Salon", city: "Paris" }],
+  paintings: [
+    {
+      _id: "p1",
+      title: "Contemplation Nocturne",
+      slug: "contemplation-nocturne",
+      year: 2024,
+      reference: "24T01",
+    },
+  ],
+  films: [{ _id: "f1", title: "L'enfance", slug: "l-enfance", year: "2020" }],
+  exhibitions: [{ _id: "e1", title: "Salon", city: "Paris", slug: "salon-paris" }],
   biography: { _id: "bio", bodyText: "Né en 1961", nationality: "Français", birthYear: 1961 },
 });
 assert.ok(payloadItems.some((item) => item.href === "/critiques/oeil-expo/monet-giverny"));
-assert.ok(payloadItems.some((item) => item.href === "/#exhibitions" && item.group === "exhibition"));
+assert.ok(payloadItems.some((item) => item.href === "/expositions/salon-paris" && item.group === "exhibition"));
+assert.ok(
+  payloadItems.some(
+    (item) => item.group === "painting" && item.href === "/?painting=contemplation-nocturne#gallery"
+  )
+);
+assert.ok(payloadItems.some((item) => item.group === "film" && item.href === "/?film=l-enfance#films"));
 assert.ok(payloadItems.some((item) => item.title === "Biographie" && item.bodyText.includes("1961")));
 assert.ok(payloadItems.some((item) => item.title === "Contact" && item.href === "/#contact"));
 

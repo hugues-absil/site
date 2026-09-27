@@ -1,4 +1,5 @@
 import { useState, useMemo, useEffect, useRef } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "@/components/ui/Image";
 import { X, Eye, Maximize2, ChevronLeft, ChevronRight, ChevronDown } from "lucide-react";
@@ -60,6 +61,11 @@ interface GalleryProps {
 }
 
 export default function Gallery({ paintings, galleryUseFeatured = false }: GalleryProps) {
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const paintingParam = searchParams.get("painting")?.trim() || "";
+  /** Dernier `?painting=` appliqué (évite de rouvrir / boucler lors des navigations). */
+  const [appliedPaintingParam, setAppliedPaintingParam] = useState<string | null>(null);
   const isMobile = useMediaQuery("(max-width: 768px)");
   const isSm = useMediaQuery("(min-width: 640px)");
   const isLg = useMediaQuery("(min-width: 1024px)");
@@ -308,12 +314,56 @@ export default function Gallery({ paintings, galleryUseFeatured = false }: Galle
   const openLightbox = (painting: Painting) => {
     setSelectedPainting(painting);
     setShowInSitu(false);
+    const slug = painting.slug?.trim();
+    if (slug) {
+      setAppliedPaintingParam(slug);
+      const params = new URLSearchParams(searchParams);
+      params.set("painting", slug);
+      navigate({ pathname: "/", search: `?${params.toString()}`, hash: "gallery" }, { replace: true });
+    }
   };
 
   const closeLightbox = () => {
     setSelectedPainting(null);
     setShowInSitu(false);
+    // Garder `appliedPaintingParam` aligné sur le slug encore dans l’URL jusqu’à ce que
+    // searchParams se mette à jour — sinon le sync deep-link rouvrirait la modal.
+    const params = new URLSearchParams(searchParams);
+    if (params.has("painting")) {
+      params.delete("painting");
+      const search = params.toString();
+      navigate(
+        { pathname: "/", search: search ? `?${search}` : "", hash: "gallery" },
+        { replace: true }
+      );
+    } else {
+      setAppliedPaintingParam(null);
+    }
   };
+
+  // Deep link /?painting=slug : synchroniser pendant le rendu (évite setState-in-effect).
+  if (paintingParam && paintings.length > 0 && appliedPaintingParam !== paintingParam) {
+    const match = paintings.find((p) => p.slug === paintingParam);
+    setAppliedPaintingParam(paintingParam);
+    if (match) {
+      setSelectedTechnique("all");
+      setSelectedTheme("all");
+      setSelectedStatus("all");
+      setSelectedSeries("all");
+      setReferenceSearch("");
+      setShowFullGallery(true);
+      setDisplayCount(Math.max(paintings.length, initialDisplayCount));
+      setSelectedPainting(match);
+      setShowInSitu(false);
+    }
+  }
+  if (!paintingParam && appliedPaintingParam) {
+    setAppliedPaintingParam(null);
+    if (selectedPainting !== null) {
+      setSelectedPainting(null);
+      setShowInSitu(false);
+    }
+  }
 
   return (
     <section id="gallery" className="py-20 px-4 sm:px-6 lg:px-8">

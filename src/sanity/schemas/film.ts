@@ -1,5 +1,6 @@
 import { defineType, defineField } from "sanity";
 import { blockContent } from "./blockContent";
+import { uniqueSlugRule } from "../lib/uniqueSlug";
 
 export const film = defineType({
   name: "film",
@@ -17,6 +18,7 @@ export const film = defineType({
       title: "Slug",
       options: { source: "title" },
       description: "Optionnel, utile pour une page dédiée par film plus tard.",
+      validation: (Rule) => Rule.custom(uniqueSlugRule("film")),
     }),
     defineField({
       name: "director",

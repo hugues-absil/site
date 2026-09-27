@@ -1,5 +1,6 @@
 import { defineType, defineField } from "sanity";
 import { blockContent } from "./blockContent";
+import { uniqueSlugRule } from "../lib/uniqueSlug";
 
 export const exhibition = defineType({
   name: "exhibition",
@@ -24,6 +25,7 @@ export const exhibition = defineType({
       description:
         "Générez-le à partir du titre (bouton « Générer »). Nécessaire pour la page dédiée sur le site : /expositions/votre-slug. Sans slug, la carte reste cliquable uniquement vers un lien externe éventuel.",
       options: { source: "title", maxLength: 96 },
+      validation: (Rule) => Rule.custom(uniqueSlugRule("exhibition")),
     }),
     defineField({
       name: "image",

@@ -28,6 +28,9 @@ dist-ssr
 .env.*
 !.env.example
 
+# Journaux de réparation Sanity
+scripts/repair-logs/
+
 # Archives locales (ne pas versionner)
 *.zip
 dist/

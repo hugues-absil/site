@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import { useSearchParams } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "@/components/ui/Image";
 import { ChevronDown, ChevronUp, ExternalLink } from "lucide-react";
@@ -24,12 +25,15 @@ function hasArticle(article: unknown): boolean {
   return Array.isArray(article) && article.length > 0;
 }
 
-function FilmCard({ film }: { film: Film }) {
-  const [articleOpen, setArticleOpen] = useState(false);
+function FilmCard({ film, forceArticleOpen = false }: { film: Film; forceArticleOpen?: boolean }) {
+  const [manualArticleOpen, setManualArticleOpen] = useState(false);
+  const articleOpen = forceArticleOpen || manualArticleOpen;
   const embedUrl = film.videoUrl ? getVideoEmbedUrl(film.videoUrl) : null;
+  const slug = film.slug?.trim() || film._id;
 
   return (
     <motion.div
+      id={`film-${slug}`}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -116,7 +120,7 @@ function FilmCard({ film }: { film: Film }) {
             <div className="border-t border-gray-200 pt-4">
               <button
                 type="button"
-                onClick={() => setArticleOpen((o) => !o)}
+                onClick={() => setManualArticleOpen((o) => !o)}
                 className="flex items-center justify-between w-full text-left text-sm font-medium text-foreground hover:opacity-80"
                 aria-expanded={articleOpen}
               >
@@ -155,18 +159,33 @@ interface FilmsProps {
 }
 
 export default function Films({ films }: FilmsProps) {
+  const [searchParams] = useSearchParams();
+  const filmParam = searchParams.get("film")?.trim() || "";
+  const scrolledRef = useRef<string | null>(null);
   const isMobile = useMediaQuery("(max-width: 768px)");
   const initialDisplay = isMobile ? INITIAL_DISPLAY_MOBILE : INITIAL_DISPLAY_DESKTOP;
   const [displayCount, setDisplayCount] = useState(initialDisplay);
 
+  const filmTargetIndex =
+    filmParam && films?.length
+      ? films.findIndex((f) => f.slug === filmParam || f._id === filmParam)
+      : -1;
+  const effectiveDisplayCount =
+    filmTargetIndex >= 0 ? Math.max(displayCount, filmTargetIndex + 1) : displayCount;
+
   useEffect(() => {
-    if (isMobile) setDisplayCount((c) => Math.min(c, INITIAL_DISPLAY_MOBILE));
-  }, [isMobile]);
+    if (!filmParam || !films?.length) return;
+    if (scrolledRef.current === filmParam) return;
+    const el = document.getElementById(`film-${filmParam}`);
+    if (!el) return;
+    scrolledRef.current = filmParam;
+    el.scrollIntoView({ behavior: "smooth", block: "center" });
+  }, [filmParam, films, effectiveDisplayCount]);
 
   if (!films || films.length === 0) return null;
 
-  const displayedFilms = films.slice(0, displayCount);
-  const hasMore = displayCount < films.length;
+  const displayedFilms = films.slice(0, effectiveDisplayCount);
+  const hasMore = effectiveDisplayCount < films.length;
 
   return (
     <section id="films" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
@@ -190,7 +209,11 @@ export default function Films({ films }: FilmsProps) {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {displayedFilms.map((film) => (
-            <FilmCard key={film._id} film={film} />
+            <FilmCard
+              key={film._id}
+              film={film}
+              forceArticleOpen={Boolean(filmParam && (film.slug === filmParam || film._id === filmParam))}
+            />
           ))}
         </div>
         {hasMore && (
