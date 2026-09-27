@@ -2,7 +2,7 @@ import { useState, useMemo, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import Image from "@/components/ui/Image";
-import { X, Eye, Maximize2, ChevronLeft, ChevronRight, ChevronDown } from "lucide-react";
+import { X, Eye, Maximize2, ChevronLeft, ChevronRight, ChevronDown, RotateCcw } from "lucide-react";
 import type { Painting, PaintingRef } from "@/lib/sanity/data";
 import PortableText from "@/lib/sanity/portableText";
 import Card from "@/components/ui/Card";
@@ -259,6 +259,41 @@ export default function Gallery({ paintings, galleryUseFeatured = false }: Galle
 
   const referenceFilterActive = referenceQueryNorm.length > 0;
 
+  const selectedSeriesTitle =
+    selectedSeries !== "all"
+      ? seriesList.find((s) => getRefKey(s) === selectedSeries)?.title
+      : undefined;
+  const selectedTechniqueTitle =
+    selectedTechnique !== "all"
+      ? techniqueList.find((t) => getRefKey(t) === selectedTechnique)?.title
+      : undefined;
+  const selectedThemeTitle =
+    selectedTheme !== "all"
+      ? themeList.find((t) => getRefKey(t) === selectedTheme)?.title
+      : undefined;
+  const selectedStatusTitle =
+    selectedStatus !== "all"
+      ? statusList.find((s) => getRefKey(s) === selectedStatus)?.title
+      : undefined;
+
+  const anyFilterActive =
+    selectedSeries !== "all" ||
+    selectedTechnique !== "all" ||
+    selectedTheme !== "all" ||
+    selectedStatus !== "all" ||
+    catalogOrder ||
+    referenceFilterActive;
+
+  const resetAllFilters = () => {
+    setSelectedSeries("all");
+    setSelectedTechnique("all");
+    setSelectedTheme("all");
+    setSelectedStatus("all");
+    setCatalogOrder(false);
+    setReferenceSearch("");
+    setOpenFilter(null);
+  };
+
   useEffect(() => {
     setShowFullGallery(false);
     setDisplayCount(initialDisplayCount);
@@ -342,19 +377,26 @@ export default function Gallery({ paintings, galleryUseFeatured = false }: Galle
           className="mb-12"
           ref={filterDropdownRef}
         >
-          <div className="flex flex-wrap gap-6 justify-center items-start">
+          <div className="flex flex-wrap gap-6 justify-center items-center">
             {seriesList.length > 0 && (
               <div className="relative">
                 <button
                   type="button"
                   onClick={() => setOpenFilter((f) => (f === "series" ? null : "series"))}
-                  className="flex items-center gap-1 text-sm font-medium text-foreground hover:text-foreground/80 transition-colors"
+                  className={`flex items-center gap-1.5 text-sm font-medium text-foreground hover:text-foreground/80 transition-colors ${
+                    selectedSeriesTitle ? "font-semibold" : ""
+                  }`}
                   aria-expanded={openFilter === "series"}
                   aria-haspopup="listbox"
                 >
-                  Série
+                  <span className="max-w-[10rem] truncate sm:max-w-[14rem]">
+                    {selectedSeriesTitle ? `Série · ${selectedSeriesTitle}` : "Série"}
+                  </span>
+                  {selectedSeriesTitle && (
+                    <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-foreground/70" aria-hidden />
+                  )}
                   <ChevronDown
-                    className={`w-4 h-4 transition-transform ${openFilter === "series" ? "rotate-180" : ""}`}
+                    className={`w-4 h-4 shrink-0 transition-transform ${openFilter === "series" ? "rotate-180" : ""}`}
                   />
                 </button>
                 {openFilter === "series" && (
@@ -397,13 +439,20 @@ export default function Gallery({ paintings, galleryUseFeatured = false }: Galle
                 <button
                   type="button"
                   onClick={() => setOpenFilter((f) => (f === "technique" ? null : "technique"))}
-                  className="flex items-center gap-1 text-sm font-medium text-foreground hover:text-foreground/80 transition-colors"
+                  className={`flex items-center gap-1.5 text-sm font-medium text-foreground hover:text-foreground/80 transition-colors ${
+                    selectedTechniqueTitle ? "font-semibold" : ""
+                  }`}
                   aria-expanded={openFilter === "technique"}
                   aria-haspopup="listbox"
                 >
-                  Technique
+                  <span className="max-w-[10rem] truncate sm:max-w-[14rem]">
+                    {selectedTechniqueTitle ? `Technique · ${selectedTechniqueTitle}` : "Technique"}
+                  </span>
+                  {selectedTechniqueTitle && (
+                    <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-foreground/70" aria-hidden />
+                  )}
                   <ChevronDown
-                    className={`w-4 h-4 transition-transform ${openFilter === "technique" ? "rotate-180" : ""}`}
+                    className={`w-4 h-4 shrink-0 transition-transform ${openFilter === "technique" ? "rotate-180" : ""}`}
                   />
                 </button>
                 {openFilter === "technique" && (
@@ -446,13 +495,20 @@ export default function Gallery({ paintings, galleryUseFeatured = false }: Galle
                 <button
                   type="button"
                   onClick={() => setOpenFilter((f) => (f === "theme" ? null : "theme"))}
-                  className="flex items-center gap-1 text-sm font-medium text-foreground hover:text-foreground/80 transition-colors"
+                  className={`flex items-center gap-1.5 text-sm font-medium text-foreground hover:text-foreground/80 transition-colors ${
+                    selectedThemeTitle ? "font-semibold" : ""
+                  }`}
                   aria-expanded={openFilter === "theme"}
                   aria-haspopup="listbox"
                 >
-                  Thème
+                  <span className="max-w-[10rem] truncate sm:max-w-[14rem]">
+                    {selectedThemeTitle ? `Thème · ${selectedThemeTitle}` : "Thème"}
+                  </span>
+                  {selectedThemeTitle && (
+                    <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-foreground/70" aria-hidden />
+                  )}
                   <ChevronDown
-                    className={`w-4 h-4 transition-transform ${openFilter === "theme" ? "rotate-180" : ""}`}
+                    className={`w-4 h-4 shrink-0 transition-transform ${openFilter === "theme" ? "rotate-180" : ""}`}
                   />
                 </button>
                 {openFilter === "theme" && (
@@ -495,13 +551,20 @@ export default function Gallery({ paintings, galleryUseFeatured = false }: Galle
                 <button
                   type="button"
                   onClick={() => setOpenFilter((f) => (f === "status" ? null : "status"))}
-                  className="flex items-center gap-1 text-sm font-medium text-foreground hover:text-foreground/80 transition-colors"
+                  className={`flex items-center gap-1.5 text-sm font-medium text-foreground hover:text-foreground/80 transition-colors ${
+                    selectedStatusTitle ? "font-semibold" : ""
+                  }`}
                   aria-expanded={openFilter === "status"}
                   aria-haspopup="listbox"
                 >
-                  Disponibilité
+                  <span className="max-w-[10rem] truncate sm:max-w-[14rem]">
+                    {selectedStatusTitle ? `Disponibilité · ${selectedStatusTitle}` : "Disponibilité"}
+                  </span>
+                  {selectedStatusTitle && (
+                    <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-foreground/70" aria-hidden />
+                  )}
                   <ChevronDown
-                    className={`w-4 h-4 transition-transform ${openFilter === "status" ? "rotate-180" : ""}`}
+                    className={`w-4 h-4 shrink-0 transition-transform ${openFilter === "status" ? "rotate-180" : ""}`}
                   />
                 </button>
                 {openFilter === "status" && (
@@ -543,18 +606,24 @@ export default function Gallery({ paintings, galleryUseFeatured = false }: Galle
               <button
                 type="button"
                 onClick={() => setOpenFilter((f) => (f === "reference" ? null : "reference"))}
-                className={`flex items-center gap-1 text-sm font-medium text-foreground hover:text-foreground/80 transition-colors ${
+                className={`flex items-center gap-1.5 text-sm font-medium text-foreground hover:text-foreground/80 transition-colors ${
                   catalogOrder || referenceFilterActive ? "font-semibold" : ""
                 }`}
                 aria-expanded={openFilter === "reference"}
                 aria-haspopup="dialog"
               >
-                Référence
+                <span className="max-w-[10rem] truncate sm:max-w-[14rem]">
+                  {referenceFilterActive
+                    ? `Référence · ${referenceSearch.trim()}`
+                    : catalogOrder
+                      ? "Référence · Ordre catalogue"
+                      : "Référence"}
+                </span>
                 {(catalogOrder || referenceFilterActive) && (
-                  <span className="h-1.5 w-1.5 rounded-full bg-foreground/70" aria-hidden />
+                  <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-foreground/70" aria-hidden />
                 )}
                 <ChevronDown
-                  className={`w-4 h-4 transition-transform ${openFilter === "reference" ? "rotate-180" : ""}`}
+                  className={`w-4 h-4 shrink-0 transition-transform ${openFilter === "reference" ? "rotate-180" : ""}`}
                 />
               </button>
               {openFilter === "reference" && (
@@ -598,6 +667,16 @@ export default function Gallery({ paintings, galleryUseFeatured = false }: Galle
                 </div>
               )}
             </div>
+            {anyFilterActive && (
+              <button
+                type="button"
+                onClick={resetAllFilters}
+                className="inline-flex items-center gap-1.5 rounded-sm border border-foreground/25 px-2.5 py-1 text-sm text-foreground/80 transition-colors hover:border-foreground/50 hover:text-foreground"
+              >
+                <RotateCcw className="h-3.5 w-3.5 shrink-0" aria-hidden />
+                Réinitialiser
+              </button>
+            )}
           </div>
         </motion.div>
 
