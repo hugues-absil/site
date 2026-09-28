@@ -1,5 +1,5 @@
-import { useDocumentOperation } from "sanity";
 import { PublishIcon } from "@sanity/icons";
+import { useDocumentOperation } from "sanity";
 
 /**
  * Action "Publier" pour tout type de document.
@@ -12,10 +12,13 @@ export function PublishAction(props: {
   published: unknown;
   onComplete?: () => void;
 }) {
-  const { id, type, draft } = props;
+  const { id, type, draft, published } = props;
   const { publish } = useDocumentOperation(id, type);
 
   if (!draft) return null; // pas de brouillon → rien à publier
+
+  const hasPublishedVersion = Boolean(published);
+  const label = hasPublishedVersion ? "Publier les modifications" : "Publier";
 
   const handlePublish = () => {
     publish.execute();
@@ -25,11 +28,13 @@ export function PublishAction(props: {
   return {
     tone: "positive" as const,
     icon: PublishIcon,
-    label: "Publier",
+    label,
     disabled: publish.disabled,
     title: publish.disabled
       ? "Impossible de publier (vérifiez les champs requis)"
-      : "Publie le brouillon. Le contenu sera visible sur le site.",
+      : hasPublishedVersion
+        ? "Publie les modifications du brouillon. La version en ligne sera mise à jour."
+        : "Publie le brouillon. Le contenu sera visible sur le site.",
     onHandle: handlePublish,
   };
 }

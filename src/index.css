@@ -40,4 +40,88 @@
     display: table;
     clear: both;
   }
+
+  /*
+   * Images flottantes — CSS dédié (indépendant des utilitaires float Tailwind).
+   * Mobile : pleine largeur. Desktop : float + largeur limitée.
+   */
+  .portable-text .pt-float {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .portable-text .pt-float-left {
+      float: left;
+      width: min(50%, var(--pt-float-max, 28rem));
+      max-width: min(50%, var(--pt-float-max, 28rem));
+      margin: 0.25rem 1.5rem 0.75rem 0;
+    }
+
+    .portable-text .pt-float-right {
+      float: right;
+      width: min(50%, var(--pt-float-max, 28rem));
+      max-width: min(50%, var(--pt-float-max, 28rem));
+      margin: 0.25rem 0 0.75rem 1.5rem;
+    }
+  }
+
+  /*
+   * Titres H3 Sanity (rendus en <h4>) : numérotation automatique continue
+   * avec la même typo que le titre (les rédacteurs utilisent H3, pas la liste).
+   */
+  .portable-text {
+    counter-reset: pt-ol pt-h3;
+  }
+
+  .portable-text h4 {
+    counter-increment: pt-h3;
+  }
+
+  .portable-text h4::before {
+    content: counter(pt-h3) ". ";
+    font-family: inherit;
+    font-weight: inherit;
+    font-size: inherit;
+  }
+
+  .portable-text .pt-ul {
+    list-style: disc;
+  }
+
+  .portable-text .pt-ol {
+    list-style: none;
+  }
+
+  .portable-text .pt-ol > .pt-ol-item {
+    position: relative;
+    counter-increment: pt-ol;
+  }
+
+  .portable-text .pt-ol > .pt-ol-item::before {
+    content: counter(pt-ol) ". ";
+    position: absolute;
+    right: calc(100% + 0.35rem);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .portable-text .pt-ol > .pt-ol-item:has(.pt-li-heading)::before {
+    font-family: var(--font-playfair), "Playfair Display", serif;
+    font-weight: 600;
+  }
+
+  .portable-text .pt-ol > .pt-ol-item:has(.pt-li-h1)::before {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  .portable-text .pt-ol > .pt-ol-item:has(.pt-li-h2)::before {
+    font-size: 1.25rem;
+  }
+
+  .portable-text .pt-ol > .pt-ol-item:has(.pt-li-h3)::before {
+    font-size: 1.125rem;
+  }
 }

@@ -12,12 +12,18 @@ const LAYOUT_HINTS: Record<string, string> = {
 type ImageLayoutPreviewProps = PreviewProps & { layout?: string };
 
 /**
- * Aperçu schématique de la mise en page image dans le Studio
- * (approximation, pas un clone pixel-perfect du site).
+ * Aperçu schématique — utilise uniquement props.layout (prepare).
+ * Pas de useFormValue : peut bloquer l’édition dans les modales PTE.
  */
 export function ImageWithLayoutPreview(props: ImageLayoutPreviewProps) {
-  const layoutKey = props.layout && LAYOUT_HINTS[props.layout] ? props.layout : "floatLeft";
-  const hint = LAYOUT_HINTS[layoutKey];
+  const layoutKey =
+    typeof props.layout === "string" && LAYOUT_HINTS[props.layout]
+      ? props.layout
+      : null;
+
+  const hint = layoutKey
+    ? LAYOUT_HINTS[layoutKey]
+    : "Ouvrir le bloc pour choisir la mise en page";
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8, padding: "4px 0" }}>
@@ -25,7 +31,7 @@ export function ImageWithLayoutPreview(props: ImageLayoutPreviewProps) {
         ...props,
         subtitle: hint,
       })}
-      <LayoutSketch layout={layoutKey} />
+      {layoutKey ? <LayoutSketch layout={layoutKey} /> : null}
     </div>
   );
 }

@@ -68,9 +68,9 @@ export const imageWithLayout = defineType({
       };
       return {
         title: caption || "Image",
-        subtitle: layout ? layoutLabels[layout] || layout : "Flottant gauche",
+        subtitle: layout ? layoutLabels[layout] || layout : "Mise en page à définir",
         media,
-        layout: layout || "floatLeft",
+        layout: layout || undefined,
       };
     },
   },

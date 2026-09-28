@@ -1,6 +1,10 @@
 import { PortableText as SanityPortableText } from "@portabletext/react";
-import type { PortableTextComponentProps, PortableTextMarkComponentProps } from "@portabletext/react";
+import type {
+  PortableTextComponentProps,
+  PortableTextMarkComponentProps,
+} from "@portabletext/react";
 import type { PortableTextBlock, TypedObject } from "@portabletext/types";
+import type { CSSProperties, ReactNode } from "react";
 import { urlFor } from "./client";
 
 interface PortableTextProps {
@@ -8,29 +12,35 @@ interface PortableTextProps {
   className?: string;
 }
 
-/** Classes de mise en page : float annulé sous md (empilement mobile). */
-const LAYOUT_CLASSES: Record<string, string> = {
-  fullWidth: "w-full max-w-none",
-  centered: "mx-auto max-w-[720px]",
-  betweenText: "mx-auto my-6 max-w-[720px]",
-  floatLeft:
-    "w-full max-w-full mb-4 md:float-left md:mr-4 md:mb-4 md:w-[min(100%,50%)] md:max-w-[50%]",
-  floatRight:
-    "w-full max-w-full mb-4 md:float-right md:ml-4 md:mb-4 md:w-[min(100%,50%)] md:max-w-[50%]",
+const SIZE_MAX: Record<string, string> = {
+  small: "20rem",
+  medium: "28rem",
+  large: "36rem",
 };
 
-const SIZE_CLASSES: Record<string, string> = {
-  small: "max-w-xs",
-  medium: "max-w-md",
-  large: "max-w-2xl",
+/** Classes de mise en page non-float. */
+const BLOCK_LAYOUT_CLASSES: Record<string, string> = {
+  fullWidth: "pt-img-full w-full max-w-none my-6",
+  centered: "pt-img-centered mx-auto my-6 max-w-[720px]",
+  betweenText: "pt-img-between mx-auto my-6 max-w-[720px]",
 };
 
-function layoutAndSizeClasses(layout: string, size?: string): string {
-  const layoutClass = LAYOUT_CLASSES[layout] ?? LAYOUT_CLASSES.floatLeft;
-  // Pleine largeur : ignorer la taille pour ne pas écraser w-full
-  if (layout === "fullWidth") return layoutClass;
-  const sizeClass = size ? SIZE_CLASSES[size] ?? "" : "";
-  return `${layoutClass} ${sizeClass}`.trim();
+function floatFigureStyle(layout: "floatLeft" | "floatRight", size?: string): CSSProperties {
+  const maxW = SIZE_MAX[size || "medium"] || SIZE_MAX.medium;
+  // Uniquement des variables CSS — pas de width inline (sinon ça écrase le float desktop).
+  return {
+    ["--pt-float-max" as string]: maxW,
+    ["--pt-float-side" as string]: layout === "floatRight" ? "right" : "left",
+  };
+}
+
+/** Typo pour items de liste (pas de vrai heading HTML — garde les marqueurs ol/ul). */
+function listItemInnerClass(style?: string): string {
+  if (style === "h1") return "pt-li-heading pt-li-h1 font-serif text-2xl font-bold text-foreground";
+  if (style === "h2") return "pt-li-heading pt-li-h2 font-serif text-xl font-semibold text-foreground";
+  if (style === "h3") return "pt-li-heading pt-li-h3 font-serif text-lg font-semibold text-foreground";
+  if (style === "blockquote") return "text-gray-medium italic";
+  return "text-foreground";
 }
 
 /** Normalise une URL vidéo en URL d'embed (YouTube, Vimeo) et force HTTPS. */
@@ -85,9 +95,13 @@ function VideoEmbedBlock({
   const url = normalizeVideoEmbedUrl(rawUrl);
   if (!url) return null;
   const layout = value.layout || "betweenText";
-  const layoutClass = layoutAndSizeClasses(layout);
+  const isFloat = layout === "floatLeft" || layout === "floatRight";
+  const className = isFloat
+    ? `pt-float pt-float-${layout === "floatRight" ? "right" : "left"}`
+    : BLOCK_LAYOUT_CLASSES[layout] || BLOCK_LAYOUT_CLASSES.betweenText;
+  const style = isFloat ? floatFigureStyle(layout, "medium") : undefined;
   return (
-    <figure className={`my-6 ${layoutClass}`.trim()}>
+    <figure className={className} style={style}>
       <div className="relative aspect-video overflow-hidden rounded-sm bg-gray-100">
         <iframe
           src={url}
@@ -160,9 +174,16 @@ function ImageWithLayoutBlock({
     }
   }
   const layout = value.layout || "floatLeft";
-  const classes = layoutAndSizeClasses(layout, value.size);
+  const isFloat = layout === "floatLeft" || layout === "floatRight";
+  const className = isFloat
+    ? `pt-float pt-float-${layout === "floatRight" ? "right" : "left"}`
+    : BLOCK_LAYOUT_CLASSES[layout] || BLOCK_LAYOUT_CLASSES.centered;
+  const style = isFloat
+    ? floatFigureStyle(layout as "floatLeft" | "floatRight", value.size)
+    : undefined;
+
   return (
-    <figure className={`my-6 ${classes}`.trim()}>
+    <figure className={className} style={style}>
       <img
         src={src}
         alt={value.caption || ""}
@@ -200,10 +221,33 @@ const portableTextComponents = {
       );
     },
   },
-  // Composant unique pour tous les styles de bloc : garantit l'affichage quel que soit le style (normal, h1, undefined, etc.)
+  list: {
+    bullet: ({ children }: { children?: ReactNode }) => (
+      <ul className="pt-ul mb-4 space-y-1 pl-6 text-foreground">{children}</ul>
+    ),
+    number: ({ children }: { children?: ReactNode }) => (
+      <ol className="pt-ol mb-4 space-y-1 pl-6 text-foreground">{children}</ol>
+    ),
+  },
+  listItem: {
+    bullet: ({ children }: { children?: ReactNode }) => <li className="pl-1">{children}</li>,
+    number: ({ children }: { children?: ReactNode }) => (
+      <li className="pt-ol-item pl-1">{children}</li>
+    ),
+  },
   block: (props: PortableTextComponentProps<PortableTextBlock>) => {
     const { children, value } = props;
     const style = value?.style;
+    const listItem =
+      value && "listItem" in value
+        ? (value as { listItem?: string }).listItem
+        : undefined;
+    const inList = Boolean(listItem);
+
+    if (inList) {
+      return <span className={listItemInnerClass(style)}>{children}</span>;
+    }
+
     if (style === "h1") return <h2 className="font-serif text-2xl font-bold mt-8 mb-4">{children}</h2>;
     if (style === "h2") return <h3 className="font-serif text-xl font-semibold mt-6 mb-3">{children}</h3>;
     if (style === "h3") return <h4 className="font-serif text-lg font-semibold mt-4 mb-2">{children}</h4>;

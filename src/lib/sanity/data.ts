@@ -1,5 +1,5 @@
 import type { SanityImageSource } from "@sanity/image-url";
-import { client, urlFor } from "./client";
+import { getSanityClient, urlFor } from "./client";
 import {
   paintingsQuery,
   exhibitionsQuery,
@@ -27,7 +27,7 @@ import {
 import { slugsFromCategoryRef, type CategoryRefNode } from "./categoryRefUtils";
 import { normalizeNavItem } from "@/lib/resourceSection";
 
-const isClientAvailable = () => client !== null;
+const isClientAvailable = () => getSanityClient() !== null;
 
 function resolveExhibitionImageUrl(row: {
   imageUrl?: string | null;
@@ -374,8 +374,9 @@ export async function getPaintings(): Promise<Painting[]> {
     return paintings.map((p) => normalizeFallbackPainting(p));
   }
   try {
-    if (!client) throw new Error("Sanity client not configured");
-    const result = await client.fetch(paintingsQuery);
+    const _sanity = getSanityClient();
+    if (!_sanity) throw new Error("Sanity client not configured");
+    const result = await _sanity.fetch(paintingsQuery);
     if (result && result.length > 0) {
       return result.map((p: { featured?: boolean }) => ({ ...p, featured: p.featured ?? false }));
     }
@@ -407,8 +408,9 @@ export async function getExhibitions(): Promise<Exhibition[]> {
     }));
   }
   try {
-    if (!client) throw new Error("Sanity client not configured");
-    const result = await client.fetch(exhibitionsQuery);
+    const _sanity = getSanityClient();
+    if (!_sanity) throw new Error("Sanity client not configured");
+    const result = await _sanity.fetch(exhibitionsQuery);
     if (result && result.length > 0) {
       return (result as Array<Record<string, unknown>>).map(normalizeExhibitionFromSanityRow);
     }
@@ -448,9 +450,10 @@ export async function getExhibitions(): Promise<Exhibition[]> {
 }
 
 export async function getExhibitionBySlug(slug: string): Promise<Exhibition | null> {
-  if (!isSanityConfigured() || !client) return null;
+  const _sanity = getSanityClient();
+  if (!isSanityConfigured() || !_sanity) return null;
   try {
-    const raw = await client.fetch(exhibitionBySlugQuery, { slug });
+    const raw = await _sanity.fetch(exhibitionBySlugQuery, { slug });
     if (!raw || !(raw as { _id?: string })._id) return null;
     return normalizeExhibitionFromSanityRow(raw as Record<string, unknown>);
   } catch (error) {
@@ -476,8 +479,9 @@ export async function getBiography(): Promise<Biography | null> {
     };
   }
   try {
-    if (!client) throw new Error("Sanity client not configured");
-    const bio = await client.fetch(biographyQuery);
+    const _sanity = getSanityClient();
+    if (!_sanity) throw new Error("Sanity client not configured");
+    const bio = await _sanity.fetch(biographyQuery);
     if (bio) return bio;
     const { biography } = await import("@/data/bio");
     return {
@@ -540,8 +544,9 @@ export async function getSiteSettings(): Promise<SiteSettings> {
     return fallback;
   }
   try {
-    if (!client) throw new Error("Sanity client not configured");
-    const result = await client.fetch(siteSettingsQuery);
+    const _sanity = getSanityClient();
+    if (!_sanity) throw new Error("Sanity client not configured");
+    const result = await _sanity.fetch(siteSettingsQuery);
     if (!result) return fallback;
     return {
       heroImageUrl: result.heroImageUrl ?? fallback.heroImageUrl,
@@ -606,8 +611,9 @@ export async function getPressArticles(): Promise<PressArticle[]> {
     );
   }
   try {
-    if (!client) throw new Error("Sanity client not configured");
-    const result = await client.fetch(pressArticlesQuery);
+    const _sanity = getSanityClient();
+    if (!_sanity) throw new Error("Sanity client not configured");
+    const result = await _sanity.fetch(pressArticlesQuery);
     const list = Array.isArray(result) ? result : [];
     return sortPressArticlesByDate(list);
   } catch (error) {
@@ -623,9 +629,10 @@ export async function getPressArticles(): Promise<PressArticle[]> {
 }
 
 export async function getPressArticleBySlug(slug: string): Promise<PressArticle | null> {
-  if (!isSanityConfigured() || !client) return null;
+  const _sanity = getSanityClient();
+  if (!isSanityConfigured() || !_sanity) return null;
   try {
-    const result = await client.fetch(pressArticleBySlugQuery, { slug });
+    const result = await _sanity.fetch(pressArticleBySlugQuery, { slug });
     return result && result._id ? result : null;
   } catch (error) {
     console.error("Error fetching press article by slug:", error);
@@ -642,8 +649,9 @@ export async function getPressQuotes(): Promise<PressQuote[]> {
     }));
   }
   try {
-    if (!client) throw new Error("Sanity client not configured");
-    const result = await client.fetch(pressQuotesQuery);
+    const _sanity = getSanityClient();
+    if (!_sanity) throw new Error("Sanity client not configured");
+    const result = await _sanity.fetch(pressQuotesQuery);
     // Retourner le résultat de Sanity (même vide) : pas de fallback sur les données de test
     return Array.isArray(result) ? result : [];
   } catch (error) {
@@ -661,8 +669,9 @@ export async function getAdvicePosts(): Promise<AdvicePost[]> {
     return [];
   }
   try {
-    if (!client) throw new Error("Sanity client not configured");
-    const result = await client.fetch(advicePostsQuery);
+    const _sanity = getSanityClient();
+    if (!_sanity) throw new Error("Sanity client not configured");
+    const result = await _sanity.fetch(advicePostsQuery);
     return Array.isArray(result) ? result : [];
   } catch (error) {
     console.error("Error fetching advice posts:", error);
@@ -675,8 +684,9 @@ export async function getAdvicePostBySlug(slug: string): Promise<AdvicePost | nu
     return null;
   }
   try {
-    if (!client) throw new Error("Sanity client not configured");
-    const post = await client.fetch(adviceBySlugQuery, { slug });
+    const _sanity = getSanityClient();
+    if (!_sanity) throw new Error("Sanity client not configured");
+    const post = await _sanity.fetch(adviceBySlugQuery, { slug });
     return post || null;
   } catch (error) {
     console.error("Error fetching advice post:", error);
@@ -690,8 +700,9 @@ export async function getPerformances(): Promise<Performance[]> {
     return performances;
   }
   try {
-    if (!client) throw new Error("Sanity client not configured");
-    const result = await client.fetch(performancesQuery);
+    const _sanity = getSanityClient();
+    if (!_sanity) throw new Error("Sanity client not configured");
+    const result = await _sanity.fetch(performancesQuery);
     if (result && result.length > 0) return result;
     const { performances } = await import("@/data/performances");
     return performances;
@@ -705,8 +716,9 @@ export async function getPerformances(): Promise<Performance[]> {
 export async function getFilms(): Promise<Film[]> {
   if (!isSanityConfigured()) return [];
   try {
-    if (!client) throw new Error("Sanity client not configured");
-    const result = await client.fetch(filmsQuery);
+    const _sanity = getSanityClient();
+    if (!_sanity) throw new Error("Sanity client not configured");
+    const result = await _sanity.fetch(filmsQuery);
     return Array.isArray(result) ? result : [];
   } catch (error) {
     console.error("Error fetching films:", error);
@@ -743,8 +755,9 @@ export async function getResources(): Promise<Resource[]> {
     return [];
   }
   try {
-    if (!client) throw new Error("Sanity client not configured");
-    const raw = await client.fetch(resourcesQuery);
+    const _sanity = getSanityClient();
+    if (!_sanity) throw new Error("Sanity client not configured");
+    const raw = await _sanity.fetch(resourcesQuery);
     return Array.isArray(raw) ? raw.map(normalizeResource) : [];
   } catch (error) {
     console.error("Error fetching resources:", error);
@@ -757,8 +770,9 @@ export async function getResourcesByCategory(category: string): Promise<Resource
     return [];
   }
   try {
-    if (!client) throw new Error("Sanity client not configured");
-    const raw = await client.fetch(resourcesByCategoryQuery, { category });
+    const _sanity = getSanityClient();
+    if (!_sanity) throw new Error("Sanity client not configured");
+    const raw = await _sanity.fetch(resourcesByCategoryQuery, { category });
     return Array.isArray(raw) ? raw.map(normalizeResource) : [];
   } catch (error) {
     console.error("Error fetching resources by category:", error);
@@ -771,8 +785,9 @@ export async function getResourceBySlug(slug: string): Promise<Resource | null> 
     return null;
   }
   try {
-    if (!client) throw new Error("Sanity client not configured");
-    const raw = await client.fetch(resourceBySlugQuery, { slug });
+    const _sanity = getSanityClient();
+    if (!_sanity) throw new Error("Sanity client not configured");
+    const raw = await _sanity.fetch(resourceBySlugQuery, { slug });
     return raw && raw._id ? normalizeResource(raw) : null;
   } catch (error) {
     console.error("Error fetching resource:", error);
@@ -785,8 +800,9 @@ export async function getResourceCategories(): Promise<ResourceCategory[]> {
     return [];
   }
   try {
-    if (!client) throw new Error("Sanity client not configured");
-    const result = await client.fetch(resourceCategoriesQuery);
+    const _sanity = getSanityClient();
+    if (!_sanity) throw new Error("Sanity client not configured");
+    const result = await _sanity.fetch(resourceCategoriesQuery);
     const list = Array.isArray(result) ? result : [];
     return list;
   } catch (error) {
@@ -868,11 +884,12 @@ async function buildFallbackSearchIndex(): Promise<SearchIndexItem[]> {
 }
 
 async function loadSearchIndex(): Promise<SearchIndexResult> {
-  if (!isSanityConfigured() || !client) {
+  const _sanity = getSanityClient();
+  if (!isSanityConfigured() || !_sanity) {
     return { ok: true, items: await buildFallbackSearchIndex() };
   }
   try {
-    const raw = (await client.fetch(searchIndexQuery)) as SearchIndexPayload | null;
+    const raw = (await _sanity.fetch(searchIndexQuery)) as SearchIndexPayload | null;
     if (!raw || typeof raw !== "object") {
       return { ok: false, items: [], error: "unavailable" };
     }

@@ -1,15 +1,19 @@
 import { defineConfig } from "sanity";
 import { structureTool } from "sanity/structure";
+import { presentationTool } from "sanity/presentation";
 import { visionTool } from "@sanity/vision";
-import { EditIcon, ImageIcon, TrashIcon, UploadIcon } from "@sanity/icons";
+import { EditIcon, EyeOpenIcon, ImageIcon, TrashIcon, UploadIcon } from "@sanity/icons";
 import { schemaTypes } from "./sanity/schemas";
 import { buildDeskStructure } from "./sanity/structure";
+import { presentationLocations } from "./sanity/presentation/resolve";
 import { BulkDelete } from "./sanity/tools/BulkDelete";
 import { OrphanMediaTool } from "./sanity/tools/OrphanMediaTool";
 import { BulkEditPaintings } from "./sanity/tools/BulkEditPaintings";
 import { BulkUploadPaintings } from "./sanity/tools/BulkUploadPaintings";
 import { UnpublishAction } from "./sanity/actions/UnpublishAction";
 import { PublishAction } from "./sanity/actions/PublishAction";
+import { PreviewAction } from "./sanity/actions/PreviewAction";
+import { UnpublishedChangesBadge } from "./sanity/actions/UnpublishedChangesBadge";
 import { ChangeResourceSectionAction } from "./sanity/actions/ChangeResourceSectionAction";
 import { MigrateExhibitionToSectionAction } from "./sanity/actions/MigrateExhibitionToSectionAction";
 import { MigrateContenuAClasserToSectionAction } from "./sanity/actions/MigrateContenuAClasserToSectionAction";
@@ -22,6 +26,24 @@ import { isEditorProfile } from "./sanity/lib/resourceEditorProfile";
 const projectId = import.meta.env.VITE_SANITY_PROJECT_ID ?? "";
 const dataset = import.meta.env.VITE_SANITY_DATASET ?? "production";
 
+/** Origine du site (preview iframe) — same-origin Studio embarqué. */
+function previewOrigin(): string {
+  if (typeof window !== "undefined" && window.location?.origin) {
+    return window.location.origin;
+  }
+  return "http://localhost:5173";
+}
+
+function previewInitialPath(): string {
+  const base = (import.meta.env.BASE_URL || "/").replace(/\/$/, "");
+  return `${previewOrigin()}${base || ""}/`;
+}
+
+function previewEnablePath(): string {
+  const base = (import.meta.env.BASE_URL || "/").replace(/\/$/, "");
+  return `${base}/preview/enable`;
+}
+
 export default defineConfig({
   name: "default",
   title: "Site Hugues",
@@ -32,6 +54,19 @@ export default defineConfig({
   plugins: [
     structureTool({
       structure: buildDeskStructure,
+    }),
+    presentationTool({
+      title: "Prévisualisation",
+      icon: EyeOpenIcon,
+      previewUrl: {
+        initial: previewInitialPath,
+        previewMode: {
+          enable: previewEnablePath(),
+        },
+      },
+      resolve: {
+        locations: presentationLocations,
+      },
     }),
     visionTool(),
   ],
@@ -109,9 +144,10 @@ export default defineConfig({
     ],
   },
   document: {
+    // Publier avant Dépublier → action primaire du footer quand un brouillon existe.
+    // Dépublier reste disponible dès qu'une version publiée existe (même avec brouillon).
     actions: (prev, { schemaType }) => {
-      // Dépublier / Publier disponibles pour tous les types (brouillon vs publié)
-      const genericActions = [UnpublishAction, PublishAction];
+      const genericActions = [PublishAction, PreviewAction, UnpublishAction];
       const extra =
         schemaType === "resource"
           ? [ChangeResourceSectionAction]
@@ -130,6 +166,7 @@ export default defineConfig({
                       : [];
       return [...genericActions, ...extra, ...prev] as typeof prev;
     },
+    badges: (prev) => [UnpublishedChangesBadge, ...prev],
   },
   tools: [
     {

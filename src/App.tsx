@@ -22,6 +22,8 @@ import ResourceCategoryPage from "@/pages/ResourceCategoryPage";
 import ResourcePage from "@/pages/ResourcePage";
 import StudioPage from "@/pages/StudioPage";
 import NotFoundPage from "@/pages/NotFoundPage";
+import PreviewEnablePage from "@/pages/PreviewEnablePage";
+import SanityVisualEditing from "@/components/SanityVisualEditing";
 
 /** Pages hors accueil uniquement — l’accueil gère la position via `#` + scroll manuel. */
 function scrollRestorationKey(location: Location) {
@@ -87,6 +89,7 @@ function Layout() {
           <Outlet />
         </main>
         <Footer siteSettings={siteSettings} showFilmsLink={hasFilms} showJournalLink={hasJournal} />
+        <SanityVisualEditing />
       </div>
     </ActiveSectionProvider>
   );
@@ -110,6 +113,7 @@ const router = createBrowserRouter(
       element: <Layout />,
       children: [
         { index: true, element: <HomePage /> },
+        { path: "preview/enable", element: <PreviewEnablePage /> },
         { path: "journal/:slug", element: <JournalPostPage /> },
         { path: "presse/:slug", element: <PressArticlePage /> },
         { path: "expositions/:slug", element: <ExhibitionPage /> },
